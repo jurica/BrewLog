@@ -1,0 +1,4 @@
+.router/
+.vscode/
+src/lib/components/ui
+src/locales/
