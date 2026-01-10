@@ -11,7 +11,7 @@
     "get-routes": "sv-router",
     "test": "playwright test",
     "test:codegen": "node playwright_codegen.mjs",
-    "test:ui": "playwright test --ui",
+    "test:ui": "playwright test --ui-host localhost --ui-port 36285",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug"
   },
