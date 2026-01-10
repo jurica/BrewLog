@@ -53,7 +53,7 @@
         {@const href = p("/roasters/:roasterId", {
           params: { roasterId: roaster.id },
         })}
-        <a {href} class="group">
+        <a {href} class="group" data-test-id="card-{roaster.name}">
           <Card.Root
             class="transition-all hover:shadow-lg hover:border-primary/50"
           >

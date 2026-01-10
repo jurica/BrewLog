@@ -811,4 +811,3 @@ msgstr "BrewLog"
 #: src/lib/components/app-sidebar.svelte
 msgid "v{0}"
 msgstr "v{0}"
-0}"
