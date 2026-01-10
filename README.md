@@ -32,6 +32,7 @@ The application manages four core entities:
 - **Backend**: Custom PocketBase implementation
 - **Deployment**: Docker with multi-stage build (single binary deployment)
 - **PWA**: Manifest and icons configured for installability
+- **Playwright**: End-to-end testing
 
 ## Getting Started
 
@@ -48,6 +49,13 @@ go run . serve
 cd frontend
 npm install
 npm run dev
+```
+
+**Testsuite:**
+```bash
+cd frontend
+npm run test:codegen
+npm run test:ui
 ```
 
 ### Production Deployment

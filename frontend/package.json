@@ -13,7 +13,8 @@
     "test:codegen": "node playwright_codegen.mjs",
     "test:ui": "playwright test --ui-host localhost --ui-port 36285",
     "test:headed": "playwright test --headed",
-    "test:debug": "playwright test --debug"
+    "test:debug": "playwright test --debug",
+    "backend": "cd ../backend && go run . serve"
   },
   "devDependencies": {
     "@internationalized/date": "^3.10.1",
