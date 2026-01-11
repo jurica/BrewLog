@@ -110,7 +110,7 @@ msgstr "Initial Weight"
 
 #. placeholder {0}: bag.initial_weight_g
 #. placeholder {0}: bag.leftover_amount_g
-#. placeholder {0}: cup.used_coffee_g
+#. placeholder {0}: bag.initial_weight_g
 #. placeholder {0}: cup.used_coffee_g
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
