@@ -21,6 +21,8 @@ jobs:
 
       - name: Build and run tests
         run: |
+          pwd
+          ls -la
           cd BrewLog
           cd frontent
           npm run install
