@@ -12,7 +12,7 @@ test('2. add roaster and edit', async ({ page }) => {
     await expect(page.getByRole('heading', { name: 'Roasters' })).toBeVisible();
     await page.getByRole('button', { name: 'New Roaster' }).click();
     await expect(page.getByText('Create New Roaster')).toBeVisible();
-    await page.getByRole('textbox', { name: 'Roaster Name *' }).fill('Roaster');
+    await page.getByRole('textbox', { name: 'Roaster Name *' }).fill('Roaster 1');
     await page.getByRole('textbox', { name: 'Website URL (Optional)' }).fill('https://www.roaster.com');
     // await page.getByRole('button', { name: 'Roaster Image (Optional)' }).setInputFiles('logo.svg');
     await page.getByRole('button', { name: 'Create Roaster' }).click();
