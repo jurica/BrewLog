@@ -21,6 +21,7 @@ jobs:
 
       - name: Build and run tests
         run: |
+          cd BrewLog
           cd frontent
           npm run install
           npx playwright install
@@ -37,5 +38,5 @@ jobs:
         with:
           name: playwright-report
           path: |
-            frontent/playwright-report/index.html
+            BrewLog/frontent/playwright-report/index.html
 
