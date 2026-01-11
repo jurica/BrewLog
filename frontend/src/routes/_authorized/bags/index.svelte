@@ -23,6 +23,7 @@
   <div class="flex items-center justify-between @container/card">
     <h1 class="text-3xl font-bold">Bags</h1>
     <ToggleGroup.Root
+      data-test-id="tg_bagfilter"
       type="single"
       bind:value={bagFilter}
       variant="outline"
@@ -88,7 +89,7 @@
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {#each response.data as bag}
         {@const href = p("/bags/:bagId", { params: { bagId: bag.id } })}
-        <a {href} class="group">
+        <a {href} class="group" data-test-id="card-{bag.expand?.bean?.name}">
           <Card.Root
             class="transition-all hover:shadow-lg hover:border-primary/50"
           >

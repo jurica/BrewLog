@@ -65,7 +65,7 @@
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {#each response.data as bean}
         {@const href = p("/beans/:beanId", { params: { beanId: bean.id } })}
-        <a {href} class="group">
+        <a {href} class="group" data-test-id="card-{bean.name}">
           <Card.Root
             class="transition-all hover:shadow-lg hover:border-primary/50"
           >
