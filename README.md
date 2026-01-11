@@ -1,5 +1,10 @@
 # BrewLog ☕
 
+<p align="center">
+    <a href="https://github.com/jurica/BrewLog/actions/workflows/build-and-test.yml" target="_blank" rel="noopener"><img src="https://github.com/jurica/BrewLog/actions/workflows/build-and-test.yml/badge.svg" alt="build-and-test" /></a>
+    <a href="https://github.com/jurica/BrewLog/releases" target="_blank" rel="noopener"><img src="https://img.shields.io/github/release/jurica/BrewLog.svg" alt="Latest releases" /></a>
+</p>
+
 A mobile-first web application for tracking coffee bean inventory and brewing activities.
 
 ## Overview
