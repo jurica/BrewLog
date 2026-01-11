@@ -5,11 +5,9 @@ import (
 	"log"
 	"os"
 	"strings"
-	"encoding/json"
 
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/plugins/migratecmd"
-	"github.com/spf13/cobra"
 
 	_ "BrewLog/migrations"
 )
@@ -41,26 +39,8 @@ func main() {
         Automigrate: isGoRun,
     })
 
-    app.pb.RootCmd.AddCommand(&cobra.Command{
-        Use: "foo",
-        Run: func(cmd *cobra.Command, args []string) {
-            collection, err := app.pb.FindCollectionByNameOrId("_pb_users_auth_")
-            if err != nil {
-                // return err
-            }
-
-            // update collection data
-            if err := json.Unmarshal([]byte(`{
-                "createRule": null
-            }`), &collection); err != nil {
-                // return err
-            }
-
-            app.pb.Save(collection)
-        },
-    })
-
     app.mountFs()
+	app.registerCustomCommands()
 
     log.Fatal(app.pb.Start())
 }
