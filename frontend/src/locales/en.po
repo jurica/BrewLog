@@ -796,3 +796,4 @@ msgstr "Search for a command to run"
 #: src/lib/components/ui/sheet/sheet-content.svelte
 msgid "Close"
 msgstr "Close"
+se"

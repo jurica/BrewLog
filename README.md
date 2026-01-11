@@ -40,8 +40,8 @@ The application manages four core entities:
 
 **Backend:**
 ```bash
-cd backend
-go run . serve
+cd frontend
+npm run backend
 ```
 
 **Frontend:**
@@ -57,6 +57,21 @@ cd frontend
 npm run test:codegen
 npm run test:ui
 ```
+
+### Run Tests against production build
+```bash
+cd frontend
+npm install
+npm run build
+cd ../backend
+go build -tags production
+./BrewLog migrate
+./BrewLog createTestUsers
+./BrewLog serve
+cd frontend
+npm run test
+```
+check frontend/playwright-report/index.html
 
 ### Production Deployment
 
