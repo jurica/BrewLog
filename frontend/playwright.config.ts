@@ -7,10 +7,7 @@ const chromiumPath = existsSync("/usr/bin/chromium")
 
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: 1,
   reporter: 'html',
   use: {
     baseURL: 'http://localhost:8090',
@@ -18,7 +15,7 @@ export default defineConfig({
   },
 
   projects: [
-    {name: 'setup', testMatch: /fixtures\.ts/,
+    {name: 'setup', testMatch: /000_fixtures\.ts/,
 
       use: {
         ...devices['Desktop Chrome'],

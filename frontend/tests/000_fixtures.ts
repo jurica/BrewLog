@@ -7,7 +7,7 @@ setup("authenticate", async ({ page }) => {
   await page.context().storageState({path: file});
 });
 
-export async function login(page) {
+async function login(page) {
     await page.goto('./logout');
     await expect(page).toHaveURL(/login/);
     await expect(page).toHaveTitle(/BrewLog|Login/i);
@@ -18,14 +18,4 @@ export async function login(page) {
     await page.getByRole('textbox', { name: 'Password' }).fill('useruser');
     await page.getByRole('button', { name: 'Login' }).click();
     await expect(page.getByRole('button', { name: 'FL Firstname Lastname user@' })).toBeVisible();
-}
-
-export async function logout(page: Page) {
-    await page.getByRole('button', { name: 'FL Firstname Lastname user@' }).click();
-    await page.getByRole('menuitem', { name: 'Log out' }).click();
-    await expect(page).toHaveURL(/login/);
-    await expect(page.getByRole('textbox', { name: 'Email' })).toBeVisible();
-    await expect(page.getByRole('textbox', { name: 'Password' })).toBeVisible();
-    await page.goto('./');
-    await expect(page).toHaveURL(/login/);
 }

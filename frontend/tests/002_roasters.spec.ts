@@ -1,13 +1,13 @@
 import { test, expect } from "@playwright/test";
 
-test('navigate to roasters', async ({ page }) => {
+test('1. navigate to roasters', async ({ page }) => {
     await page.goto('./');
     await page.getByRole('button', { name: 'Roasters' }).click();
     await expect(page.getByRole('heading', { name: 'Roasters' })).toBeVisible();
     await expect(page.getByText('No roasters yet')).toBeVisible();
 });
 
-test('add roaster and edit', async ({ page }) => {
+test('2. add roaster and edit', async ({ page }) => {
     await page.goto('./roasters');
     await expect(page.getByRole('heading', { name: 'Roasters' })).toBeVisible();
     await page.getByRole('button', { name: 'New Roaster' }).click();
@@ -32,7 +32,7 @@ test('add roaster and edit', async ({ page }) => {
     await expect(page.getByText('Roaster Details')).toBeVisible();
 });
 
-test('add roaster 2', async ({ page }) => {
+test('3. add roaster 2', async ({ page }) => {
     await page.goto('./roasters');
     await expect(page.getByRole('heading', { name: 'Roasters' })).toBeVisible();
     await page.getByRole('button', { name: 'New Roaster' }).click();
@@ -46,7 +46,7 @@ test('add roaster 2', async ({ page }) => {
     await expect(page.getByText('Roaster Details')).toBeVisible();
 });
 
-test('add roaster 3', async ({ page }) => {
+test('4. add roaster 3', async ({ page }) => {
     await page.goto('./roasters');
     await expect(page.getByRole('heading', { name: 'Roasters' })).toBeVisible();
     await page.getByRole('button', { name: 'New Roaster' }).click();
@@ -58,4 +58,15 @@ test('add roaster 3', async ({ page }) => {
     await expect(page.getByText('Roaster 3')).toBeVisible();
     await expect(page.getByRole('link', { name: 'https://www.roaster3.com' })).toBeVisible();
     await expect(page.getByText('Roaster Details')).toBeVisible();
+});
+
+test('5. list view', async ({ page }) => {
+    await page.goto('./');
+    await page.getByRole('button', { name: 'Roasters' }).click();
+    await expect(page.locator('[data-test-id="card-Roaster 1"]')).toBeVisible();
+    await expect(page.locator('[data-test-id="card-Roaster 1"]').getByRole('link', { name: 'https://www.roaster1.com' })).toBeVisible();
+    await expect(page.locator('[data-test-id="card-Roaster 2"]')).toBeVisible();
+    await expect(page.locator('[data-test-id="card-Roaster 2"]').getByRole('link', { name: 'https://www.roaster2.com' })).toBeVisible();
+    await expect(page.locator('[data-test-id="card-Roaster 3"]')).toBeVisible();
+    await expect(page.locator('[data-test-id="card-Roaster 3"]').getByRole('link', { name: 'https://www.roaster3.com' })).toBeVisible();
 });
