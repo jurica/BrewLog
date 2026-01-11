@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-09T20:27:07.167Z\n"
-"PO-Revision-Date: 2026-01-09T20:27:07.167Z\n"
+"POT-Creation-Date: 2026-01-10T19:22:35.572Z\n"
+"PO-Revision-Date: 2026-01-10T19:22:35.572Z\n"
 "Last-Translator: \n"
 "Language: en\n"
 "Language-Team: \n"
@@ -12,6 +12,65 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Source-Language: en\n"
 "MIME-Version: 1.0\n"
+
+#: src/routes/_authorized/bags/index.svelte
+#: src/routes/_authorized/bags/index.svelte
+msgid "Unopened"
+msgstr "Unopened"
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+#: src/routes/_authorized/bags/index.svelte
+msgid "Opened"
+msgstr "Opened"
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+#: src/routes/_authorized/bags/index.svelte
+msgid "Finished"
+msgstr "Finished"
+
+#: src/routes/_authorized/bags/index.svelte
+msgid "All"
+msgstr "All"
+
+#: src/routes/_authorized/bags/index.svelte
+msgid "Bags"
+msgstr "Bags"
+
+#: src/routes/_authorized/bags/index.svelte
+msgid "Select a value"
+msgstr "Select a value"
+
+#: src/routes/_authorized/bags/index.svelte
+msgid "<0/> New Bag"
+msgstr "<0/> New Bag"
+
+#: src/routes/_authorized/bags/index.svelte
+msgid "No bags yet"
+msgstr "No bags yet"
+
+#: src/routes/_authorized/bags/index.svelte
+msgid "Create your first bag to get started"
+msgstr "Create your first bag to get started"
+
+#: src/routes/_authorized/bags/index.svelte
+msgid "<0/> Create First Bag"
+msgstr "<0/> Create First Bag"
+
+#. placeholder {0}: new Date(bag.finished_date).toLocaleDateString()
+#: src/routes/_authorized/bags/index.svelte
+msgid "Finished {0}"
+msgstr "Finished {0}"
+
+#. placeholder {0}: new Date(bag.opened_date).toLocaleDateString()
+#: src/routes/_authorized/bags/index.svelte
+msgid "Opened {0}"
+msgstr "Opened {0}"
+
+#: src/routes/_authorized/bags/index.svelte
+#: src/routes/_authorized/beans/index.svelte
+#: src/routes/_authorized/roasters/index.svelte
+msgid "No image"
+msgstr "No image"
 
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "<0/> Back to Bags"
@@ -65,22 +124,12 @@ msgid "Roasted"
 msgstr "Roasted"
 
 #: src/routes/_authorized/bags/[bagId]/index.svelte
-#: src/routes/_authorized/bags/index.svelte
-msgid "Opened"
-msgstr "Opened"
-
-#: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "Usage Stats"
 msgstr "Usage Stats"
 
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "Leftover"
 msgstr "Leftover"
-
-#: src/routes/_authorized/bags/[bagId]/index.svelte
-#: src/routes/_authorized/bags/index.svelte
-msgid "Finished"
-msgstr "Finished"
 
 #: src/lib/components/BagForm.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
@@ -98,55 +147,6 @@ msgstr "The bag you're looking for doesn't exist or has been deleted"
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "Back to Bags"
 msgstr "Back to Bags"
-
-#: src/routes/_authorized/bags/index.svelte
-#: src/routes/_authorized/bags/index.svelte
-msgid "Unopened"
-msgstr "Unopened"
-
-#: src/routes/_authorized/bags/index.svelte
-msgid "All"
-msgstr "All"
-
-#: src/routes/_authorized/bags/index.svelte
-msgid "Bags"
-msgstr "Bags"
-
-#: src/routes/_authorized/bags/index.svelte
-msgid "Select a value"
-msgstr "Select a value"
-
-#: src/routes/_authorized/bags/index.svelte
-msgid "<0/> New Bag"
-msgstr "<0/> New Bag"
-
-#: src/routes/_authorized/bags/index.svelte
-msgid "No bags yet"
-msgstr "No bags yet"
-
-#: src/routes/_authorized/bags/index.svelte
-msgid "Create your first bag to get started"
-msgstr "Create your first bag to get started"
-
-#: src/routes/_authorized/bags/index.svelte
-msgid "<0/> Create First Bag"
-msgstr "<0/> Create First Bag"
-
-#. placeholder {0}: new Date(bag.finished_date).toLocaleDateString()
-#: src/routes/_authorized/bags/index.svelte
-msgid "Finished {0}"
-msgstr "Finished {0}"
-
-#. placeholder {0}: new Date(bag.opened_date).toLocaleDateString()
-#: src/routes/_authorized/bags/index.svelte
-msgid "Opened {0}"
-msgstr "Opened {0}"
-
-#: src/routes/_authorized/bags/index.svelte
-#: src/routes/_authorized/beans/index.svelte
-#: src/routes/_authorized/roasters/index.svelte
-msgid "No image"
-msgstr "No image"
 
 #: src/routes/_authorized/beans/[beanId]/index.svelte
 msgid "<0/> Back to Beans"
@@ -427,10 +427,6 @@ msgstr "Forgot your password?"
 #: src/routes/_unauthorized/(login).svelte
 msgid "Don't have an account? <0>Sign up</0>"
 msgstr "Don't have an account? <0>Sign up</0>"
-
-#: src/lib/components/ui/spinner/spinner.svelte
-msgid "Loading"
-msgstr "Loading"
 
 #: src/lib/components/BagForm.svelte
 msgid "Select a bean..."
@@ -733,8 +729,14 @@ msgstr "Roaster Image (Optional)"
 msgid "Current roaster image"
 msgstr "Current roaster image"
 
-#~ msgid "<0/>BrewLog"
-#~ msgstr "<0/>BrewLog"
+#: src/lib/components/app-sidebar.svelte
+msgid "BrewLog"
+msgstr "BrewLog"
+
+#. placeholder {0}: __APP_VERSION__
+#: src/lib/components/app-sidebar.svelte
+msgid "v{0}"
+msgstr "v{0}"
 
 #: src/lib/components/app-sidebar.svelte
 msgid "<0/> Cups"
@@ -764,6 +766,10 @@ msgstr "<0/> Settings"
 msgid "<0/> Log out"
 msgstr "<0/> Log out"
 
+#: src/lib/components/ui/spinner/spinner.svelte
+msgid "Loading"
+msgstr "Loading"
+
 #: src/lib/components/ui/sidebar/sidebar-rail.svelte
 #: src/lib/components/ui/sidebar/sidebar-rail.svelte
 #: src/lib/components/ui/sidebar/sidebar-trigger.svelte
@@ -790,25 +796,3 @@ msgstr "Search for a command to run"
 #: src/lib/components/ui/sheet/sheet-content.svelte
 msgid "Close"
 msgstr "Close"
-
-#~ msgid "<0/>BrewLog v0.0.1"
-#~ msgstr "<0/>BrewLog v0.0.1"
-
-#~ msgid "<0/>BrewLog <1>v0.0.1</1>"
-#~ msgstr "<0/>BrewLog <1>v0.0.1</1>"
-
-#: src/lib/components/app-sidebar.svelte
-msgid "BrewLog"
-msgstr "BrewLog"
-
-#~ msgid "v0.0.1"
-#~ msgstr "v0.0.1"
-
-#~ msgid "<0/>BrewLog<1>v0.0.1</1>"
-#~ msgstr "<0/>BrewLog<1>v0.0.1</1>"
-
-#. placeholder {0}: __APP_VERSION__
-#: src/lib/components/app-sidebar.svelte
-msgid "v{0}"
-msgstr "v{0}"
-0}"

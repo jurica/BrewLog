@@ -19,7 +19,7 @@
 
   const sidebar = Sidebar.useSidebar();
   let response = $derived(
-    Api.Collections.Users.getOne(Api.pb.authStore.record.id),
+    Api.Collections.Users.getCurrentUser(),
   );
 </script>
 

@@ -163,7 +163,7 @@
               <p class="text-sm text-muted-foreground">Price</p>
               <p class="text-sm font-medium">
                 {bag.price}
-                {bag.currency || "USD"}
+                {bag.currency || "EUR"}
               </p>
             </div>
           {/if}

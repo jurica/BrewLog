@@ -1,3 +1,4 @@
+import { logout } from "../auth";
 import { pb } from "../client";
 import { Response, PB_Record } from "./common.svelte";
 
@@ -39,6 +40,27 @@ export namespace Users {
                 resp.data = await pb
                     .collection(collectionName)
                     .getOne<Record>(id);
+            } finally {
+                resp.loading = false;
+            }
+        })();
+
+        return resp;
+    }
+
+    export function getCurrentUser(): Response<Record> {
+        const resp = new Response<Record>();
+
+        (async function () {
+            resp.loading = true;
+            try {
+                resp.data = await pb
+                    .collection(collectionName)
+                    .getOne<Record>(pb.authStore.record?.id);
+            } catch {
+                resp.loading = false;
+                resp.error = "Current User not found or set.";
+                logout();
             } finally {
                 resp.loading = false;
             }

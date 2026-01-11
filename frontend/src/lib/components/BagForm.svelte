@@ -28,7 +28,7 @@
     finished_date: bag?.finished_date || "",
     leftover_amount_g: bag?.leftover_amount_g || "",
     price: bag?.price || "",
-    currency: bag?.currency || "USD",
+    currency: bag?.currency || "EUR",
   });
 
   let isLoading = $state(false);
@@ -252,7 +252,7 @@
               id="currency"
               type="text"
               bind:value={formData.currency}
-              placeholder="USD"
+              placeholder="EUR"
             />
           </div>
         </div>
