@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/routes/_authorized/beans/[beanId]/index.svelte
 msgid "<0/> Back to Beans"
-msgstr ""
+msgstr "<0/> Zurück zu Bohnen"
 
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/beans/[beanId]/index.svelte
@@ -162,7 +162,7 @@ msgstr ""
 
 #: src/routes/_authorized/beans/index.svelte
 msgid "Beans"
-msgstr ""
+msgstr "Bohnen"
 
 #: src/routes/_authorized/beans/index.svelte
 msgid "<0/> New Bean"
@@ -373,6 +373,8 @@ msgstr ""
 msgid "Bags"
 msgstr ""
 
+#: src/lib/components/LocaleSelector.svelte
+#: src/locales/SelectLocale.svelte
 #: src/routes/_authorized/bags/index.svelte
 msgid "Select a value"
 msgstr ""
@@ -733,24 +735,21 @@ msgstr ""
 msgid "Create Cup"
 msgstr ""
 
-#~ msgid "<0/>BrewLog"
-#~ msgstr ""
-
 #: src/lib/components/app-sidebar.svelte
 msgid "<0/> Cups"
-msgstr ""
+msgstr "<0/> Tassen"
 
 #: src/lib/components/app-sidebar.svelte
 msgid "<0/>Bags"
-msgstr ""
+msgstr "<0/>Päckchen"
 
 #: src/lib/components/app-sidebar.svelte
 msgid "<0/>Beans"
-msgstr ""
+msgstr "<0/>Bohnen"
 
 #: src/lib/components/app-sidebar.svelte
 msgid "<0/>Roasters"
-msgstr ""
+msgstr "<0/>Röstereien"
 
 #: src/lib/components/app-sidebar.svelte
 msgid "<0/> Account"
@@ -791,15 +790,47 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: src/lib/components/app-sidebar.svelte
+msgid "BrewLog"
+msgstr ""
+
+#. placeholder {0}: __APP_VERSION__
+#: src/lib/components/app-sidebar.svelte
+msgid "v{0}"
+msgstr ""
+
+#: src/lib/components/LocaleSelector.svelte
+#: src/lib/components/SelectLocale.svelte
+#: src/locales/SelectLocale.svelte
+msgid "German"
+msgstr ""
+
+#: src/lib/components/LocaleSelector.svelte
+#: src/lib/components/SelectLocale.svelte
+#: src/locales/SelectLocale.svelte
+msgid "English"
+msgstr ""
+
+#: src/routes/_authorized/account.svelte
+msgid "Account"
+msgstr ""
+
+#: src/routes/_authorized/account.svelte
+msgid "Locale <0/>"
+msgstr "Sprache <0/>"
+
+#, fuzzy
+#~ msgid "<0>Account</0> Locale <1/>"
+#~ msgstr "<0>Account</0> Sprache lalala <1/>"
+
+#~ msgid "<0/>BrewLog"
+#~ msgstr ""
+
 #~ msgid "<0/>BrewLog v0.0.1"
 #~ msgstr ""
 
 #~ msgid "<0/>BrewLog <1>v0.0.1</1>"
 #~ msgstr ""
-
-#: src/lib/components/app-sidebar.svelte
-msgid "BrewLog"
-msgstr ""
 
 #~ msgid "v0.0.1"
 #~ msgstr ""
@@ -807,7 +838,5 @@ msgstr ""
 #~ msgid "<0/>BrewLog<1>v0.0.1</1>"
 #~ msgstr ""
 
-#. placeholder {0}: __APP_VERSION__
-#: src/lib/components/app-sidebar.svelte
-msgid "v{0}"
-msgstr ""
+#~ msgid "test"
+#~ msgstr ""

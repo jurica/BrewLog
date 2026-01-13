@@ -3,21 +3,15 @@
   import { Router } from "sv-router";
   import "sv-router/generated";
   import { Spinner } from "$lib/components/ui/spinner/index.js";
-  import { onMount } from "svelte";
+  import { getLocale } from "./locales/locales.svelte";
 
-  let locale = $state("en");
-  let loading = $state(true);
-  onMount(async () => {
-    try {
-      await loadLocale(locale);
-    } finally {
-      loading = false;
-    }
-  });
+  async function init() {
+    await loadLocale(getLocale());
+  }
 </script>
 
-{#if loading}
+{#await init()}
   <Spinner />
-{:else}
+{:then}
   <Router />
-{/if}
+{/await}

@@ -16,11 +16,10 @@
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as Api from "$lib/api";
   import SidebarMenuItem from "$lib/components/sidebar-menu-item.svelte";
+  import LocaleSelector from "$lib/components/LocaleSelector.svelte";
 
   const sidebar = Sidebar.useSidebar();
-  let response = $derived(
-    Api.Collections.Users.getCurrentUser(),
-  );
+  let response = $derived(Api.Collections.Users.getCurrentUser());
 </script>
 
 <Sidebar.Root
@@ -29,7 +28,9 @@
 >
   <Sidebar.Header>
     <div class="flex items-baseline">
-      <Icon iconNode={coffeemaker} class="mr-2" /><span>BrewLog</span><span class="ml-2 text-sm text-muted-foreground">v{__APP_VERSION__}</span>
+      <Icon iconNode={coffeemaker} class="mr-2" /><span>BrewLog</span><span
+        class="ml-2 text-sm text-muted-foreground">v{__APP_VERSION__}</span
+      >
     </div>
   </Sidebar.Header>
   <Sidebar.Content>
@@ -68,6 +69,9 @@
     {@const user = response.data}
     <Sidebar.SidebarFooter>
       <Sidebar.Menu>
+        <Sidebar.MenuItem>
+          <LocaleSelector />
+        </Sidebar.MenuItem>
         <Sidebar.MenuItem>
           <DropdownMenu.Root>
             <DropdownMenu.Trigger>
@@ -123,7 +127,7 @@
               </DropdownMenu.Label>
               <DropdownMenu.Separator />
               <DropdownMenu.Group>
-                <DropdownMenu.Item>
+                <DropdownMenu.Item onclick={() => navigate("/account")}>
                   <CircleUserIcon />
                   Account
                 </DropdownMenu.Item>

@@ -36,6 +36,8 @@ msgstr "All"
 msgid "Bags"
 msgstr "Bags"
 
+#: src/lib/components/LocaleSelector.svelte
+#: src/locales/SelectLocale.svelte
 #: src/routes/_authorized/bags/index.svelte
 msgid "Select a value"
 msgstr "Select a value"
@@ -796,3 +798,29 @@ msgstr "Search for a command to run"
 #: src/lib/components/ui/sheet/sheet-content.svelte
 msgid "Close"
 msgstr "Close"
+
+#: src/routes/_authorized/account.svelte
+msgid "Account"
+msgstr "Account"
+
+#: src/lib/components/LocaleSelector.svelte
+#: src/lib/components/SelectLocale.svelte
+#: src/locales/SelectLocale.svelte
+msgid "German"
+msgstr "German"
+
+#: src/lib/components/LocaleSelector.svelte
+#: src/lib/components/SelectLocale.svelte
+#: src/locales/SelectLocale.svelte
+msgid "English"
+msgstr "English"
+
+#~ msgid "<0>Account</0> Locale <1/>"
+#~ msgstr "<0>Account</0> Locale <1/>"
+
+#: src/routes/_authorized/account.svelte
+msgid "Locale <0/>"
+msgstr "Locale <0/>"
+
+#~ msgid "test"
+#~ msgstr "test"
