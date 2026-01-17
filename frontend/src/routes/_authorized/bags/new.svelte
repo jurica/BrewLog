@@ -2,8 +2,8 @@
   import BagForm from "$lib/components/BagForm.svelte";
   import * as Api from "$lib/api";
 
-  let bag = {} as Api.Collections.Bag.Record;
-  bag.id = undefined;
+  let bag = $state(Api.Collections.Bag.newRecord());
+  $inspect(bag);
 
   let response2 = $derived(Api.Collections.Bean.getList());
 </script>

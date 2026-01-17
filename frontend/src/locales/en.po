@@ -801,5 +801,9 @@ msgstr "Close"
 msgid "loading..."
 msgstr "loading..."
 
-#~ msgid "Select date"
-#~ msgstr "Select date"
+#: src/lib/components/DatePicker.svelte
+msgid "Select date"
+msgstr "Select date"
+
+#~ msgid "Please select Bean"
+#~ msgstr "Please select Bean"

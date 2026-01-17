@@ -5,16 +5,36 @@ import { Bag } from "./bags";
 export namespace Cups {
     const collectionName = "cups";
     export interface Record extends PB_Record {
-        used_coffee_g?: number;
-        yield_g?: number;
-        water_temp_c?: number;
+        used_coffee_g: number;
+        yield_g: number;
+        water_temp_c: number;
         brew_time_s: number;
         pictures: string[];
-        rating?: number;
-        notes?: string;
+        rating: number;
+        notes: string;
         expand: {
             bag: Bag.Record;
-        };
+        }
+    }
+
+    export function newRecord(): Record {
+        const record: Record = {
+            id: "",
+            collectionName: collectionName,
+            updated: "",
+            created: "",
+            used_coffee_g: 7,
+            yield_g: 25,
+            water_temp_c: 90,
+            brew_time_s: 30,
+            pictures: [],
+            rating: 0,
+            notes: "",
+            expand: {
+                bag: Bag.newRecord()
+            }
+        }
+        return record;
     }
 
     export function getList(): Response<Record[]> {

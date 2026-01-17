@@ -3,7 +3,7 @@ import { Response, PB_Record } from "./common.svelte";
 import { Roaster } from "./roasters";
 
 export namespace Bean {
-    const collectionName = "beans";
+    export const collectionName = "beans";
     export interface Record extends PB_Record {
         picture: string;
         roaster: string;
@@ -11,6 +11,22 @@ export namespace Bean {
         expand: {
             roaster: Roaster.Record;
         };
+    }
+
+    export function newRecord(): Record {
+        const record: Record = {
+            id: "",
+            collectionName: collectionName,
+            updated: "",
+            created: "",
+            name: "",
+            picture: "",
+            roaster: "",
+            expand : {
+                roaster: Roaster.newRecord()
+            }
+        };
+        return record;
     }
 
     export function getList(): Response<Record[]> {

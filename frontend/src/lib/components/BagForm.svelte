@@ -1,4 +1,5 @@
 <script lang="ts">
+  import DatePicker from "$lib/components/DatePicker.svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as Card from "$lib/components/ui/card/index.js";
   import * as Command from "$lib/components/ui/command/index.js";
@@ -8,117 +9,46 @@
     ChevronsUpDown,
     Check,
     Trash2,
-    Calendar as CalendarIcon,
   } from "@lucide/svelte";
   import * as Api from "$lib/api";
   import { cn } from "$lib/utils.js";
   import { navigate } from "sv-router/generated";
-  import { tick } from "svelte";
-  import Calendar from "$lib/components/ui/calendar/calendar.svelte";
   import { Label } from "$lib/components/ui/label/index.js";
-  import {
-    getLocalTimeZone,
-    parseAbsoluteToLocal,
-    today,
-    type CalendarDate,
-  } from "@internationalized/date";
 
   interface Props {
     bag: Api.Collections.Bag.Record;
     beans: Api.Collections.Bean.Record[];
   }
+  let { bag = $bindable(), beans }: Props = $props();
+  let dateRoast = new Api.ZonedDateTimeProxy(bag, "roast_date");
+  let dateOpened = new Api.ZonedDateTimeProxy(bag, "opened_date");
+  let dateFinished = new Api.ZonedDateTimeProxy(bag, "finished_date");
 
-  // console.log(parseAbsoluteToLocal(resp.data.updated.replace(" ", "T")));
-  const { bag = $bindable(), beans }: Props = $props();
-  let test = new Api.Collections.Bag(bag);
-
-  const id = $props.id();
-
-  let open = $state(false);
-  let value = $state<CalendarDate | undefined>();
-  // if (bag.roast_date V
-
-  // let beans: Api.Collections.Bean.Record[] = $state([]);
   let beanOpen = $state(false);
-  let beanTriggerRef = $state<HTMLButtonElement>(null!);
-
-  // const roastDate = parseAbsoluteToLocal(bag?.roast_date.replace(" ", "T"));
-  let formData = $state({
-    bean: bag?.bean || "",
-    initial_weight_g: bag?.initial_weight_g || "250",
-    roast_date: bag?.roast_date || "",
-    opened_date: bag?.opened_date || "",
-    finished_date: bag?.finished_date || "",
-    leftover_amount_g: bag?.leftover_amount_g || "",
-    price: bag?.price || "",
-    currency: bag?.currency || "EUR",
-  });
 
   let isLoading = $state(false);
   let error = $state<string | null>(null);
 
-  const closeAndFocusTrigger = async (triggerRef: HTMLButtonElement) => {
-    beanOpen = false;
-    await tick();
-    triggerRef?.focus();
-  };
-
-  const selectedBeanLabel = $derived(
-    beans.find((b) => b.id === formData.bean)?.name || "Select a bean...",
-  );
-
-  // let beans = $derived((Api.Collections.Bean.getList()).data);
-  // const loadBeans = async () => {
-  //   try {
-  //     beans = (Api.Collections.Bean.getList()).data;
-  //     const result = await Api.pb
-  //       .collection("beans")
-  //       .getList<Api.Bean>(1, 100, { expand: "roaster" });
-  //     beans = result.items;
-  //   } catch (err) {
-  //     console.error("Failed to load beans:", err);
-  //   }
-  // };
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
     isLoading = true;
     error = null;
 
-    if (!formData.bean) {
+    if (!bag.bean) {
       error = "Please select a bean";
       isLoading = false;
       return;
     }
 
     try {
-      // const data = new FormData();
-      // data.append("bean", formData.bean);
-      // data.append("initial_weight_g", String(formData.initial_weight_g));
-      //
-      // if (formData.roast_date) data.append("roast_date", formData.roast_date);
-      // if (formData.opened_date)
-      //   data.append("opened_date", formData.opened_date);
-      // if (formData.finished_date)
-      //   data.append("finished_date", formData.finished_date);
-      // if (formData.leftover_amount_g)
-      //   data.append("leftover_amount_g", String(formData.leftover_amount_g));
-      // if (formData.price) data.append("price", String(formData.price));
-      // if (formData.currency) data.append("currency", formData.currency);
-
       if (bag?.id) {
-        console.log("before update");
         await Api.pb.collection("bags").update(bag.id, bag);
-        console.log("after update");
-        navigate("/bags/:bagId", { params: { bagId: bag!.id } });
-        return;
       } else {
-        const newBag = await Api.pb.collection("bags").create(data);
-        navigate("/bags/:bagId", { params: { bagId: newBag.id } });
-        return;
+        bag = await Api.pb.collection("bags").create<Api.Collections.Bag.Record>(bag);
       }
 
-      navigate("/bags/:bagId", { params: { bagId: bag!.id } });
+      navigate("/bags/:bagId", { params: { bagId: bag.id } });
     } catch (err) {
       error = err instanceof Error ? err.message : "An error occurred";
     } finally {
@@ -159,7 +89,7 @@
         <div class="space-y-2">
           <label for="bean-search" class="text-sm font-medium">Bean *</label>
           <Popover.Root bind:open={beanOpen}>
-            <Popover.Trigger bind:ref={beanTriggerRef}>
+            <Popover.Trigger>
               {#snippet child({ props })}
                 <Button
                   {...props}
@@ -168,7 +98,7 @@
                   aria-expanded={beanOpen}
                   class="w-full justify-between"
                 >
-                  {selectedBeanLabel}
+                  {bag.expand?.bean.name || "Select a bean..."}
                   <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
               {/snippet}
@@ -182,14 +112,15 @@
                     <Command.Item
                       value={bean.name}
                       onSelect={() => {
-                        formData.bean = bean.id;
-                        closeAndFocusTrigger(beanTriggerRef);
+                        bag.bean = bean.id;
+                        bag.expand.bean = bean;
+                        beanOpen = false;
                       }}
                     >
                       <Check
                         class={cn(
                           "mr-2 h-4 w-4",
-                          formData.bean !== bean.id && "text-transparent",
+                          bag.bean !== bean.id && "text-transparent",
                         )}
                       />
                       {bean.name}
@@ -212,66 +143,22 @@
           <Input
             id="initial_weight_g"
             type="number"
-            bind:value={formData.initial_weight_g}
+            bind:value={bag.initial_weight_g}
             placeholder="0"
             required
           />
         </div>
 
         <!-- Dates Section -->
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div class="space-y-2">
-            <Label for="roast_date" class="text-sm font-medium"
-              >Roast Date</Label
-            >
-            <Popover.Root bind:open>
-              <Popover.Trigger id="roast_date">
-                {#snippet child({ props })}
-                  <Button
-                    {...props}
-                    variant="outline"
-                    class="w-48 justify-between font-normal"
-                  >
-                    {test.roastDate.toDate().toLocaleDateString()}
-                    <!-- {value -->
-                    <!--   ? value.toDate(getLocalTimeZone()).toLocaleDateString() -->
-                    <!--   : "Select date"} -->
-                    <CalendarIcon />
-                  </Button>
-                {/snippet}
-              </Popover.Trigger>
-              <Popover.Content class="w-auto overflow-hidden p-0" align="start">
-                <Calendar
-                  type="single"
-                  bind:value={test.roastDate}
-                  captionLayout="dropdown"
-                  onValueChange={() => {
-                    open = false;
-                  }}
-                  maxValue={today(getLocalTimeZone())}
-                />
-              </Popover.Content>
-            </Popover.Root>
+            <DatePicker bind:value={dateRoast.value} label="Roast Date" selectedDate={dateRoast.toString()}/>
           </div>
           <div class="space-y-2">
-            <label for="opened_date" class="text-sm font-medium"
-              >Opened Date</label
-            >
-            <Input
-              id="opened_date"
-              type="date"
-              bind:value={formData.opened_date}
-            />
+            <DatePicker bind:value={dateOpened.value} label="Opened Date" selectedDate={dateOpened.toString()}/>
           </div>
           <div class="space-y-2">
-            <label for="finished_date" class="text-sm font-medium"
-              >Finished Date</label
-            >
-            <Input
-              id="finished_date"
-              type="date"
-              bind:value={formData.finished_date}
-            />
+            <DatePicker bind:value={dateFinished.value} label="Finished Date" selectedDate={dateFinished.toString()}/>
           </div>
         </div>
 
@@ -284,7 +171,7 @@
             <Input
               id="leftover_amount_g"
               type="number"
-              bind:value={formData.leftover_amount_g}
+              bind:value={bag.leftover_amount_g}
               placeholder="0"
             />
           </div>
@@ -293,7 +180,7 @@
             <Input
               id="price"
               type="number"
-              bind:value={formData.price}
+              bind:value={bag.price}
               placeholder="0.00"
               step="0.01"
             />
@@ -303,7 +190,7 @@
             <Input
               id="currency"
               type="text"
-              bind:value={formData.currency}
+              bind:value={bag.currency}
               placeholder="EUR"
             />
           </div>
@@ -312,7 +199,7 @@
         <!-- Form Actions -->
         <div class="flex gap-3 pt-4">
           <Button type="submit" disabled={isLoading}>
-            {isLoading ? "Saving..." : bag ? "Update Bag" : "Create Bag"}
+            {isLoading ? "Saving..." : bag.id ? "Update Bag" : "Create Bag"}
           </Button>
           <Button
             type="button"
