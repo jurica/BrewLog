@@ -51,8 +51,8 @@ msgstr ""
 
 #. placeholder {0}: bag.initial_weight_g
 #. placeholder {0}: bag.leftover_amount_g
-#. placeholder {0}: bag.initial_weight_g
-#. placeholder {0}: bag.leftover_amount_g
+#. placeholder {0}: cup.used_coffee_g
+#. placeholder {0}: cup.used_coffee_g
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
@@ -432,7 +432,7 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: src/lib/components/BagForm.svelte
+#: src/lib/components/BagBeanSelector.svelte
 msgid "Select a bean..."
 msgstr ""
 
@@ -467,15 +467,15 @@ msgstr ""
 msgid "Bag Information"
 msgstr ""
 
-#: src/lib/components/BagForm.svelte
+#: src/lib/components/BagBeanSelector.svelte
 msgid "Bean *"
 msgstr ""
 
-#: src/lib/components/BagForm.svelte
+#: src/lib/components/BagBeanSelector.svelte
 msgid "Search beans..."
 msgstr ""
 
-#: src/lib/components/BagForm.svelte
+#: src/lib/components/BagBeanSelector.svelte
 msgid "No bean found."
 msgstr ""
 

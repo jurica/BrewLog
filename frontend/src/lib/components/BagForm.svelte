@@ -5,15 +5,11 @@
   import * as Command from "$lib/components/ui/command/index.js";
   import * as Popover from "$lib/components/ui/popover/index.js";
   import { Input } from "$lib/components/ui/input/index.js";
-  import {
-    ChevronsUpDown,
-    Check,
-    Trash2,
-  } from "@lucide/svelte";
+  import { ChevronsUpDown, Check, Trash2 } from "@lucide/svelte";
   import * as Api from "$lib/api";
-  import { cn } from "$lib/utils.js";
   import { navigate } from "sv-router/generated";
   import { Label } from "$lib/components/ui/label/index.js";
+  import BagBeanSelector from "./BagBeanSelector.svelte";
 
   interface Props {
     bag: Api.Collections.Bag.Record;
@@ -24,11 +20,8 @@
   let dateOpened = new Api.ZonedDateTimeProxy(bag, "opened_date");
   let dateFinished = new Api.ZonedDateTimeProxy(bag, "finished_date");
 
-  let beanOpen = $state(false);
-
   let isLoading = $state(false);
   let error = $state<string | null>(null);
-
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
@@ -45,7 +38,9 @@
       if (bag?.id) {
         await Api.pb.collection("bags").update(bag.id, bag);
       } else {
-        bag = await Api.pb.collection("bags").create<Api.Collections.Bag.Record>(bag);
+        bag = await Api.pb
+          .collection("bags")
+          .create<Api.Collections.Bag.Record>(bag);
       }
 
       navigate("/bags/:bagId", { params: { bagId: bag.id } });
@@ -55,10 +50,6 @@
       isLoading = false;
     }
   };
-
-  // $effect(() => {
-  //   loadBeans();
-  // });
 </script>
 
 <div class="space-y-6">
@@ -87,52 +78,7 @@
 
         <!-- Bean Selection (Combobox) -->
         <div class="space-y-2">
-          <label for="bean-search" class="text-sm font-medium">Bean *</label>
-          <Popover.Root bind:open={beanOpen}>
-            <Popover.Trigger>
-              {#snippet child({ props })}
-                <Button
-                  {...props}
-                  variant="outline"
-                  role="combobox"
-                  aria-expanded={beanOpen}
-                  class="w-full justify-between"
-                >
-                  {bag.expand?.bean.name || "Select a bean..."}
-                  <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                </Button>
-              {/snippet}
-            </Popover.Trigger>
-            <Popover.Content class="w-full p-0">
-              <Command.Root>
-                <Command.Input id="bean-search" placeholder="Search beans..." />
-                <Command.Empty>No bean found.</Command.Empty>
-                <Command.Group>
-                  {#each beans as bean}
-                    <Command.Item
-                      value={bean.name}
-                      onSelect={() => {
-                        bag.bean = bean.id;
-                        bag.expand.bean = bean;
-                        beanOpen = false;
-                      }}
-                    >
-                      <Check
-                        class={cn(
-                          "mr-2 h-4 w-4",
-                          bag.bean !== bean.id && "text-transparent",
-                        )}
-                      />
-                      {bean.name}
-                      <span class="ml-2 text-xs text-muted-foreground">
-                        ({bean.expand?.roaster?.name || bean.roaster})
-                      </span>
-                    </Command.Item>
-                  {/each}
-                </Command.Group>
-              </Command.Root>
-            </Popover.Content>
-          </Popover.Root>
+          <BagBeanSelector bind:bag {beans} />
         </div>
 
         <!-- Initial Weight -->
@@ -152,13 +98,25 @@
         <!-- Dates Section -->
         <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div class="space-y-2">
-            <DatePicker bind:value={dateRoast.value} label="Roast Date" selectedDate={dateRoast.toString()}/>
+            <DatePicker
+              bind:value={dateRoast.value}
+              label="Roast Date"
+              selectedDate={dateRoast.toString()}
+            />
           </div>
           <div class="space-y-2">
-            <DatePicker bind:value={dateOpened.value} label="Opened Date" selectedDate={dateOpened.toString()}/>
+            <DatePicker
+              bind:value={dateOpened.value}
+              label="Opened Date"
+              selectedDate={dateOpened.toString()}
+            />
           </div>
           <div class="space-y-2">
-            <DatePicker bind:value={dateFinished.value} label="Finished Date" selectedDate={dateFinished.toString()}/>
+            <DatePicker
+              bind:value={dateFinished.value}
+              label="Finished Date"
+              selectedDate={dateFinished.toString()}
+            />
           </div>
         </div>
 
