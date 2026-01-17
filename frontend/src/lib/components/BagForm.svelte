@@ -4,22 +4,45 @@
   import * as Command from "$lib/components/ui/command/index.js";
   import * as Popover from "$lib/components/ui/popover/index.js";
   import { Input } from "$lib/components/ui/input/index.js";
-  import { ChevronsUpDown, Check, Trash2 } from "@lucide/svelte";
+  import {
+    ChevronsUpDown,
+    Check,
+    Trash2,
+    Calendar as CalendarIcon,
+  } from "@lucide/svelte";
   import * as Api from "$lib/api";
   import { cn } from "$lib/utils.js";
   import { navigate } from "sv-router/generated";
   import { tick } from "svelte";
+  import Calendar from "$lib/components/ui/calendar/calendar.svelte";
+  import { Label } from "$lib/components/ui/label/index.js";
+  import {
+    getLocalTimeZone,
+    parseAbsoluteToLocal,
+    today,
+    type CalendarDate,
+  } from "@internationalized/date";
 
   interface Props {
-    bag?: Api.Bag;
+    bag: Api.Collections.Bag.Record;
+    beans: Api.Collections.Bean.Record[];
   }
 
-  const { bag }: Props = $props();
+  // console.log(parseAbsoluteToLocal(resp.data.updated.replace(" ", "T")));
+  const { bag = $bindable(), beans }: Props = $props();
+  let test = new Api.Collections.Bag(bag);
 
-  let beans: Api.Bean[] = $state([]);
+  const id = $props.id();
+
+  let open = $state(false);
+  let value = $state<CalendarDate | undefined>();
+  // if (bag.roast_date V
+
+  // let beans: Api.Collections.Bean.Record[] = $state([]);
   let beanOpen = $state(false);
   let beanTriggerRef = $state<HTMLButtonElement>(null!);
 
+  // const roastDate = parseAbsoluteToLocal(bag?.roast_date.replace(" ", "T"));
   let formData = $state({
     bean: bag?.bean || "",
     initial_weight_g: bag?.initial_weight_g || "250",
@@ -44,16 +67,18 @@
     beans.find((b) => b.id === formData.bean)?.name || "Select a bean...",
   );
 
-  const loadBeans = async () => {
-    try {
-      const result = await Api.pb
-        .collection("beans")
-        .getList<Api.Bean>(1, 100, { expand: "roaster" });
-      beans = result.items;
-    } catch (err) {
-      console.error("Failed to load beans:", err);
-    }
-  };
+  // let beans = $derived((Api.Collections.Bean.getList()).data);
+  // const loadBeans = async () => {
+  //   try {
+  //     beans = (Api.Collections.Bean.getList()).data;
+  //     const result = await Api.pb
+  //       .collection("beans")
+  //       .getList<Api.Bean>(1, 100, { expand: "roaster" });
+  //     beans = result.items;
+  //   } catch (err) {
+  //     console.error("Failed to load beans:", err);
+  //   }
+  // };
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
@@ -67,22 +92,26 @@
     }
 
     try {
-      const data = new FormData();
-      data.append("bean", formData.bean);
-      data.append("initial_weight_g", String(formData.initial_weight_g));
-
-      if (formData.roast_date) data.append("roast_date", formData.roast_date);
-      if (formData.opened_date)
-        data.append("opened_date", formData.opened_date);
-      if (formData.finished_date)
-        data.append("finished_date", formData.finished_date);
-      if (formData.leftover_amount_g)
-        data.append("leftover_amount_g", String(formData.leftover_amount_g));
-      if (formData.price) data.append("price", String(formData.price));
-      if (formData.currency) data.append("currency", formData.currency);
+      // const data = new FormData();
+      // data.append("bean", formData.bean);
+      // data.append("initial_weight_g", String(formData.initial_weight_g));
+      //
+      // if (formData.roast_date) data.append("roast_date", formData.roast_date);
+      // if (formData.opened_date)
+      //   data.append("opened_date", formData.opened_date);
+      // if (formData.finished_date)
+      //   data.append("finished_date", formData.finished_date);
+      // if (formData.leftover_amount_g)
+      //   data.append("leftover_amount_g", String(formData.leftover_amount_g));
+      // if (formData.price) data.append("price", String(formData.price));
+      // if (formData.currency) data.append("currency", formData.currency);
 
       if (bag?.id) {
-        await Api.pb.collection("bags").update(bag.id, data);
+        console.log("before update");
+        await Api.pb.collection("bags").update(bag.id, bag);
+        console.log("after update");
+        navigate("/bags/:bagId", { params: { bagId: bag!.id } });
+        return;
       } else {
         const newBag = await Api.pb.collection("bags").create(data);
         navigate("/bags/:bagId", { params: { bagId: newBag.id } });
@@ -97,14 +126,14 @@
     }
   };
 
-  $effect(() => {
-    loadBeans();
-  });
+  // $effect(() => {
+  //   loadBeans();
+  // });
 </script>
 
 <div class="space-y-6">
   <div>
-    <h1 class="text-3xl font-bold">{bag ? "Edit Bag" : "New Bag"}</h1>
+    <h1 class="text-3xl font-bold">{bag.id ? "Edit Bag" : "New Bag"}</h1>
     {#if bag}
       <p class="text-sm text-muted-foreground mt-2">Update bag details</p>
     {:else}
@@ -177,8 +206,8 @@
 
         <!-- Initial Weight -->
         <div class="space-y-2">
-          <label for="initial_weight_g" class="text-sm font-medium"
-            >Initial Weight (g) *</label
+          <Label for="initial_weight_g" class="text-sm font-medium"
+            >Initial Weight (g) *</Label
           >
           <Input
             id="initial_weight_g"
@@ -192,14 +221,37 @@
         <!-- Dates Section -->
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div class="space-y-2">
-            <label for="roast_date" class="text-sm font-medium"
-              >Roast Date</label
+            <Label for="roast_date" class="text-sm font-medium"
+              >Roast Date</Label
             >
-            <Input
-              id="roast_date"
-              type="date"
-              bind:value={formData.roast_date}
-            />
+            <Popover.Root bind:open>
+              <Popover.Trigger id="roast_date">
+                {#snippet child({ props })}
+                  <Button
+                    {...props}
+                    variant="outline"
+                    class="w-48 justify-between font-normal"
+                  >
+                    {test.roastDate.toDate().toLocaleDateString()}
+                    <!-- {value -->
+                    <!--   ? value.toDate(getLocalTimeZone()).toLocaleDateString() -->
+                    <!--   : "Select date"} -->
+                    <CalendarIcon />
+                  </Button>
+                {/snippet}
+              </Popover.Trigger>
+              <Popover.Content class="w-auto overflow-hidden p-0" align="start">
+                <Calendar
+                  type="single"
+                  bind:value={test.roastDate}
+                  captionLayout="dropdown"
+                  onValueChange={() => {
+                    open = false;
+                  }}
+                  maxValue={today(getLocalTimeZone())}
+                />
+              </Popover.Content>
+            </Popover.Root>
           </div>
           <div class="space-y-2">
             <label for="opened_date" class="text-sm font-medium"

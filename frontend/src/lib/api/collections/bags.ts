@@ -1,6 +1,24 @@
 import { pb } from "../client";
 import { Response, PB_Record } from "./common.svelte";
 import { Bean } from "./beans";
+import { CalendarDate, CalendarDateTime, ZonedDateTime, parseAbsoluteToLocal } from "@internationalized/date";
+import { fromCalendarDate, toCalendarDate } from "../utils";
+
+export class Bag {
+    private _bag: Bag.Record;
+
+    constructor(record: Bag.Record) {
+        this._bag = record;
+    }
+
+    public get roastDate() : ZonedDateTime {
+        return parseAbsoluteToLocal(this._bag.roast_date.replace(" ", "T"));
+    }
+    
+    public set roastDate(newDate : ZonedDateTime) {
+        this._bag.roast_date = newDate.toAbsoluteString().replace("T", " ");
+    }
+}
 
 export namespace Bag {
     const collectionName = "bags";

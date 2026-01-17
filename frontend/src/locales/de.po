@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-09T20:27:07.178Z\n"
-"PO-Revision-Date: 2026-01-09T20:27:07.178Z\n"
+"POT-Creation-Date: 2026-01-17T11:19:28.103Z\n"
+"PO-Revision-Date: 2026-01-17T11:19:28.103Z\n"
 "Last-Translator: \n"
 "Language: de\n"
 "Language-Team: \n"
@@ -13,8 +13,8 @@ msgstr ""
 "Source-Language: en\n"
 "MIME-Version: 1.0\n"
 
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "<0/> Back to Beans"
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "<0/> Back to Bags"
 msgstr ""
 
 #: src/routes/_authorized/bags/[bagId]/index.svelte
@@ -31,75 +31,14 @@ msgstr ""
 msgid "More Options"
 msgstr ""
 
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "<0/> Delete Bean"
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "<0/> Delete Bag"
 msgstr ""
 
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/beans/[beanId]/index.svelte
 #: src/routes/_authorized/roasters/[roasterId]/index.svelte
 msgid "No image available"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "Bean Details"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-#: src/routes/_authorized/roasters/[roasterId]/index.svelte
-msgid "ID"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-#: src/routes/_authorized/roasters/[roasterId]/index.svelte
-msgid "Added"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-#: src/routes/_authorized/roasters/[roasterId]/index.svelte
-msgid "Last Updated"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "Quick Stats"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "Status"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "Active"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "Bags in Collection"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "Total Brews"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "Bean not found"
-msgstr ""
-
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "The bean you're looking for doesn't exist or has been deleted"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-#: src/routes/_authorized/beans/[beanId]/index.svelte
-msgid "Back to Beans"
-msgstr ""
-
-#: src/routes/_authorized/bags/[bagId]/index.svelte
-msgid "<0/> Back to Bags"
-msgstr ""
-
-#: src/routes/_authorized/bags/[bagId]/index.svelte
-msgid "<0/> Delete Bag"
 msgstr ""
 
 #: src/routes/_authorized/bags/[bagId]/index.svelte
@@ -186,180 +125,6 @@ msgstr ""
 msgid "No image"
 msgstr ""
 
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "<0/> Back to Cups"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "<0/> Delete Cup"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-#: src/routes/_authorized/cups/index.svelte
-msgid "Unknown Bean"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-#: src/routes/_authorized/cups/index.svelte
-msgid "Unknown Roaster"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-#: src/routes/_authorized/cups/index.svelte
-msgid "Cup"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "No photo available"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "Brew Details"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "Coffee Used"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-#: src/routes/_authorized/cups/index.svelte
-msgid "Yield"
-msgstr ""
-
-#. placeholder {0}: cup.yield_g
-#. placeholder {0}: cup.yield_g
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-#: src/routes/_authorized/cups/index.svelte
-msgid "{0} g"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "Water Temperature"
-msgstr ""
-
-#. placeholder {0}: cup.water_temp_c
-#. placeholder {0}: cup.water_temp_c
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-#: src/routes/_authorized/cups/index.svelte
-msgid "{0}°C"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "Brewed"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "Tasting Notes"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-#: src/routes/_authorized/cups/index.svelte
-msgid "Rating"
-msgstr ""
-
-#: src/lib/components/CupForm.svelte
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "Notes"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "No notes recorded"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "Cup not found"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "The cup you're looking for doesn't exist or has been deleted"
-msgstr ""
-
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "Back to Cups"
-msgstr ""
-
-#: src/routes/_authorized/roasters/[roasterId]/index.svelte
-msgid "<0/> Back to Roasters"
-msgstr ""
-
-#: src/routes/_authorized/roasters/[roasterId]/index.svelte
-msgid "<0/> Delete Roaster"
-msgstr ""
-
-#: src/routes/_authorized/roasters/[roasterId]/index.svelte
-msgid "Roaster Details"
-msgstr ""
-
-#: src/routes/_authorized/roasters/[roasterId]/index.svelte
-msgid "Roaster not found"
-msgstr ""
-
-#: src/routes/_authorized/roasters/[roasterId]/index.svelte
-msgid "The roaster you're looking for doesn't exist or has been deleted"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-#: src/routes/_authorized/roasters/[roasterId]/index.svelte
-msgid "Back to Roasters"
-msgstr ""
-
-#: src/routes/_authorized/roasters/index.svelte
-msgid "Roasters"
-msgstr ""
-
-#: src/routes/_authorized/roasters/index.svelte
-msgid "<0/> New Roaster"
-msgstr ""
-
-#: src/routes/_authorized/roasters/index.svelte
-msgid "No roasters yet"
-msgstr ""
-
-#: src/routes/_authorized/roasters/index.svelte
-msgid "Create your first roaster to get started"
-msgstr ""
-
-#: src/routes/_authorized/roasters/index.svelte
-msgid "<0/> Create First Roaster"
-msgstr ""
-
-#: src/routes/_authorized/cups/index.svelte
-msgid "Cups"
-msgstr ""
-
-#: src/routes/_authorized/cups/index.svelte
-msgid "<0/> New Cup"
-msgstr ""
-
-#: src/routes/_authorized/cups/index.svelte
-msgid "No cups yet"
-msgstr ""
-
-#: src/routes/_authorized/cups/index.svelte
-msgid "Create your first cup to get started"
-msgstr ""
-
-#: src/routes/_authorized/cups/index.svelte
-msgid "<0/> Create First Cup"
-msgstr ""
-
-#: src/routes/_authorized/cups/index.svelte
-msgid "Coffee"
-msgstr ""
-
-#: src/routes/_authorized/cups/index.svelte
-msgid "Brew Time"
-msgstr ""
-
-#. placeholder {0}: cup.brew_time_s
-#: src/routes/_authorized/cups/index.svelte
-msgid "{0} s"
-msgstr ""
-
-#: src/routes/_authorized/cups/index.svelte
-msgid "Temperature"
-msgstr ""
-
 #: src/routes/_authorized/bags/index.svelte
 #: src/routes/_authorized/bags/index.svelte
 msgid "Unopened"
@@ -403,6 +168,241 @@ msgstr ""
 msgid "Opened {0}"
 msgstr ""
 
+#: src/routes/_authorized/cups/index.svelte
+msgid "Cups"
+msgstr ""
+
+#: src/routes/_authorized/cups/index.svelte
+msgid "<0/> New Cup"
+msgstr ""
+
+#: src/routes/_authorized/cups/index.svelte
+msgid "No cups yet"
+msgstr ""
+
+#: src/routes/_authorized/cups/index.svelte
+msgid "Create your first cup to get started"
+msgstr ""
+
+#: src/routes/_authorized/cups/index.svelte
+msgid "<0/> Create First Cup"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/cups/index.svelte
+msgid "Unknown Bean"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/cups/index.svelte
+msgid "Unknown Roaster"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/cups/index.svelte
+msgid "Cup"
+msgstr ""
+
+#: src/routes/_authorized/cups/index.svelte
+msgid "Coffee"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/cups/index.svelte
+msgid "Yield"
+msgstr ""
+
+#. placeholder {0}: cup.yield_g
+#. placeholder {0}: cup.yield_g
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/cups/index.svelte
+msgid "{0} g"
+msgstr ""
+
+#: src/routes/_authorized/cups/index.svelte
+msgid "Brew Time"
+msgstr ""
+
+#. placeholder {0}: cup.brew_time_s
+#: src/routes/_authorized/cups/index.svelte
+msgid "{0} s"
+msgstr ""
+
+#: src/routes/_authorized/cups/index.svelte
+msgid "Temperature"
+msgstr ""
+
+#. placeholder {0}: cup.water_temp_c
+#. placeholder {0}: cup.water_temp_c
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/cups/index.svelte
+msgid "{0}°C"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/cups/index.svelte
+msgid "Rating"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "<0/> Back to Cups"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "<0/> Delete Cup"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "No photo available"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "Brew Details"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "Coffee Used"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "Water Temperature"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "Brewed"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "Tasting Notes"
+msgstr ""
+
+#: src/lib/components/CupForm.svelte
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "Notes"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "No notes recorded"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "Added"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "Cup not found"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "The cup you're looking for doesn't exist or has been deleted"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/index.svelte
+msgid "Back to Cups"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "<0/> Back to Beans"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "<0/> Delete Bean"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Bean Details"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "ID"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "Last Updated"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Quick Stats"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Status"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Active"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Bags in Collection"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Total Brews"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Bean not found"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "The bean you're looking for doesn't exist or has been deleted"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Back to Beans"
+msgstr ""
+
+#: src/routes/_authorized/roasters/index.svelte
+msgid "Roasters"
+msgstr ""
+
+#: src/routes/_authorized/roasters/index.svelte
+msgid "<0/> New Roaster"
+msgstr ""
+
+#: src/routes/_authorized/roasters/index.svelte
+msgid "No roasters yet"
+msgstr ""
+
+#: src/routes/_authorized/roasters/index.svelte
+msgid "Create your first roaster to get started"
+msgstr ""
+
+#: src/routes/_authorized/roasters/index.svelte
+msgid "<0/> Create First Roaster"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "<0/> Back to Roasters"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "<0/> Delete Roaster"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "Roaster Details"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "Roaster not found"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "The roaster you're looking for doesn't exist or has been deleted"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "Back to Roasters"
+msgstr ""
+
 #: src/routes/_unauthorized/(login).svelte
 #: src/routes/_unauthorized/(login).svelte
 msgid "Login"
@@ -432,30 +432,12 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
-msgid "Edit Bean"
+#: src/lib/components/BagForm.svelte
+msgid "Select a bean..."
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
-msgid "Create New Bean"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "Update Bean"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "Create Bean"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/BeanForm.svelte
-msgid "Bean name is required"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/BeanForm.svelte
-msgid "Roaster is required"
+#: src/lib/components/BagForm.svelte
+msgid "Please select a bean"
 msgstr ""
 
 #: src/lib/components/BagForm.svelte
@@ -463,79 +445,6 @@ msgstr ""
 #: src/lib/components/CupForm.svelte
 #: src/lib/components/RoasterForm.svelte
 msgid "An error occurred"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "Back to Bean"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "Bean Name *"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "Enter bean name"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "Roaster *"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "Select a roaster..."
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "Search roaster..."
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "No roaster found."
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "Bean Image (Optional)"
-msgstr ""
-
-#. placeholder {0}: formData.picture.name
-#. placeholder {0}: formData.picture.name
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "Selected: {0}"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "Current Image"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "<0/> Delete"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-msgid "Current bean image"
-msgstr ""
-
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "<0/> Saving..."
-msgstr ""
-
-#: src/lib/components/BagForm.svelte
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/CupForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "Cancel"
-msgstr ""
-
-#: src/lib/components/BagForm.svelte
-msgid "Select a bean..."
-msgstr ""
-
-#: src/lib/components/BagForm.svelte
-msgid "Please select a bean"
 msgstr ""
 
 #: src/lib/components/BagForm.svelte
@@ -607,49 +516,11 @@ msgstr ""
 msgid "Create Bag"
 msgstr ""
 
+#: src/lib/components/BagForm.svelte
+#: src/lib/components/BeanForm.svelte
+#: src/lib/components/CupForm.svelte
 #: src/lib/components/RoasterForm.svelte
-msgid "Edit Roaster"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-msgid "Create New Roaster"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-msgid "Update Roaster"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-msgid "Create Roaster"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "Roaster name is required"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-msgid "Back to Roaster"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-msgid "Roaster Name *"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-msgid "Enter roaster name"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-msgid "Website URL (Optional)"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-msgid "Roaster Image (Optional)"
-msgstr ""
-
-#: src/lib/components/RoasterForm.svelte
-msgid "Current roaster image"
+msgid "Cancel"
 msgstr ""
 
 #: src/lib/components/CupForm.svelte
@@ -733,8 +604,143 @@ msgstr ""
 msgid "Create Cup"
 msgstr ""
 
-#~ msgid "<0/>BrewLog"
-#~ msgstr ""
+#: src/lib/components/BeanForm.svelte
+msgid "Edit Bean"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Create New Bean"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Update Bean"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Create Bean"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+#: src/lib/components/BeanForm.svelte
+msgid "Bean name is required"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+#: src/lib/components/BeanForm.svelte
+msgid "Roaster is required"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Back to Bean"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Bean Name *"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Enter bean name"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Roaster *"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Select a roaster..."
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Search roaster..."
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "No roaster found."
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Bean Image (Optional)"
+msgstr ""
+
+#. placeholder {0}: formData.picture.name
+#. placeholder {0}: formData.picture.name
+#: src/lib/components/BeanForm.svelte
+#: src/lib/components/RoasterForm.svelte
+msgid "Selected: {0}"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+#: src/lib/components/RoasterForm.svelte
+msgid "Current Image"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+#: src/lib/components/RoasterForm.svelte
+msgid "<0/> Delete"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Current bean image"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+#: src/lib/components/RoasterForm.svelte
+msgid "<0/> Saving..."
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Edit Roaster"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Create New Roaster"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Update Roaster"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Create Roaster"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+#: src/lib/components/RoasterForm.svelte
+msgid "Roaster name is required"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Back to Roaster"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Roaster Name *"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Enter roaster name"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Website URL (Optional)"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Roaster Image (Optional)"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Current roaster image"
+msgstr ""
+
+#: src/lib/components/app-sidebar.svelte
+msgid "BrewLog"
+msgstr ""
+
+#. placeholder {0}: __APP_VERSION__
+#: src/lib/components/app-sidebar.svelte
+msgid "v{0}"
+msgstr ""
 
 #: src/lib/components/app-sidebar.svelte
 msgid "<0/> Cups"
@@ -764,18 +770,18 @@ msgstr ""
 msgid "<0/> Log out"
 msgstr ""
 
+#: src/lib/components/ui/sidebar/sidebar-rail.svelte
+#: src/lib/components/ui/sidebar/sidebar-rail.svelte
+#: src/lib/components/ui/sidebar/sidebar-trigger.svelte
+msgid "Toggle Sidebar"
+msgstr ""
+
 #: src/lib/components/ui/sidebar/sidebar.svelte
 msgid "Sidebar"
 msgstr ""
 
 #: src/lib/components/ui/sidebar/sidebar.svelte
 msgid "Displays the mobile sidebar."
-msgstr ""
-
-#: src/lib/components/ui/sidebar/sidebar-rail.svelte
-#: src/lib/components/ui/sidebar/sidebar-rail.svelte
-#: src/lib/components/ui/sidebar/sidebar-trigger.svelte
-msgid "Toggle Sidebar"
 msgstr ""
 
 #: src/lib/components/ui/command/command-dialog.svelte
@@ -791,23 +797,9 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#~ msgid "<0/>BrewLog v0.0.1"
-#~ msgstr ""
-
-#~ msgid "<0/>BrewLog <1>v0.0.1</1>"
-#~ msgstr ""
-
-#: src/lib/components/app-sidebar.svelte
-msgid "BrewLog"
+#: src/routes/_authorized/bags/new.svelte
+msgid "loading..."
 msgstr ""
 
-#~ msgid "v0.0.1"
+#~ msgid "Select date"
 #~ msgstr ""
-
-#~ msgid "<0/>BrewLog<1>v0.0.1</1>"
-#~ msgstr ""
-
-#. placeholder {0}: __APP_VERSION__
-#: src/lib/components/app-sidebar.svelte
-msgid "v{0}"
-msgstr ""

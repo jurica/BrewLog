@@ -1,6 +1,7 @@
 export { pb } from "./client";
 export * from "./auth";
 export * from "./collections";
+export * from "./utils";
 
 // export interface PB_Record {
 //   id: string;
