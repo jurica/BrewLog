@@ -3,7 +3,7 @@ import { Response, PB_Record } from "./common.svelte";
 import { Roaster } from "./roasters";
 
 export namespace Bean {
-    export const collectionName = "beans";
+    const collectionName = "beans";
     export interface Record extends PB_Record {
         picture: string;
         roaster: string;
