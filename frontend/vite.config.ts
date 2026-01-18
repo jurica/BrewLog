@@ -10,7 +10,9 @@ const version = fs.readFileSync(path.resolve(__dirname, "VERSION"), "utf-8").tri
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [wuchale(), tailwindcss(), svelte(), router()],
+  plugins: [wuchale(), tailwindcss(), svelte(), router({
+    allLazy: true,
+  })],
   build: {
     outDir: "../backend/dist",
   },

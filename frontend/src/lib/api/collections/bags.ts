@@ -28,22 +28,6 @@ export namespace Bag {
         finished: "finish_date != ''"
     };
 
-    export function getRoastDateZonedDateTimeProxy(record: Record) : ZonedDateTimeProxy<Record> {
-        return new ZonedDateTimeProxy<Record>(record, "roast_date");
-    }
-
-    export function getOpenDateZonedDateTimeProxy(record: Record) : ZonedDateTimeProxy<Record> {
-        return new ZonedDateTimeProxy<Record>(record, "open_date");
-    }
-
-    export function getFinishDateZonedDateTimeProxy(record: Record) : ZonedDateTimeProxy<Record> {
-        return new ZonedDateTimeProxy<Record>(record, "finish_date");
-    }
-
-    export function getPurchaseDateZonedDateTimeProxy(record: Record) : ZonedDateTimeProxy<Record> {
-        return new ZonedDateTimeProxy<Record>(record, "purchase_date");
-    }
-
     export function newRecord(): Record {
         const bag: Record = {
             id: "",

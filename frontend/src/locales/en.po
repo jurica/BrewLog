@@ -128,7 +128,7 @@ msgstr "Initial Weight"
 #. placeholder {0}: bag.initial_weight_g
 #. placeholder {0}: bag.leftover_amount_g
 #. placeholder {0}: bag.initial_weight_g
-#. placeholder {0}: cup.used_coffee_g
+#. placeholder {0}: bag.leftover_amount_g
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
@@ -214,6 +214,7 @@ msgid "Opened {0}"
 msgstr "Opened {0}"
 
 #: src/routes/_authorized/bags/index.svelte
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 #: src/routes/_authorized/roasters/index.svelte
 msgid "No image"
@@ -284,22 +285,27 @@ msgstr "The bean you're looking for doesn't exist or has been deleted"
 msgid "Back to Beans"
 msgstr "Back to Beans"
 
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 msgid "Beans"
 msgstr "Beans"
 
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 msgid "<0/> New Bean"
 msgstr "<0/> New Bean"
 
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 msgid "No beans yet"
 msgstr "No beans yet"
 
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 msgid "Create your first bean to get started"
 msgstr "Create your first bean to get started"
 
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 msgid "<0/> Create First Bean"
 msgstr "<0/> Create First Bean"
@@ -808,4 +814,3 @@ msgstr "Opened Date"
 #: src/lib/components/BagForm.svelte
 msgid "Finished Date"
 msgstr "Finished Date"
-te"

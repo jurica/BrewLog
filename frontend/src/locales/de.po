@@ -462,27 +462,33 @@ msgid "Opened {0}"
 msgstr ""
 
 #: src/routes/_authorized/bags/index.svelte
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 #: src/routes/_authorized/roasters/index.svelte
 msgid "No image"
 msgstr ""
 
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 msgid "Beans"
 msgstr ""
 
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 msgid "<0/> New Bean"
 msgstr ""
 
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 msgid "No beans yet"
 msgstr ""
 
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 msgid "Create your first bean to get started"
 msgstr ""
 
+#: src/routes/_authorized/beans/index.lazy.svelte
 #: src/routes/_authorized/beans/index.svelte
 msgid "<0/> Create First Bean"
 msgstr ""
@@ -528,6 +534,7 @@ msgstr ""
 
 #. placeholder {0}: bag.initial_weight_g
 #. placeholder {0}: bag.leftover_amount_g
+#. placeholder {0}: bag.initial_weight_g
 #. placeholder {0}: cup.used_coffee_g
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
@@ -541,6 +548,7 @@ msgstr ""
 msgid "Yield"
 msgstr ""
 
+#. placeholder {0}: cup.yield_g
 #. placeholder {0}: cup.yield_g
 #: src/routes/_authorized/cups/[cupId]/index.svelte
 #: src/routes/_authorized/cups/index.svelte
@@ -560,6 +568,7 @@ msgstr ""
 msgid "Temperature"
 msgstr ""
 
+#. placeholder {0}: cup.water_temp_c
 #. placeholder {0}: cup.water_temp_c
 #: src/routes/_authorized/cups/[cupId]/index.svelte
 #: src/routes/_authorized/cups/index.svelte
@@ -805,3 +814,4 @@ msgstr ""
 #: src/routes/_authorized/roasters/[roasterId]/index.svelte
 msgid "The roaster you're looking for doesn't exist or has been deleted"
 msgstr ""
+ ""
