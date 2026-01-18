@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-17T11:19:28.008Z\n"
-"PO-Revision-Date: 2026-01-17T11:19:28.008Z\n"
+"POT-Creation-Date: 2026-01-18T14:03:04.440Z\n"
+"PO-Revision-Date: 2026-01-18T14:03:04.440Z\n"
 "Last-Translator: \n"
 "Language: en\n"
 "Language-Team: \n"
@@ -12,6 +12,82 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Source-Language: en\n"
 "MIME-Version: 1.0\n"
+
+#: src/lib/components/BagForm.svelte
+msgid "Please select a bean"
+msgstr "Please select a bean"
+
+#: src/lib/components/BagForm.svelte
+#: src/lib/components/BeanForm.svelte
+#: src/lib/components/CupForm.svelte
+#: src/lib/components/RoasterForm.svelte
+msgid "An error occurred"
+msgstr "An error occurred"
+
+#: src/lib/components/BagForm.svelte
+msgid "Edit Bag"
+msgstr "Edit Bag"
+
+#: src/lib/components/BagForm.svelte
+msgid "New Bag"
+msgstr "New Bag"
+
+#: src/lib/components/BagForm.svelte
+msgid "Update bag details"
+msgstr "Update bag details"
+
+#: src/lib/components/BagForm.svelte
+msgid "Create a new bag entry"
+msgstr "Create a new bag entry"
+
+#: src/lib/components/BagForm.svelte
+msgid "Bag Information"
+msgstr "Bag Information"
+
+#: src/lib/components/BagForm.svelte
+msgid "Initial Weight (g) *"
+msgstr "Initial Weight (g) *"
+
+#: src/lib/components/BagForm.svelte
+msgid "Roast Date"
+msgstr "Roast Date"
+
+#: src/lib/components/BagForm.svelte
+msgid "Leftover Amount (g)"
+msgstr "Leftover Amount (g)"
+
+#: src/lib/components/BagForm.svelte
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "Price"
+msgstr "Price"
+
+#: src/lib/components/BagForm.svelte
+msgid "Currency"
+msgstr "Currency"
+
+#: src/lib/components/BagForm.svelte
+#: src/lib/components/CupForm.svelte
+msgid "Saving..."
+msgstr "Saving..."
+
+#: src/lib/components/BagForm.svelte
+msgid "Update Bag"
+msgstr "Update Bag"
+
+#: src/lib/components/BagForm.svelte
+msgid "Create Bag"
+msgstr "Create Bag"
+
+#: src/lib/components/BagForm.svelte
+#: src/lib/components/BeanForm.svelte
+#: src/lib/components/CupForm.svelte
+#: src/lib/components/RoasterForm.svelte
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/lib/components/DatePicker.svelte
+msgid "Select date"
+msgstr "Select date"
 
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "<0/> Back to Bags"
@@ -52,7 +128,7 @@ msgstr "Initial Weight"
 #. placeholder {0}: bag.initial_weight_g
 #. placeholder {0}: bag.leftover_amount_g
 #. placeholder {0}: bag.initial_weight_g
-#. placeholder {0}: bag.leftover_amount_g
+#. placeholder {0}: cup.used_coffee_g
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
@@ -81,11 +157,6 @@ msgstr "Leftover"
 #: src/routes/_authorized/bags/index.svelte
 msgid "Finished"
 msgstr "Finished"
-
-#: src/lib/components/BagForm.svelte
-#: src/routes/_authorized/bags/[bagId]/index.svelte
-msgid "Price"
-msgstr "Price"
 
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "Bag not found"
@@ -148,25 +219,9 @@ msgstr "Opened {0}"
 msgid "No image"
 msgstr "No image"
 
-#: src/routes/_authorized/beans/index.svelte
-msgid "Beans"
-msgstr "Beans"
-
-#: src/routes/_authorized/beans/index.svelte
-msgid "<0/> New Bean"
-msgstr "<0/> New Bean"
-
-#: src/routes/_authorized/beans/index.svelte
-msgid "No beans yet"
-msgstr "No beans yet"
-
-#: src/routes/_authorized/beans/index.svelte
-msgid "Create your first bean to get started"
-msgstr "Create your first bean to get started"
-
-#: src/routes/_authorized/beans/index.svelte
-msgid "<0/> Create First Bean"
-msgstr "<0/> Create First Bean"
+#: src/routes/_authorized/bags/new.svelte
+msgid "loading..."
+msgstr "loading..."
 
 #: src/routes/_authorized/beans/[beanId]/index.svelte
 msgid "<0/> Back to Beans"
@@ -228,6 +283,26 @@ msgstr "The bean you're looking for doesn't exist or has been deleted"
 #: src/routes/_authorized/beans/[beanId]/index.svelte
 msgid "Back to Beans"
 msgstr "Back to Beans"
+
+#: src/routes/_authorized/beans/index.svelte
+msgid "Beans"
+msgstr "Beans"
+
+#: src/routes/_authorized/beans/index.svelte
+msgid "<0/> New Bean"
+msgstr "<0/> New Bean"
+
+#: src/routes/_authorized/beans/index.svelte
+msgid "No beans yet"
+msgstr "No beans yet"
+
+#: src/routes/_authorized/beans/index.svelte
+msgid "Create your first bean to get started"
+msgstr "Create your first bean to get started"
+
+#: src/routes/_authorized/beans/index.svelte
+msgid "<0/> Create First Bean"
+msgstr "<0/> Create First Bean"
 
 #: src/routes/_authorized/cups/[cupId]/index.svelte
 msgid "<0/> Back to Cups"
@@ -358,6 +433,26 @@ msgstr "{0} s"
 msgid "Temperature"
 msgstr "Temperature"
 
+#: src/routes/_authorized/roasters/index.svelte
+msgid "Roasters"
+msgstr "Roasters"
+
+#: src/routes/_authorized/roasters/index.svelte
+msgid "<0/> New Roaster"
+msgstr "<0/> New Roaster"
+
+#: src/routes/_authorized/roasters/index.svelte
+msgid "No roasters yet"
+msgstr "No roasters yet"
+
+#: src/routes/_authorized/roasters/index.svelte
+msgid "Create your first roaster to get started"
+msgstr "Create your first roaster to get started"
+
+#: src/routes/_authorized/roasters/index.svelte
+msgid "<0/> Create First Roaster"
+msgstr "<0/> Create First Roaster"
+
 #: src/routes/_authorized/roasters/[roasterId]/index.svelte
 msgid "<0/> Back to Roasters"
 msgstr "<0/> Back to Roasters"
@@ -382,26 +477,6 @@ msgstr "The roaster you're looking for doesn't exist or has been deleted"
 #: src/routes/_authorized/roasters/[roasterId]/index.svelte
 msgid "Back to Roasters"
 msgstr "Back to Roasters"
-
-#: src/routes/_authorized/roasters/index.svelte
-msgid "Roasters"
-msgstr "Roasters"
-
-#: src/routes/_authorized/roasters/index.svelte
-msgid "<0/> New Roaster"
-msgstr "<0/> New Roaster"
-
-#: src/routes/_authorized/roasters/index.svelte
-msgid "No roasters yet"
-msgstr "No roasters yet"
-
-#: src/routes/_authorized/roasters/index.svelte
-msgid "Create your first roaster to get started"
-msgstr "Create your first roaster to get started"
-
-#: src/routes/_authorized/roasters/index.svelte
-msgid "<0/> Create First Roaster"
-msgstr "<0/> Create First Roaster"
 
 #: src/routes/_unauthorized/(login).svelte
 #: src/routes/_unauthorized/(login).svelte
@@ -431,97 +506,6 @@ msgstr "Don't have an account? <0>Sign up</0>"
 #: src/lib/components/ui/spinner/spinner.svelte
 msgid "Loading"
 msgstr "Loading"
-
-#: src/lib/components/BagBeanSelector.svelte
-msgid "Select a bean..."
-msgstr "Select a bean..."
-
-#: src/lib/components/BagForm.svelte
-msgid "Please select a bean"
-msgstr "Please select a bean"
-
-#: src/lib/components/BagForm.svelte
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/CupForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "An error occurred"
-msgstr "An error occurred"
-
-#: src/lib/components/BagForm.svelte
-msgid "Edit Bag"
-msgstr "Edit Bag"
-
-#: src/lib/components/BagForm.svelte
-msgid "New Bag"
-msgstr "New Bag"
-
-#: src/lib/components/BagForm.svelte
-msgid "Update bag details"
-msgstr "Update bag details"
-
-#: src/lib/components/BagForm.svelte
-msgid "Create a new bag entry"
-msgstr "Create a new bag entry"
-
-#: src/lib/components/BagForm.svelte
-msgid "Bag Information"
-msgstr "Bag Information"
-
-#: src/lib/components/BagBeanSelector.svelte
-msgid "Bean *"
-msgstr "Bean *"
-
-#: src/lib/components/BagBeanSelector.svelte
-msgid "Search beans..."
-msgstr "Search beans..."
-
-#: src/lib/components/BagBeanSelector.svelte
-msgid "No bean found."
-msgstr "No bean found."
-
-#: src/lib/components/BagForm.svelte
-msgid "Initial Weight (g) *"
-msgstr "Initial Weight (g) *"
-
-#: src/lib/components/BagForm.svelte
-msgid "Roast Date"
-msgstr "Roast Date"
-
-#: src/lib/components/BagForm.svelte
-msgid "Opened Date"
-msgstr "Opened Date"
-
-#: src/lib/components/BagForm.svelte
-msgid "Finished Date"
-msgstr "Finished Date"
-
-#: src/lib/components/BagForm.svelte
-msgid "Leftover Amount (g)"
-msgstr "Leftover Amount (g)"
-
-#: src/lib/components/BagForm.svelte
-msgid "Currency"
-msgstr "Currency"
-
-#: src/lib/components/BagForm.svelte
-#: src/lib/components/CupForm.svelte
-msgid "Saving..."
-msgstr "Saving..."
-
-#: src/lib/components/BagForm.svelte
-msgid "Update Bag"
-msgstr "Update Bag"
-
-#: src/lib/components/BagForm.svelte
-msgid "Create Bag"
-msgstr "Create Bag"
-
-#: src/lib/components/BagForm.svelte
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/CupForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "Cancel"
-msgstr "Cancel"
 
 #: src/lib/components/BeanForm.svelte
 msgid "Edit Bean"
@@ -784,6 +768,22 @@ msgstr "Sidebar"
 msgid "Displays the mobile sidebar."
 msgstr "Displays the mobile sidebar."
 
+#: src/lib/components/BagBeanSelector.svelte
+msgid "Bean *"
+msgstr "Bean *"
+
+#: src/lib/components/BagBeanSelector.svelte
+msgid "Select a bean..."
+msgstr "Select a bean..."
+
+#: src/lib/components/BagBeanSelector.svelte
+msgid "Search beans..."
+msgstr "Search beans..."
+
+#: src/lib/components/BagBeanSelector.svelte
+msgid "No bean found."
+msgstr "No bean found."
+
 #: src/lib/components/ui/command/command-dialog.svelte
 msgid "Command Palette"
 msgstr "Command Palette"
@@ -797,17 +797,15 @@ msgstr "Search for a command to run"
 msgid "Close"
 msgstr "Close"
 
-#: src/routes/_authorized/bags/new.svelte
-msgid "loading..."
-msgstr "loading..."
-
-#: src/lib/components/DatePicker.svelte
-msgid "Select date"
-msgstr "Select date"
-
-#~ msgid "Please select Bean"
-#~ msgstr "Please select Bean"
-
 #: src/lib/components/BagForm.svelte
 msgid "Purchase Date"
 msgstr "Purchase Date"
+
+#: src/lib/components/BagForm.svelte
+msgid "Opened Date"
+msgstr "Opened Date"
+
+#: src/lib/components/BagForm.svelte
+msgid "Finished Date"
+msgstr "Finished Date"
+te"

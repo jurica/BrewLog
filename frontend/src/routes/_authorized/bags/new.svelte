@@ -3,13 +3,12 @@
   import * as Api from "$lib/api";
 
   let bag = $state(Api.Collections.Bag.newRecord());
-  $inspect(bag);
 
-  let response2 = $derived(Api.Collections.Bean.getList());
+  let response = $derived(Api.Collections.Bean.getList());
 </script>
 
-{#if response2.loading || response2.data === undefined}
+{#if response.loading || response.data === undefined}
 loading...
 {:else}
-<BagForm bind:bag={bag} beans={response2.data}/>
+<BagForm bind:bag={bag} beans={response.data}/>
 {/if}

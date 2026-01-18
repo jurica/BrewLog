@@ -3,9 +3,8 @@
   import * as Api from "$lib/api";
   import { route } from "sv-router/generated";
 
-  let response = Api.Collections.Bag.getOne(route.params.bagId);
+  let response = Api.Collections.Bag.getOne(route.params.bagId!);
   let response2 = Api.Collections.Bean.getList();
-  $inspect(response.data);
 </script>
 
 {#if response.loading || response.data === undefined || response2.loading || response2.data === undefined}

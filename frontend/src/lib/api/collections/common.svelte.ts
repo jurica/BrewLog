@@ -6,7 +6,7 @@ export interface PB_Record {
 }
 
 export class Response<Type extends PB_Record | PB_Record[]> {
-  data: Type = $state();
+  data: Type | undefined = $state();
   error = $state();
   loading = $state(false);
 }

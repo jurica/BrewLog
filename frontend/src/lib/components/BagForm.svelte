@@ -13,10 +13,6 @@
     beans: Api.Collections.Bean.Record[];
   }
   let { bag = $bindable(), beans }: Props = $props();
-  let roastDate = Api.Collections.Bag.getRoastDateZonedDateTimeProxy(bag);
-  let purchaseDate = Api.Collections.Bag.getPurchaseDateZonedDateTimeProxy(bag);
-  let openDate = Api.Collections.Bag.getOpenDateZonedDateTimeProxy(bag);
-  let finishDate = Api.Collections.Bag.getFinishDateZonedDateTimeProxy(bag);
 
   let isLoading = $state(false);
   let error = $state<string | null>(null);
@@ -33,14 +29,7 @@
     }
 
     try {
-      if (bag?.id) {
-        await Api.pb.collection("bags").update(bag.id, bag);
-      } else {
-        bag = await Api.pb
-          .collection("bags")
-          .create<Api.Collections.Bag.Record>(bag);
-      }
-
+      bag = await Api.Collections.Bag.persist(bag);
       navigate("/bags/:bagId", { params: { bagId: bag.id } });
     } catch (err) {
       error = err instanceof Error ? err.message : "An error occurred";
@@ -53,7 +42,7 @@
 <div class="space-y-6">
   <div>
     <h1 class="text-3xl font-bold">{bag.id ? "Edit Bag" : "New Bag"}</h1>
-    {#if bag}
+    {#if bag.id}
       <p class="text-sm text-muted-foreground mt-2">Update bag details</p>
     {:else}
       <p class="text-sm text-muted-foreground mt-2">Create a new bag entry</p>
@@ -74,12 +63,10 @@
           </div>
         {/if}
 
-        <!-- Bean Selection (Combobox) -->
         <div class="space-y-2">
           <BagBeanSelector bind:bag {beans} />
         </div>
 
-        <!-- Initial Weight -->
         <div class="space-y-2">
           <Label for="initial_weight_g" class="text-sm font-medium"
             >Initial Weight (g) *</Label
@@ -93,39 +80,37 @@
           />
         </div>
 
-        <!-- Dates Section -->
         <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
           <div class="space-y-2">
             <DatePicker
-              bind:value={roastDate.value}
+              record={bag}
+              property="roast_date"
               label="Roast Date"
-              selectedDate={roastDate.toString()}
             />
           </div>
           <div class="space-y-2">
             <DatePicker
-              bind:value={purchaseDate.value}
+              record={bag}
+              property="purchase_date"
               label="Purchase Date"
-              selectedDate={purchaseDate.toString()}
             />
           </div>
           <div class="space-y-2">
             <DatePicker
-              bind:value={openDate.value}
+              record={bag}
+              property="open_date"
               label="Opened Date"
-              selectedDate={openDate.toString()}
             />
           </div>
           <div class="space-y-2">
             <DatePicker
-              bind:value={finishDate.value}
+              record={bag}
+              property="finish_date"
               label="Finished Date"
-              selectedDate={finishDate.toString()}
             />
           </div>
         </div>
 
-        <!-- Usage & Price Section -->
         <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div class="space-y-2">
             <label for="leftover_amount_g" class="text-sm font-medium"
@@ -159,7 +144,6 @@
           </div>
         </div>
 
-        <!-- Form Actions -->
         <div class="flex gap-3 pt-4">
           <Button type="submit" disabled={isLoading}>
             {isLoading ? "Saving..." : bag.id ? "Update Bag" : "Create Bag"}
