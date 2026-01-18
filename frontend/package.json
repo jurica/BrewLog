@@ -14,7 +14,8 @@
     "test:ui": "playwright test --ui-host localhost --ui-port 36285",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
-    "backend": "cd ../backend && go run . serve"
+    "backend": "cd ../backend && go run . serve",
+    "format": "npx prettier . --write"
   },
   "devDependencies": {
     "@internationalized/date": "^3.10.1",
