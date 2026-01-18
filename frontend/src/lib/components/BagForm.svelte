@@ -2,10 +2,7 @@
   import DatePicker from "$lib/components/DatePicker.svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as Card from "$lib/components/ui/card/index.js";
-  import * as Command from "$lib/components/ui/command/index.js";
-  import * as Popover from "$lib/components/ui/popover/index.js";
   import { Input } from "$lib/components/ui/input/index.js";
-  import { ChevronsUpDown, Check, Trash2 } from "@lucide/svelte";
   import * as Api from "$lib/api";
   import { navigate } from "sv-router/generated";
   import { Label } from "$lib/components/ui/label/index.js";
@@ -16,9 +13,10 @@
     beans: Api.Collections.Bean.Record[];
   }
   let { bag = $bindable(), beans }: Props = $props();
-  let dateRoast = new Api.ZonedDateTimeProxy(bag, "roast_date");
-  let dateOpened = new Api.ZonedDateTimeProxy(bag, "opened_date");
-  let dateFinished = new Api.ZonedDateTimeProxy(bag, "finished_date");
+  let roastDate = Api.Collections.Bag.getRoastDateZonedDateTimeProxy(bag);
+  let purchaseDate = Api.Collections.Bag.getPurchaseDateZonedDateTimeProxy(bag);
+  let openDate = Api.Collections.Bag.getOpenDateZonedDateTimeProxy(bag);
+  let finishDate = Api.Collections.Bag.getFinishDateZonedDateTimeProxy(bag);
 
   let isLoading = $state(false);
   let error = $state<string | null>(null);
@@ -96,26 +94,33 @@
         </div>
 
         <!-- Dates Section -->
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
           <div class="space-y-2">
             <DatePicker
-              bind:value={dateRoast.value}
+              bind:value={roastDate.value}
               label="Roast Date"
-              selectedDate={dateRoast.toString()}
+              selectedDate={roastDate.toString()}
             />
           </div>
           <div class="space-y-2">
             <DatePicker
-              bind:value={dateOpened.value}
+              bind:value={purchaseDate.value}
+              label="Purchase Date"
+              selectedDate={purchaseDate.toString()}
+            />
+          </div>
+          <div class="space-y-2">
+            <DatePicker
+              bind:value={openDate.value}
               label="Opened Date"
-              selectedDate={dateOpened.toString()}
+              selectedDate={openDate.toString()}
             />
           </div>
           <div class="space-y-2">
             <DatePicker
-              bind:value={dateFinished.value}
+              bind:value={finishDate.value}
               label="Finished Date"
-              selectedDate={dateFinished.toString()}
+              selectedDate={finishDate.toString()}
             />
           </div>
         </div>

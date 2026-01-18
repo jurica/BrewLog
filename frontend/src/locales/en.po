@@ -51,8 +51,8 @@ msgstr "Initial Weight"
 
 #. placeholder {0}: bag.initial_weight_g
 #. placeholder {0}: bag.leftover_amount_g
-#. placeholder {0}: cup.used_coffee_g
-#. placeholder {0}: cup.used_coffee_g
+#. placeholder {0}: bag.initial_weight_g
+#. placeholder {0}: bag.leftover_amount_g
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
@@ -132,12 +132,12 @@ msgstr "Create your first bag to get started"
 msgid "<0/> Create First Bag"
 msgstr "<0/> Create First Bag"
 
-#. placeholder {0}: new Date(bag.finished_date).toLocaleDateString()
+#. placeholder {0}: new Date(bag.finish_date).toLocaleDateString()
 #: src/routes/_authorized/bags/index.svelte
 msgid "Finished {0}"
 msgstr "Finished {0}"
 
-#. placeholder {0}: new Date(bag.opened_date).toLocaleDateString()
+#. placeholder {0}: new Date(bag.open_date).toLocaleDateString()
 #: src/routes/_authorized/bags/index.svelte
 msgid "Opened {0}"
 msgstr "Opened {0}"
@@ -807,3 +807,7 @@ msgstr "Select date"
 
 #~ msgid "Please select Bean"
 #~ msgstr "Please select Bean"
+
+#: src/lib/components/BagForm.svelte
+msgid "Purchase Date"
+msgstr "Purchase Date"

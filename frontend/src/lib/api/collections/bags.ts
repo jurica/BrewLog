@@ -1,21 +1,19 @@
 import { pb } from "../client";
 import { Response, PB_Record } from "./common.svelte";
 import { Bean } from "./beans";
-
-// export class Bag implements Bag.Record {
-// }
-
+import { ZonedDateTimeProxy } from "../utils";
 
 export namespace Bag {
     const collectionName = "bags";
     export interface Record extends PB_Record {
         initial_weight_g: number;
-        opened_date: string;
-        finished_date: string;
+        roast_date: string;
+        purchase_date: string;
+        open_date: string;
+        finish_date: string;
         leftover_amount_g: number;
         price: number;
         currency: string;
-        roast_date: string;
         expand: {
             bean: Bean.Record;
         };
@@ -24,11 +22,27 @@ export namespace Bag {
     export type Filters = "opened" | "all" | "unopened" | "finished";
     export type FilterValues<T> = { [key in Filters]: T };
     export const FilterQueries: FilterValues<string> = {
-        opened: "opened_date != '' && finished_date = ''",
+        opened: "open_date != '' && finish_date = ''",
         all: "",
-        unopened: "opened_date = ''",
-        finished: "finished_date != ''"
+        unopened: "open_date = ''",
+        finished: "finish_date != ''"
     };
+
+    export function getRoastDateZonedDateTimeProxy(record: Record) : ZonedDateTimeProxy<Record> {
+        return new ZonedDateTimeProxy<Record>(record, "roast_date");
+    }
+
+    export function getOpenDateZonedDateTimeProxy(record: Record) : ZonedDateTimeProxy<Record> {
+        return new ZonedDateTimeProxy<Record>(record, "open_date");
+    }
+
+    export function getFinishDateZonedDateTimeProxy(record: Record) : ZonedDateTimeProxy<Record> {
+        return new ZonedDateTimeProxy<Record>(record, "finish_date");
+    }
+
+    export function getPurchaseDateZonedDateTimeProxy(record: Record) : ZonedDateTimeProxy<Record> {
+        return new ZonedDateTimeProxy<Record>(record, "purchase_date");
+    }
 
     export function newRecord(): Record {
         const bag: Record = {
@@ -37,13 +51,14 @@ export namespace Bag {
             updated: "",
             created: "",
             bean: "",
-            finished_date: "",
+            finish_date: "",
             roast_date: "",
             currency: "EUR",
             leftover_amount_g: 0,
             price: 0.00,
             initial_weight_g: 250,
-            opened_date: "",
+            open_date: "",
+            purchase_date: "",
             expand: {
                 bean: Bean.newRecord()
                 }

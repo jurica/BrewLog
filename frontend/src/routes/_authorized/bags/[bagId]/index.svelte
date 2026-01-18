@@ -128,11 +128,11 @@
               </p>
             </div>
           {/if}
-          {#if bag.opened_date}
+          {#if bag.open_date}
             <div>
               <p class="text-sm text-muted-foreground">Opened</p>
               <p class="text-sm">
-                {new Date(bag.opened_date).toLocaleDateString()}
+                {new Date(bag.open_date).toLocaleDateString()}
               </p>
             </div>
           {/if}
@@ -150,11 +150,11 @@
               <p class="text-sm font-medium">{bag.leftover_amount_g}g</p>
             </div>
           {/if}
-          {#if bag.finished_date}
+          {#if bag.finish_date}
             <div>
               <p class="text-sm text-muted-foreground">Finished</p>
               <p class="text-sm">
-                {new Date(bag.finished_date).toLocaleDateString()}
+                {new Date(bag.finish_date).toLocaleDateString()}
               </p>
             </div>
           {/if}

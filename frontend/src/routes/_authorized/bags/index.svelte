@@ -98,10 +98,10 @@
                 {bag.expand.bean.name}
               </Card.Title>
               <Card.Description>
-                {#if bag.finished_date}
-                  Finished {new Date(bag.finished_date).toLocaleDateString()}
-                {:else if bag.opened_date}
-                  Opened {new Date(bag.opened_date).toLocaleDateString()}
+                {#if bag.finish_date}
+                  Finished {new Date(bag.finish_date).toLocaleDateString()}
+                {:else if bag.open_date}
+                  Opened {new Date(bag.open_date).toLocaleDateString()}
                 {:else}
                   Unopened
                 {/if}
