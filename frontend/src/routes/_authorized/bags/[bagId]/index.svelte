@@ -5,9 +5,9 @@
   import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import { navigate, route } from "sv-router/generated";
-  import { ArrowLeft, MoreHorizontal, Edit2, Trash2 } from "@lucide/svelte";
+  import { ArrowLeft, Ellipsis, Pen, Trash2 } from "@lucide/svelte";
 
-  let response = $derived(Api.Collections.Bag.getOne(route.params.bagId));
+  let response = $derived(Api.Collections.Bags.getOne(route.params.bagId!));
 </script>
 
 <div class="space-y-6">
@@ -29,7 +29,7 @@
         onclick={() =>
           navigate("/bags/:bagId/edit", { params: { bagId: route.params.bagId } })}
       >
-        <Edit2 class="h-4 w-4" />
+        <Pen class="h-4 w-4" />
         Edit
       </Button>
       <DropdownMenu.Root>
@@ -41,7 +41,7 @@
               size="icon-sm"
               aria-label="More Options"
             >
-              <MoreHorizontal class="h-4 w-4" />
+              <Ellipsis class="h-4 w-4" />
             </Button>
           {/snippet}
         </DropdownMenu.Trigger>

@@ -8,7 +8,7 @@
   import { cn } from "$lib/utils.js";
 
   interface Props {
-    bag: Api.Collections.Bag.Record;
+    bag: Api.Collections.Bags.Record;
     beans: Api.Collections.Bean.Record[];
   }
   let { bag = $bindable(), beans }: Props = $props();

@@ -1,6 +1,6 @@
 import { pb } from "../client";
 import { Response, PB_Record } from "./common.svelte";
-import { Bag } from "./bags";
+import { Bags } from "./bags";
 
 export namespace Cups {
     const collectionName = "cups";
@@ -13,7 +13,7 @@ export namespace Cups {
         rating: number;
         notes: string;
         expand: {
-            bag: Bag.Record;
+            bag: Bags.Record;
         }
     }
 
@@ -31,7 +31,7 @@ export namespace Cups {
             rating: 0,
             notes: "",
             expand: {
-                bag: Bag.newRecord()
+                bag: Bags.newRecord()
             }
         }
         return record;

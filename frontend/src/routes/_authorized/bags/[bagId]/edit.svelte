@@ -3,7 +3,7 @@
   import * as Api from "$lib/api";
   import { route } from "sv-router/generated";
 
-  let response = Api.Collections.Bag.getOne(route.params.bagId!);
+  let response = Api.Collections.Bags.getOne(route.params.bagId!);
   let response2 = Api.Collections.Bean.getList();
 </script>
 

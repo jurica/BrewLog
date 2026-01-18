@@ -1,9 +1,8 @@
 import { pb } from "../client";
 import { Response, PB_Record } from "./common.svelte";
 import { Bean } from "./beans";
-import { ZonedDateTimeProxy } from "../utils";
 
-export namespace Bag {
+export namespace Bags {
     const collectionName = "bags";
     export interface Record extends PB_Record {
         initial_weight_g: number;

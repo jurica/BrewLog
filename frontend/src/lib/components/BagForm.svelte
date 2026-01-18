@@ -9,7 +9,7 @@
   import BagBeanSelector from "./BagBeanSelector.svelte";
 
   interface Props {
-    bag: Api.Collections.Bag.Record;
+    bag: Api.Collections.Bags.Record;
     beans: Api.Collections.Bean.Record[];
   }
   let { bag = $bindable(), beans }: Props = $props();
@@ -29,7 +29,7 @@
     }
 
     try {
-      bag = await Api.Collections.Bag.persist(bag);
+      bag = await Api.Collections.Bags.persist(bag);
       navigate("/bags/:bagId", { params: { bagId: bag.id } });
     } catch (err) {
       error = err instanceof Error ? err.message : "An error occurred";

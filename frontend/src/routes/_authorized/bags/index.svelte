@@ -8,15 +8,15 @@
   import { navigate, p } from "sv-router/generated";
   import { Plus } from "@lucide/svelte";
 
-  let bagFilter: Api.Collections.Bag.Filters = $state("opened");
-  const filterLabels : Api.Collections.Bag.FilterValues<string> = {
+  let bagFilter: Api.Collections.Bags.Filters = $state("opened");
+  const filterLabels : Api.Collections.Bags.FilterValues<string> = {
     unopened: "Unopened",
     opened: "Opened",
     finished: "Finished",
     all: "All",
 };
 
-  let response = $derived(Api.Collections.Bag.getList(bagFilter));
+  let response = $derived(Api.Collections.Bags.getList(bagFilter));
 </script>
 
 <div class="space-y-6">
