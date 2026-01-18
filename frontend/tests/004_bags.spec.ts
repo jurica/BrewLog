@@ -19,6 +19,12 @@ test('2. add bag and edit', async ({ page }) => {
     await page.getByRole('button', { name: 'Monday, December 15,' }).click();
     await expect(page.getByRole('application', { name: 'Event Dec' })).not.toBeVisible();
     await expect(page.locator('[data-test-id="btn-Roast Date"]')).toContainText('12/15/2025');
+    await page.locator('[data-test-id="btn-Purchase Date"]').click();
+    await page.getByLabel('Select a year').selectOption('2025');
+    await page.getByLabel('Select a month').selectOption('12');
+    await page.getByRole('button', { name: 'Tuesday, December 16,' }).click();
+    await expect(page.getByRole('application', { name: 'Event Dec' })).not.toBeVisible();
+    await expect(page.locator('[data-test-id="btn-Purchase Date"]')).toContainText('12/16/2025');
     await page.getByRole('spinbutton', { name: 'Price' }).fill('8.90');
     await page.getByRole('button', { name: 'Create Bag' }).click();
     await expect(page).not.toHaveURL(/new/);
@@ -26,6 +32,8 @@ test('2. add bag and edit', async ({ page }) => {
     await expect(page.getByText('Roaster 1')).toBeVisible();
     await expect(page.getByText('Bag Details')).toBeVisible();
     await page.getByRole('button', { name: 'Edit' }).click();
+    await expect(page.locator('[data-test-id="btn-Roast Date"]')).toContainText('12/15/2025');
+    await expect(page.locator('[data-test-id="btn-Purchase Date"]')).toContainText('12/16/2025');
     await page.getByRole('spinbutton', { name: 'Initial Weight (g) *' }).click();
     await page.getByRole('spinbutton', { name: 'Initial Weight (g) *' }).fill('500');
     await page.getByRole('button', { name: 'Update Bag' }).click();
@@ -45,6 +53,12 @@ test('3. add bag 2', async ({ page }) => {
     await page.getByRole('button', { name: 'Monday, December 15,' }).click();
     await expect(page.getByRole('application', { name: 'Event Dec' })).not.toBeVisible();
     await expect(page.locator('[data-test-id="btn-Roast Date"]')).toContainText('12/15/2025');
+    await page.locator('[data-test-id="btn-Purchase Date"]').click();
+    await page.getByLabel('Select a year').selectOption('2025');
+    await page.getByLabel('Select a month').selectOption('12');
+    await page.getByRole('button', { name: 'Tuesday, December 16,' }).click();
+    await expect(page.getByRole('application', { name: 'Event Dec' })).not.toBeVisible();
+    await expect(page.locator('[data-test-id="btn-Purchase Date"]')).toContainText('12/16/2025');
     await page.locator('[data-test-id="btn-Opened Date"]').click();
     await page.getByLabel('Select a year').selectOption('2025');
     await page.getByLabel('Select a month').selectOption('12');
@@ -77,6 +91,12 @@ test('4. add bean 3', async ({ page }) => {
     await page.getByRole('button', { name: 'Wednesday, December 17,' }).click();
     await expect(page.getByRole('application', { name: 'Event Dec' })).not.toBeVisible();
     await expect(page.locator('[data-test-id="btn-Opened Date"]')).toContainText('12/17/2025');
+    await page.locator('[data-test-id="btn-Purchase Date"]').click();
+    await page.getByLabel('Select a year').selectOption('2025');
+    await page.getByLabel('Select a month').selectOption('12');
+    await page.getByRole('button', { name: 'Tuesday, December 16,' }).click();
+    await expect(page.getByRole('application', { name: 'Event Dec' })).not.toBeVisible();
+    await expect(page.locator('[data-test-id="btn-Purchase Date"]')).toContainText('12/16/2025');
     await page.locator('[data-test-id="btn-Finished Date"]').click();
     await page.getByLabel('Select a year').selectOption('2025');
     await page.getByLabel('Select a month').selectOption('12');
