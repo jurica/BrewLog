@@ -37,7 +37,7 @@
       <Sidebar.GroupContent>
         <Sidebar.Menu>
           <SidebarMenuItem
-            isActive={isActive("/cups")}
+            isActive={isActive("/cups") || isActive("/cups/:cupId")}
             onclick={() => navigate("/cups")}
           >
             <CoffeeIcon /> Cups

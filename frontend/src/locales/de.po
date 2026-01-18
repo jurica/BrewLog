@@ -318,12 +318,11 @@ msgstr ""
 msgid "Current bean image"
 msgstr ""
 
-#: src/lib/components/CupForm.svelte
+#: src/lib/components/CupBagSelector.svelte
 msgid "Select a bag..."
 msgstr ""
 
-#: src/lib/components/CupForm.svelte
-#: src/lib/components/CupForm.svelte
+#: src/lib/components/CupBagSelector.svelte
 msgid "Unknown"
 msgstr ""
 
@@ -347,17 +346,15 @@ msgstr ""
 msgid "Brew Information"
 msgstr ""
 
-#: src/lib/components/CupForm.svelte
+#: src/lib/components/CupBagSelector.svelte
 msgid "Bag *"
 msgstr ""
 
-#: src/lib/components/CupForm.svelte
-msgid "Search bags..."
-msgstr ""
+#~ msgid "Search bags..."
+#~ msgstr ""
 
-#: src/lib/components/CupForm.svelte
-msgid "No bag found."
-msgstr ""
+#~ msgid "No bag found."
+#~ msgstr ""
 
 #: src/lib/components/CupForm.svelte
 msgid "Coffee (g)"
@@ -443,7 +440,7 @@ msgstr ""
 #. placeholder {0}: bag.leftover_amount_g
 #. placeholder {0}: bag.leftover_amount_g
 #. placeholder {0}: bag.initial_weight_g
-#. placeholder {0}: bag.leftover_amount_g
+#. placeholder {0}: cup.used_coffee_g
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
@@ -529,6 +526,7 @@ msgid "Opened {0}"
 msgstr ""
 
 #: src/routes/_authorized/bags/new.svelte
+#: src/routes/_authorized/cups/new.svelte
 msgid "loading..."
 msgstr ""
 
@@ -798,13 +796,18 @@ msgid "Select a bean..."
 msgstr ""
 
 #: src/lib/components/BagBeanSelector.svelte
+#: src/lib/components/CupBagSelector.svelte
 msgid "Search beans..."
 msgstr ""
 
 #: src/lib/components/BagBeanSelector.svelte
+#: src/lib/components/CupBagSelector.svelte
 msgid "No bean found."
 msgstr ""
 
 #: src/lib/components/DatePicker.svelte
 msgid "Select date"
 msgstr ""
+
+#~ msgid "lolol{0}"
+#~ msgstr ""
