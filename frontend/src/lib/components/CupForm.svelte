@@ -23,7 +23,7 @@
   let photoPreview = $state<string | undefined>(
     cup?.pictures.length > 0
       ? Api.pb.files.getURL(cup, cup.pictures.at(0))
-      : undefined,
+      : undefined
   );
 
   let formData = $state({
@@ -34,7 +34,7 @@
     brew_time_s: cup?.brew_time_s || "",
     rating: cup?.rating || "",
     notes: cup?.notes || "",
-    photo: undefined as File | undefined,
+    photo: undefined as File | undefined
   });
 
   let isLoading = $state(false);
@@ -174,7 +174,7 @@
                       <Check
                         class={cn(
                           "mr-2 h-4 w-4",
-                          formData.bag !== bag.id && "text-transparent",
+                          formData.bag !== bag.id && "text-transparent"
                         )}
                       />
                       <div class="flex flex-col">

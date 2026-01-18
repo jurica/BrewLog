@@ -4,7 +4,7 @@
   import { route } from "sv-router/generated";
 
   let response = $derived(
-    Api.Collections.Roaster.getOne(route.params.roasterId),
+    Api.Collections.Roaster.getOne(route.params.roasterId)
   );
 </script>
 

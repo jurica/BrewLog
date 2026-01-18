@@ -51,7 +51,11 @@
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {#each response.data as cup}
         {@const href = p("/cups/:cupId", { params: { cupId: cup.id } })}
-        <a {href} class="group" data-test-id="card-{cup.expand?.bag?.expand?.bean?.name}">
+        <a
+          {href}
+          class="group"
+          data-test-id="card-{cup.expand?.bag?.expand?.bean?.name}"
+        >
           <Card.Root
             class="transition-all hover:shadow-lg hover:border-primary/50"
           >

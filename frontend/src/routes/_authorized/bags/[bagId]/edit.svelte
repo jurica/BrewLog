@@ -20,5 +20,5 @@
     </div>
   </div>
 {:else}
-  <BagForm bind:bag={response.data} beans={response2.data}/>
+  <BagForm bind:bag={response.data} beans={response2.data} />
 {/if}

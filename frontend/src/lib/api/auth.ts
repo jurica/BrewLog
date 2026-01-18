@@ -16,4 +16,3 @@ export async function logout() {
 export function isAuthenticated(): boolean {
   return pb.authStore.isValid;
 }
-

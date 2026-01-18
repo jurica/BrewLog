@@ -27,7 +27,9 @@
         size="sm"
         variant="outline"
         onclick={() =>
-          navigate("/bags/:bagId/edit", { params: { bagId: route.params.bagId } })}
+          navigate("/bags/:bagId/edit", {
+            params: { bagId: route.params.bagId }
+          })}
       >
         <Pen class="h-4 w-4" />
         Edit

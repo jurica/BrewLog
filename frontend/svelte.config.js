@@ -7,7 +7,7 @@ export default {
   preprocess: vitePreprocess(),
   compilerOptions: {
     experimental: {
-      async: false,
-    },
-  },
+      async: false
+    }
+  }
 };

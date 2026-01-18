@@ -9,7 +9,7 @@
   import { ArrowLeft, MoreHorizontal, Edit2, Trash2 } from "@lucide/svelte";
 
   let response = $derived(
-    Api.Collections.Roaster.getOne(route.params.roasterId),
+    Api.Collections.Roaster.getOne(route.params.roasterId)
   );
 </script>
 
@@ -31,7 +31,7 @@
         variant="outline"
         onclick={() =>
           navigate("/roasters/:roasterId/edit", {
-            params: { roasterId: route.params.roasterId },
+            params: { roasterId: route.params.roasterId }
           })}
       >
         <Edit2 class="h-4 w-4" />
