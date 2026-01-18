@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
     "get-routes": "sv-router",
@@ -14,7 +14,8 @@
     "test:ui": "playwright test --ui-host localhost --ui-port 36285",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
-    "backend": "cd ../backend && go run . serve"
+    "backend": "cd ../backend && go run . serve",
+    "format": "npx prettier . --write"
   },
   "devDependencies": {
     "@internationalized/date": "^3.10.1",

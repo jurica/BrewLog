@@ -8,15 +8,15 @@
   import { navigate, p } from "sv-router/generated";
   import { Plus } from "@lucide/svelte";
 
-  let bagFilter: Api.Collections.Bag.Filters = $state("opened");
-  const filterLabels : Api.Collections.Bag.FilterValues<string> = {
+  let bagFilter: Api.Collections.Bags.Filters = $state("opened");
+  const filterLabels : Api.Collections.Bags.FilterValues<string> = {
     unopened: "Unopened",
     opened: "Opened",
     finished: "Finished",
     all: "All",
 };
 
-  let response = $derived(Api.Collections.Bag.getList(bagFilter));
+  let response = $derived(Api.Collections.Bags.getList(bagFilter));
 </script>
 
 <div class="space-y-6">
@@ -98,10 +98,10 @@
                 {bag.expand.bean.name}
               </Card.Title>
               <Card.Description>
-                {#if bag.finished_date}
-                  Finished {new Date(bag.finished_date).toLocaleDateString()}
-                {:else if bag.opened_date}
-                  Opened {new Date(bag.opened_date).toLocaleDateString()}
+                {#if bag.finish_date}
+                  Finished {new Date(bag.finish_date).toLocaleDateString()}
+                {:else if bag.open_date}
+                  Opened {new Date(bag.open_date).toLocaleDateString()}
                 {:else}
                   Unopened
                 {/if}

@@ -9,6 +9,19 @@ export namespace Roaster {
         picture?: string;
     }
 
+    export function newRecord(): Record {
+        const roaster: Record = {
+            id: "",
+            collectionName: collectionName,
+            updated: "",
+            created: "",
+            name: "",
+            website: "",
+            picture: "",
+        };
+        return roaster;
+    }
+
     export function getList(): Response<Record[]> {
         const resp = new Response<Record[]>();
 

@@ -13,6 +13,22 @@ export namespace Bean {
         };
     }
 
+    export function newRecord(): Record {
+        const record: Record = {
+            id: "",
+            collectionName: collectionName,
+            updated: "",
+            created: "",
+            name: "",
+            picture: "",
+            roaster: "",
+            expand : {
+                roaster: Roaster.newRecord()
+            }
+        };
+        return record;
+    }
+
     export function getList(): Response<Record[]> {
         const resp = new Response<Record[]>();
 

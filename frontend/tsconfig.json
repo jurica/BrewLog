@@ -1,6 +1,7 @@
 {
   "extends": ["./.router/tsconfig.json"],
   "compilerOptions": {
+    "strict": true,
     "baseUrl": ".",
     "paths": {
       "$lib": ["./src/lib"],

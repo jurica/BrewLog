@@ -3,10 +3,11 @@
   import * as Api from "$lib/api";
   import { route } from "sv-router/generated";
 
-  let response = $derived(Api.Collections.Bag.getOne(route.params.bagId));
+  let response = Api.Collections.Bags.getOne(route.params.bagId!);
+  let response2 = Api.Collections.Bean.getList();
 </script>
 
-{#if response.loading || response.data === undefined}
+{#if response.loading || response.data === undefined || response2.loading || response2.data === undefined}
   <div class="space-y-6">
     <div class="h-10 w-32 rounded bg-muted animate-pulse"></div>
     <div class="rounded-lg border p-6">
@@ -19,5 +20,5 @@
     </div>
   </div>
 {:else}
-  <BagForm bag={response.data} />
+  <BagForm bind:bag={response.data} beans={response2.data}/>
 {/if}
