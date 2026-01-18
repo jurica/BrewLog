@@ -4,7 +4,7 @@
   import { route } from "sv-router/generated";
 
   let response = $derived(Api.Collections.Bean.getOne(route.params.beanId));
-</script> 
+</script>
 
 {#if response.loading}
   <div class="space-y-6">

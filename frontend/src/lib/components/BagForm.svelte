@@ -82,11 +82,7 @@
 
         <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
           <div class="space-y-2">
-            <DatePicker
-              record={bag}
-              property="roast_date"
-              label="Roast Date"
-            />
+            <DatePicker record={bag} property="roast_date" label="Roast Date" />
           </div>
           <div class="space-y-2">
             <DatePicker
@@ -96,11 +92,7 @@
             />
           </div>
           <div class="space-y-2">
-            <DatePicker
-              record={bag}
-              property="open_date"
-              label="Opened Date"
-            />
+            <DatePicker record={bag} property="open_date" label="Opened Date" />
           </div>
           <div class="space-y-2">
             <DatePicker

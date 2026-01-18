@@ -42,7 +42,9 @@
         size="sm"
         variant="outline"
         onclick={() =>
-          navigate("/beans/:beanId/edit", { params: { beanId: route.params.beanId } })}
+          navigate("/beans/:beanId/edit", {
+            params: { beanId: route.params.beanId }
+          })}
       >
         <Edit2 class="h-4 w-4" />
         Edit

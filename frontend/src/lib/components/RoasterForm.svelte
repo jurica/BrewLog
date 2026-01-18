@@ -17,13 +17,13 @@
   let formData = $state({
     name: initialData?.name ?? "",
     website: initialData?.website ?? "",
-    picture: undefined as File | undefined,
+    picture: undefined as File | undefined
   });
 
   let currentImageUrl = $state<string | undefined>(
     initialData?.picture
       ? Api.pb.getFileUrl(initialData, initialData.picture)
-      : undefined,
+      : undefined
   );
   let loading = $state(false);
   let submitted = $state(false);

@@ -2,7 +2,7 @@ import {
   ZonedDateTime,
   getLocalTimeZone,
   parseAbsoluteToLocal,
-  toZoned,
+  toZoned
 } from "@internationalized/date";
 import type { DateValue } from "@internationalized/date";
 import { PB_Record } from "./collections/common.svelte";
@@ -25,11 +25,13 @@ export class ZonedDateTimeProxy<T extends PB_Record> {
   public set value(newDate: DateValue) {
     if (newDate === undefined) return;
     newDate = toZoned(newDate, getLocalTimeZone());
-    this._record[this._property] = newDate.toAbsoluteString().replace("T", " ") as T[keyof T];
+    this._record[this._property] = newDate
+      .toAbsoluteString()
+      .replace("T", " ") as T[keyof T];
   }
 
   public toString(): string {
     if (this.value === undefined) return "";
-    return this.value.toDate().toLocaleDateString()
+    return this.value.toDate().toLocaleDateString();
   }
 }

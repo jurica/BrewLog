@@ -5,6 +5,6 @@ import { defineConfig } from "wuchale";
 export default defineConfig({
   locales: ["en", "de"],
   adapters: {
-    main: svelte({ loader: "svelte" }),
-  },
+    main: svelte({ loader: "svelte" })
+  }
 });

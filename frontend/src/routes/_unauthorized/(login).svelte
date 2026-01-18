@@ -7,7 +7,7 @@
     FieldGroup,
     Field,
     FieldLabel,
-    FieldDescription,
+    FieldDescription
   } from "$lib/components/ui/field/index.js";
   import { navigate } from "sv-router/generated";
   const id = $props.id();

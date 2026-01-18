@@ -11,7 +11,7 @@
     MoreHorizontal,
     Edit2,
     Trash2,
-    Coffee,
+    Coffee
   } from "@lucide/svelte";
 
   let response = $derived(Api.Collections.Cups.getOne(route.params.cupId));
@@ -34,7 +34,9 @@
         size="sm"
         variant="outline"
         onclick={() =>
-          navigate("/cups/:cupId/edit", { params: { cupId: route.params.cupId } })}
+          navigate("/cups/:cupId/edit", {
+            params: { cupId: route.params.cupId }
+          })}
       >
         <Edit2 class="h-4 w-4" />
         Edit

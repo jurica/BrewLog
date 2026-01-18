@@ -8,7 +8,7 @@
 </script>
 
 {#if response.loading || response.data === undefined}
-loading...
+  loading...
 {:else}
-<BagForm bind:bag={bag} beans={response.data}/>
+  <BagForm bind:bag beans={response.data} />
 {/if}

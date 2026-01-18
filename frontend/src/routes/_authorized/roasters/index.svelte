@@ -51,7 +51,7 @@
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {#each response.data as roaster}
         {@const href = p("/roasters/:roasterId", {
-          params: { roasterId: roaster.id },
+          params: { roasterId: roaster.id }
         })}
         <a {href} class="group" data-test-id="card-{roaster.name}">
           <Card.Root

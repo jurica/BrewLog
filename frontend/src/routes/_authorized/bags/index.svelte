@@ -9,12 +9,12 @@
   import { Plus } from "@lucide/svelte";
 
   let bagFilter: Api.Collections.Bags.Filters = $state("opened");
-  const filterLabels : Api.Collections.Bags.FilterValues<string> = {
+  const filterLabels: Api.Collections.Bags.FilterValues<string> = {
     unopened: "Unopened",
     opened: "Opened",
     finished: "Finished",
-    all: "All",
-};
+    all: "All"
+  };
 
   let response = $derived(Api.Collections.Bags.getList(bagFilter));
 </script>
@@ -31,7 +31,9 @@
       class="hidden *:data-[slot=toggle-group-item]:!px-4 @[550px]/card:flex"
     >
       {#each Object.entries(filterLabels) as [key, label]}
-      <ToggleGroup.Item value={key} disabled={bagFilter === key}>{label}</ToggleGroup.Item>
+        <ToggleGroup.Item value={key} disabled={bagFilter === key}
+          >{label}</ToggleGroup.Item
+        >
       {/each}
     </ToggleGroup.Root>
     <Select.Root type="single" bind:value={bagFilter}>
@@ -45,9 +47,9 @@
         </span>
       </Select.Trigger>
       <Select.Content class="rounded-xl">
-      {#each Object.entries(filterLabels) as [key, label]}
-        <Select.Item value={key} class="rounded-lg">{label}</Select.Item>
-      {/each}
+        {#each Object.entries(filterLabels) as [key, label]}
+          <Select.Item value={key} class="rounded-lg">{label}</Select.Item>
+        {/each}
       </Select.Content>
     </Select.Root>
     <ButtonGroup.Root>

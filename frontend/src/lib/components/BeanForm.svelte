@@ -12,7 +12,7 @@
     ArrowLeft,
     Trash2,
     ChevronsUpDown,
-    Check,
+    Check
   } from "@lucide/svelte";
   import { onMount } from "svelte";
   import { cn } from "$lib/utils";
@@ -28,14 +28,14 @@
   let formData = $state({
     name: initialData?.name ?? "",
     roaster: initialData?.roaster ?? "",
-    picture: undefined as File | undefined,
+    picture: undefined as File | undefined
   });
 
   let roasters = $state<Api.Roaster[]>([]);
   let currentImageUrl = $state<string | undefined>(
     initialData?.picture
       ? Api.pb.getFileUrl(initialData, initialData.picture)
-      : undefined,
+      : undefined
   );
   let loading = $state(false);
   let roastersLoading = $state(true);
@@ -53,7 +53,7 @@
   });
 
   const selectedRoasterLabel = $derived(
-    roasters.find((r) => r.id === formData.roaster)?.name,
+    roasters.find((r) => r.id === formData.roaster)?.name
   );
 
   function closeAndFocusTrigger() {
@@ -197,7 +197,7 @@
                           class={cn(
                             "mr-2 h-4 w-4",
                             formData.roaster !== roaster.id &&
-                              "text-transparent",
+                              "text-transparent"
                           )}
                         />
                         {roaster.name}

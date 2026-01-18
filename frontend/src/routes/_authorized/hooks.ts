@@ -7,5 +7,5 @@ export default {
     if (!isAuthenticated()) {
       throw navigate("/login");
     }
-  },
+  }
 } satisfies Hooks;

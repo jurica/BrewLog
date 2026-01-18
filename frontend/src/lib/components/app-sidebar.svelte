@@ -7,7 +7,7 @@
     CircleUserIcon,
     EllipsisVerticalIcon,
     LogOutIcon,
-    SettingsIcon,
+    SettingsIcon
   } from "@lucide/svelte";
   import { coffeeBean, coffeemaker } from "@lucide/lab";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
@@ -18,9 +18,7 @@
   import SidebarMenuItem from "$lib/components/sidebar-menu-item.svelte";
 
   const sidebar = Sidebar.useSidebar();
-  let response = $derived(
-    Api.Collections.Users.getCurrentUser(),
-  );
+  let response = $derived(Api.Collections.Users.getCurrentUser());
 </script>
 
 <Sidebar.Root
@@ -29,7 +27,9 @@
 >
   <Sidebar.Header>
     <div class="flex items-baseline">
-      <Icon iconNode={coffeemaker} class="mr-2" /><span>BrewLog</span><span class="ml-2 text-sm text-muted-foreground">v{__APP_VERSION__}</span>
+      <Icon iconNode={coffeemaker} class="mr-2" /><span>BrewLog</span><span
+        class="ml-2 text-sm text-muted-foreground">v{__APP_VERSION__}</span
+      >
     </div>
   </Sidebar.Header>
   <Sidebar.Content>

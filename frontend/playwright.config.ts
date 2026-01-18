@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 import { existsSync } from "fs";
 
 const chromiumPath = existsSync("/usr/bin/chromium")
@@ -6,30 +6,36 @@ const chromiumPath = existsSync("/usr/bin/chromium")
   : undefined;
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
   workers: 1,
-  reporter: 'html',
+  reporter: "html",
   use: {
-    baseURL: 'http://localhost:8090',
-    trace: 'on-first-retry',
+    baseURL: "http://localhost:8090",
+    trace: "on-first-retry"
   },
 
   projects: [
-    {name: 'setup', testMatch: /000_fixtures\.ts/,
+    {
+      name: "setup",
+      testMatch: /000_fixtures\.ts/,
 
       use: {
-        ...devices['Desktop Chrome'],
-        launchOptions: chromiumPath ? { executablePath: "/usr/bin/chromium" } : {},
-      },
+        ...devices["Desktop Chrome"],
+        launchOptions: chromiumPath
+          ? { executablePath: "/usr/bin/chromium" }
+          : {}
+      }
     },
     {
-      name: 'chromium',
+      name: "chromium",
       use: {
-        ...devices['Desktop Chrome'],
-        storageState: 'test-results/auth.json',
-        launchOptions: chromiumPath ? { executablePath: "/usr/bin/chromium" } : {},
-      },
-    },
+        ...devices["Desktop Chrome"],
+        storageState: "test-results/auth.json",
+        launchOptions: chromiumPath
+          ? { executablePath: "/usr/bin/chromium" }
+          : {}
+      }
+    }
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },
@@ -41,8 +47,8 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: '../backend/startForTests.sh',
-    url: 'http://localhost:8090',
-    reuseExistingServer: !process.env.CI,
-  },
+    command: "../backend/startForTests.sh",
+    url: "http://localhost:8090",
+    reuseExistingServer: !process.env.CI
+  }
 });
