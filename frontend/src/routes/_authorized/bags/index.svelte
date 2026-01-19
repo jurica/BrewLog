@@ -2,11 +2,11 @@
   import * as Card from "$lib/components/ui/card/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
   import * as Select from "$lib/components/ui/select/index.js";
   import * as Api from "$lib/api";
   import { navigate, p } from "sv-router/generated";
   import { Plus } from "@lucide/svelte";
+  import BagFilterToggle from "$lib/components/BagFilterToggle.svelte";
 
   let bagFilter: Api.Collections.Bags.Filters = $state("opened");
   const filterLabels: Api.Collections.Bags.FilterValues<string> = {
@@ -22,20 +22,9 @@
 <div class="space-y-6">
   <div class="flex items-center justify-between @container/card">
     <h1 class="text-3xl font-bold">Bags</h1>
-    <ToggleGroup.Root
-      data-test-id="tg_bagfilter"
-      type="single"
-      bind:value={bagFilter}
-      variant="outline"
-      size="sm"
+    <BagFilterToggle bind:bagFilter 
       class="hidden *:data-[slot=toggle-group-item]:!px-4 @[550px]/card:flex"
-    >
-      {#each Object.entries(filterLabels) as [key, label]}
-        <ToggleGroup.Item value={key} disabled={bagFilter === key}
-          >{label}</ToggleGroup.Item
-        >
-      {/each}
-    </ToggleGroup.Root>
+    />
     <Select.Root type="single" bind:value={bagFilter}>
       <Select.Trigger
         size="sm"

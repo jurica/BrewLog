@@ -6,6 +6,7 @@
   import * as Command from "$lib/components/ui/command/index.js";
   import * as Api from "$lib/api";
   import { cn } from "$lib/utils.js";
+  import BagFilterToggle from "./BagFilterToggle.svelte";
 
   interface Props {
     cup: Api.Collections.Cups.Record;
@@ -20,6 +21,15 @@
     if (!bag) return "Select a bag...";
     return `${bag.expand?.bean?.name || "Unknown"} - ${bag.expand?.bean?.expand?.roaster?.name || bag.expand?.bean?.roaster || ""}`;
   });
+
+  let bagFilter: Api.Collections.Bags.Filters = $state("opened");
+  const filterLabels: Api.Collections.Bags.FilterValues<string> = {
+    unopened: "Unopened",
+    opened: "Opened",
+    finished: "Finished",
+    all: "All"
+  };
+  let response = $derived(Api.Collections.Bags.getList(bagFilter));
 </script>
 
 <Label for="bean-search" class="text-sm font-medium">Bag *</Label>
@@ -40,32 +50,39 @@
   </Popover.Trigger>
   <Popover.Content class="w-full p-0">
     <Command.Root>
-      <Command.Input id="bean-search" placeholder="Search beans..." />
       <Command.Empty>No bean found.</Command.Empty>
       <Command.Group>
-        {#each bags as bag}
-          <Command.Item
-            value={`${bag.expand?.bean?.name} ${bag.expand?.bean?.roaster}`}
-            onSelect={() => {
-              cup.bag = bag.id;
-              cup.expand.bag = bag;
-              open = false;
-            }}
-          >
-            <Check
-              class={cn(
-                "mr-2 h-4 w-4",
-                cup.bag !== bag.id && "text-transparent"
-              )}
-            />
-            <div class="flex flex-col">
-              <span>{bag.expand.bean.name}</span>
-              <span class="text-xs text-muted-foreground">
-                {bag.expand.bean.expand.roaster.name}
-              </span>
-            </div>
+        <BagFilterToggle bind:bagFilter />
+        <Command.Input id="bean-search" placeholder="Search beans..." />
+        {#if response.loading || response.data === undefined}
+          <Command.Item>
+            <span> loading...</span>
           </Command.Item>
-        {/each}
+        {:else}
+          {#each response.data as bag}
+            <Command.Item
+              value={`${bag.expand?.bean?.name} ${bag.expand?.bean?.roaster}`}
+              onSelect={() => {
+                cup.bag = bag.id;
+                cup.expand.bag = bag;
+                open = false;
+              }}
+            >
+              <Check
+                class={cn(
+                  "mr-2 h-4 w-4",
+                  cup.bag !== bag.id && "text-transparent"
+                )}
+              />
+              <div class="flex flex-col">
+                <span>{bag.expand.bean.name}</span>
+                <span class="text-xs text-muted-foreground">
+                  {bag.expand.bean.expand.roaster.name}
+                </span>
+              </div>
+            </Command.Item>
+          {/each}
+        {/if}
       </Command.Group>
     </Command.Root>
   </Popover.Content>
