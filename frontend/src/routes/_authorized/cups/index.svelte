@@ -1,4 +1,5 @@
 <script lang="ts">
+  import * as Pagination from "$lib/components/ui/pagination/index.js";
   import * as Card from "$lib/components/ui/card/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
@@ -6,7 +7,8 @@
   import { navigate, p } from "sv-router/generated";
   import { Plus, Coffee } from "@lucide/svelte";
 
-  let response = $derived(Api.Collections.Cups.getList());
+  let page = $state(1);
+  let response = $derived(Api.Collections.Cups.getList(page));
 </script>
 
 <div class="space-y-6">
@@ -82,6 +84,18 @@
               {/if}
               <div class="space-y-2">
                 <div class="flex justify-between">
+                  <span class="text-xs text-muted-foreground">Date</span>
+                  <span class="text-sm font-medium"
+                    >{new Date(cup.created).toLocaleString("de")}</span
+                  >
+                </div>
+                {#if cup.rating}
+                  <div class="flex justify-between">
+                    <span class="text-xs text-muted-foreground">Rating</span>
+                    <span class="text-sm font-medium">{cup.rating}/5</span>
+                  </div>
+                {/if}
+                <div class="flex justify-between">
                   <span class="text-xs text-muted-foreground">Coffee</span>
                   <span class="text-sm font-medium">{cup.used_coffee_g}g</span>
                 </div>
@@ -102,17 +116,6 @@
                     >
                   </div>
                 {/if}
-                {#if cup.rating}
-                  <div class="flex justify-between">
-                    <span class="text-xs text-muted-foreground">Rating</span>
-                    <span class="text-sm font-medium">{cup.rating}/5</span>
-                  </div>
-                {/if}
-                {#if cup.timestamp}
-                  <div class="text-xs text-muted-foreground mt-2">
-                    {new Date(cup.timestamp).toLocaleString()}
-                  </div>
-                {/if}
               </div>
             </Card.Content>
           </Card.Root>
@@ -121,3 +124,32 @@
     </div>
   {/if}
 </div>
+
+<Pagination.Root count={response.totalItems} bind:page={page} perPage={9} >
+  {#snippet children({ pages, currentPage })}
+    <Pagination.Content>
+      <Pagination.Item>
+        <Pagination.Previous />
+      </Pagination.Item>
+      {#each pages as page (page.key)}
+        {#if page.type === "ellipsis"}
+          <Pagination.Item>
+            <Pagination.Ellipsis />
+          </Pagination.Item>
+        {:else}
+          <Pagination.Item>
+            <Pagination.Link {page} isActive={currentPage === page.value}>
+              {page.value}
+            </Pagination.Link>
+          </Pagination.Item>
+        {/if}
+      {/each}
+      <Pagination.Item>
+        <Pagination.Ellipsis />
+      </Pagination.Item>
+      <Pagination.Item>
+        <Pagination.Next />
+      </Pagination.Item>
+    </Pagination.Content>
+  {/snippet}
+</Pagination.Root>

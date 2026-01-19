@@ -39,17 +39,20 @@ export namespace Cups {
     return record;
   }
 
-  export function getList(): Response<Record[]> {
+  export function getList(page: number): Response<Record[]> {
     const resp = new Response<Record[]>();
 
     (async function () {
       resp.loading = true;
       try {
-        resp.data = (
-          await pb
+        const result = await pb
             .collection(collectionName)
-            .getList<Record>(1, 30, { expand: "bag.bean.roaster" })
-        ).items;
+            .getList<Record>(page, 9, { expand: "bag.bean.roaster", sort: "-created" });
+        resp.data = result.items;
+        resp.page = result.page;
+        resp.perPage = result.perPage;
+        resp.totalItems = result.totalItems;
+        resp.totalPages = result.totalPages;
       } finally {
         resp.loading = false;
       }
