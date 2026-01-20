@@ -2,13 +2,16 @@
   import * as Card from "$lib/components/ui/card/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
   import * as Select from "$lib/components/ui/select/index.js";
   import * as Api from "$lib/api";
   import { navigate, p } from "sv-router/generated";
   import { Plus } from "@lucide/svelte";
+  import BagFilterToggle from "$lib/components/BagFilterToggle.svelte";
+  import { onMount } from "svelte";
+  import { getHeaderContext } from "$lib/layoutHeaderContext";
+  import { filter } from "./filter.svelte";
 
-  let bagFilter: Api.Collections.Bags.Filters = $state("opened");
+  // let bagFilter: Api.Collections.Bags.Filters = $state("opened");
   const filterLabels: Api.Collections.Bags.FilterValues<string> = {
     unopened: "Unopened",
     opened: "Opened",
@@ -16,34 +19,27 @@
     all: "All"
   };
 
-  let response = $derived(Api.Collections.Bags.getList(bagFilter));
+  let response = $derived(Api.Collections.Bags.getList(filter.value));
+
+  onMount(() => {
+    getHeaderContext().set(headerContent);
+    return () => getHeaderContext().set(null);
+  });
 </script>
 
-<div class="space-y-6">
-  <div class="flex items-center justify-between @container/card">
+{#snippet headerContent()}
     <h1 class="text-3xl font-bold">Bags</h1>
-    <ToggleGroup.Root
-      data-test-id="tg_bagfilter"
-      type="single"
-      bind:value={bagFilter}
-      variant="outline"
-      size="sm"
-      class="hidden *:data-[slot=toggle-group-item]:!px-4 @[550px]/card:flex"
-    >
-      {#each Object.entries(filterLabels) as [key, label]}
-        <ToggleGroup.Item value={key} disabled={bagFilter === key}
-          >{label}</ToggleGroup.Item
-        >
-      {/each}
-    </ToggleGroup.Root>
-    <Select.Root type="single" bind:value={bagFilter}>
+    <BagFilterToggle bind:bagFilter={filter.value}
+      class="hidden *:data-[slot=toggle-group-item]:!px-4 @[550px]/header:flex"
+    />
+    <Select.Root type="single" bind:value={filter.value}>
       <Select.Trigger
         size="sm"
-        class="flex w-40 **:data-[slot=select-value]:block **:data-[slot=select-value]:truncate @[550px]/card:hidden"
+        class="flex w-40 **:data-[slot=select-value]:block **:data-[slot=select-value]:truncate @[550px]/header:hidden"
         aria-label="Select a value"
       >
         <span data-slot="select-value">
-          {filterLabels[bagFilter]}
+          {filterLabels[filter.value]}
         </span>
       </Select.Trigger>
       <Select.Content class="rounded-xl">
@@ -58,8 +54,9 @@
         New Bag
       </Button>
     </ButtonGroup.Root>
-  </div>
+{/snippet}
 
+<div class="space-y-6">
   {#if response.loading}
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {#each Array(6) as _}

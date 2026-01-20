@@ -23,7 +23,7 @@
 
 <Sidebar.Root
   collapsible="offcanvas"
-  side={sidebar.isMobile ? "right" : "left"}
+  side="left"
 >
   <Sidebar.Header>
     <div class="flex items-baseline">
@@ -37,7 +37,7 @@
       <Sidebar.GroupContent>
         <Sidebar.Menu>
           <SidebarMenuItem
-            isActive={isActive("/cups")}
+            isActive={isActive("/cups") || isActive("/cups/:cupId")}
             onclick={() => navigate("/cups")}
           >
             <CoffeeIcon /> Cups

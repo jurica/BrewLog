@@ -11,7 +11,7 @@ test("2. add roaster and edit", async ({ page }) => {
   await page.goto("./roasters");
   await expect(page.getByRole("heading", { name: "Roasters" })).toBeVisible();
   await page.getByRole("button", { name: "New Roaster" }).click();
-  await expect(page.getByText("Create New Roaster")).toBeVisible();
+  await expect(page.getByText("New Roaster")).toBeVisible();
   await page.getByRole("textbox", { name: "Roaster Name *" }).fill("Roaster");
   await page
     .getByRole("textbox", { name: "Website URL (Optional)" })
@@ -44,7 +44,7 @@ test("3. add roaster 2", async ({ page }) => {
   await page.goto("./roasters");
   await expect(page.getByRole("heading", { name: "Roasters" })).toBeVisible();
   await page.getByRole("button", { name: "New Roaster" }).click();
-  await expect(page.getByText("Create New Roaster")).toBeVisible();
+  await expect(page.getByText("New Roaster")).toBeVisible();
   await page.getByRole("textbox", { name: "Roaster Name *" }).fill("Roaster 2");
   await page
     .getByRole("textbox", { name: "Website URL (Optional)" })
@@ -62,7 +62,7 @@ test("4. add roaster 3", async ({ page }) => {
   await page.goto("./roasters");
   await expect(page.getByRole("heading", { name: "Roasters" })).toBeVisible();
   await page.getByRole("button", { name: "New Roaster" }).click();
-  await expect(page.getByText("Create New Roaster")).toBeVisible();
+  await expect(page.getByText("New Roaster")).toBeVisible();
   await page.getByRole("textbox", { name: "Roaster Name *" }).fill("Roaster 3");
   await page
     .getByRole("textbox", { name: "Website URL (Optional)" })

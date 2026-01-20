@@ -3,11 +3,22 @@
   import * as Api from "$lib/api";
   import { route } from "sv-router/generated";
   import { onMount } from "svelte";
+  import { getHeaderContext } from "$lib/layoutHeaderContext";
 
-  let response = $derived(Api.Collections.Cups.getOne(route.params.cupId));
+  let response = $derived(Api.Collections.Cups.getOne(route.params.cupId!));
+  let response2 = $derived(Api.Collections.Bags.getList("all"));
+
+  onMount(() => {
+    getHeaderContext().set(headerContent);
+    return () => getHeaderContext().set(null);
+  });
 </script>
 
-{#if response.loading}
+{#snippet headerContent()}
+  <h1 class="text-3xl font-bold">Edit Cup</h1>
+{/snippet}
+
+{#if response.loading || response.error || response2.loading || response2.error}
   <div class="space-y-6">
     <div class="h-10 w-32 rounded bg-muted animate-pulse"></div>
     <div class="rounded-lg border p-6">
@@ -20,5 +31,5 @@
     </div>
   </div>
 {:else if response.data !== undefined}
-  <CupForm cup={response.data} />
+  <CupForm bind:cup={response.data} bags={response2.data} />
 {/if}

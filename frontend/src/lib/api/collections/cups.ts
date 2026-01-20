@@ -9,9 +9,10 @@ export namespace Cups {
     yield_g: number;
     water_temp_c: number;
     brew_time_s: number;
-    pictures: string[];
+    pictures: (string | File)[];
     rating: number;
     notes: string;
+    bag: string;
     expand: {
       bag: Bags.Record;
     };
@@ -30,6 +31,7 @@ export namespace Cups {
       pictures: [],
       rating: 0,
       notes: "",
+      bag: "",
       expand: {
         bag: Bags.newRecord()
       }
@@ -37,17 +39,20 @@ export namespace Cups {
     return record;
   }
 
-  export function getList(): Response<Record[]> {
+  export function getList(page: number): Response<Record[]> {
     const resp = new Response<Record[]>();
 
     (async function () {
       resp.loading = true;
       try {
-        resp.data = (
-          await pb
+        const result = await pb
             .collection(collectionName)
-            .getList<Record>(1, 30, { expand: "bag.bean.roaster" })
-        ).items;
+            .getList<Record>(page, 9, { expand: "bag.bean.roaster", sort: "-created" });
+        resp.data = result.items;
+        resp.page = result.page;
+        resp.perPage = result.perPage;
+        resp.totalItems = result.totalItems;
+        resp.totalPages = result.totalPages;
       } finally {
         resp.loading = false;
       }
@@ -71,5 +76,13 @@ export namespace Cups {
     })();
 
     return resp;
+  }
+
+  export async function persist(record: Record): Promise<Record> {
+    if (record.id.length > 0) {
+      return pb.collection(collectionName).update<Record>(record.id, record);
+    } else {
+      return pb.collection(collectionName).create<Record>(record);
+    }
   }
 }

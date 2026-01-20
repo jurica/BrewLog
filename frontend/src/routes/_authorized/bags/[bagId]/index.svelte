@@ -6,13 +6,18 @@
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import { navigate, route } from "sv-router/generated";
   import { ArrowLeft, Ellipsis, Pen, Trash2 } from "@lucide/svelte";
+  import { onMount } from "svelte";
+  import { getHeaderContext } from "$lib/layoutHeaderContext";
 
   let response = $derived(Api.Collections.Bags.getOne(route.params.bagId!));
+
+  onMount(() => {
+    getHeaderContext().set(headerContent);
+    return () => getHeaderContext().set(null);
+  });
 </script>
 
-<div class="space-y-6">
-  <!-- Header Navigation -->
-  <div class="flex items-center justify-between">
+{#snippet headerContent()}
     <Button
       variant="outline"
       size="sm"
@@ -55,8 +60,9 @@
         </DropdownMenu.Content>
       </DropdownMenu.Root>
     </ButtonGroup.Root>
-  </div>
+{/snippet}
 
+<div class="space-y-6">
   {#if response.loading}
     <!-- Loading state -->
     <div class="space-y-6">

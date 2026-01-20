@@ -12,6 +12,7 @@ test("2. add cup and edit", async ({ page }) => {
   await page.getByRole("button", { name: "Cups" }).click();
   await page.getByRole("button", { name: "New Cup" }).click();
   await page.getByText("Select a bag...").click();
+  await page.getByRole('radio', { name: 'All' }).click();
   await page.getByRole("option", { name: "Bean 1 Roaster" }).click();
   await page.getByRole("spinbutton", { name: "Coffee (g)" }).fill("7");
   await page.locator("#yield_ml").fill("25");
@@ -53,6 +54,7 @@ test("4. add cup 3", async ({ page }) => {
   await page.getByRole("button", { name: "Cups" }).click();
   await page.getByRole("button", { name: "New Cup" }).click();
   await page.getByText("Select a bag...").click();
+  await page.getByRole('radio', { name: 'All' }).click();
   await page.getByRole("option", { name: "Bean 3 Roaster" }).click();
   await page.getByRole("spinbutton", { name: "Coffee (g)" }).fill("7");
   await page.locator("#yield_ml").fill("25");

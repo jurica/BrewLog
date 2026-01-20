@@ -40,15 +40,6 @@
 </script>
 
 <div class="space-y-6">
-  <div>
-    <h1 class="text-3xl font-bold">{bag.id ? "Edit Bag" : "New Bag"}</h1>
-    {#if bag.id}
-      <p class="text-sm text-muted-foreground mt-2">Update bag details</p>
-    {:else}
-      <p class="text-sm text-muted-foreground mt-2">Create a new bag entry</p>
-    {/if}
-  </div>
-
   <Card.Root>
     <Card.Header>
       <Card.Title>Bag Information</Card.Title>

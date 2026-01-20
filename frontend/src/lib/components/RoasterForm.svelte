@@ -30,7 +30,6 @@
   let error = $state<string | null>(null);
 
   const isEditing = !!roasterId;
-  const pageTitle = isEditing ? "Edit Roaster" : "Create New Roaster";
   const submitButtonText = isEditing ? "Update Roaster" : "Create Roaster";
 
   async function handleSubmit(e: SubmitEvent) {
@@ -87,24 +86,9 @@
 </script>
 
 <div class="space-y-6">
-  <!-- Header Navigation -->
-  <div class="flex items-center gap-4">
-    <Button
-      variant="outline"
-      size="sm"
-      onclick={() =>
-        navigate(isEditing ? `/roasters/${roasterId}` : "/roasters")}
-      class="gap-2"
-    >
-      <ArrowLeft class="h-4 w-4" />
-      {isEditing ? "Back to Roaster" : "Back to Roasters"}
-    </Button>
-  </div>
-
-  <!-- Form Card -->
   <Card.Root>
     <Card.Header>
-      <Card.Title>{pageTitle}</Card.Title>
+      <Card.Title>Roster Information</Card.Title>
     </Card.Header>
     <Card.Content>
       <form onsubmit={handleSubmit} class="space-y-6">
