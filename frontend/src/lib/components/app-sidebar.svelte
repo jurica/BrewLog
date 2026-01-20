@@ -23,7 +23,7 @@
 
 <Sidebar.Root
   collapsible="offcanvas"
-  side={sidebar.isMobile ? "right" : "left"}
+  side="left"
 >
   <Sidebar.Header>
     <div class="flex items-baseline">

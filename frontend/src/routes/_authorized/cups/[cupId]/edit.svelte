@@ -2,10 +2,21 @@
   import CupForm from "$lib/components/CupForm.svelte";
   import * as Api from "$lib/api";
   import { route } from "sv-router/generated";
+  import { onMount } from "svelte";
+  import { getHeaderContext } from "$lib/layoutHeaderContext";
 
   let response = $derived(Api.Collections.Cups.getOne(route.params.cupId!));
   let response2 = $derived(Api.Collections.Bags.getList("all"));
+
+  onMount(() => {
+    getHeaderContext().set(headerContent);
+    return () => getHeaderContext().set(null);
+  });
 </script>
+
+{#snippet headerContent()}
+  <h1 class="text-3xl font-bold">Edit Cup</h1>
+{/snippet}
 
 {#if response.loading || response.error || response2.loading || response2.error}
   <div class="space-y-6">

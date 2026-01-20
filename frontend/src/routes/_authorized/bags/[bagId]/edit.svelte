@@ -2,10 +2,21 @@
   import BagForm from "$lib/components/BagForm.svelte";
   import * as Api from "$lib/api";
   import { route } from "sv-router/generated";
+  import { onMount } from "svelte";
+  import { getHeaderContext } from "$lib/layoutHeaderContext";
 
   let response = Api.Collections.Bags.getOne(route.params.bagId!);
   let response2 = Api.Collections.Bean.getList();
+
+  onMount(() => {
+    getHeaderContext().set(headerContent);
+    return () => getHeaderContext().set(null);
+  });
 </script>
+
+{#snippet headerContent()}
+  <h1 class="text-3xl font-bold">Edit Bag</h1>
+{/snippet}
 
 {#if response.loading || response.data === undefined || response2.loading || response2.data === undefined}
   <div class="space-y-6">

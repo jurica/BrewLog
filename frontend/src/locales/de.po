@@ -76,13 +76,12 @@ msgstr ""
 msgid "<0/> Log out"
 msgstr ""
 
-#: src/lib/components/RoasterForm.svelte
+#: src/routes/_authorized/roasters/[roasterId]/edit.svelte
 msgid "Edit Roaster"
 msgstr ""
 
-#: src/lib/components/RoasterForm.svelte
-msgid "Create New Roaster"
-msgstr ""
+#~ msgid "Create New Roaster"
+#~ msgstr ""
 
 #: src/lib/components/RoasterForm.svelte
 msgid "Update Roaster"
@@ -104,11 +103,9 @@ msgstr ""
 msgid "An error occurred"
 msgstr ""
 
-#: src/lib/components/RoasterForm.svelte
-msgid "Back to Roaster"
-msgstr ""
+#~ msgid "Back to Roaster"
+#~ msgstr ""
 
-#: src/lib/components/RoasterForm.svelte
 #: src/routes/_authorized/roasters/[roasterId]/index.svelte
 msgid "Back to Roasters"
 msgstr ""
@@ -185,21 +182,19 @@ msgstr ""
 msgid "Please select a bean"
 msgstr ""
 
-#: src/lib/components/BagForm.svelte
+#: src/routes/_authorized/bags/[bagId]/edit.svelte
 msgid "Edit Bag"
 msgstr ""
 
-#: src/lib/components/BagForm.svelte
+#: src/routes/_authorized/bags/new.svelte
 msgid "New Bag"
 msgstr ""
 
-#: src/lib/components/BagForm.svelte
-msgid "Update bag details"
-msgstr ""
+#~ msgid "Update bag details"
+#~ msgstr ""
 
-#: src/lib/components/BagForm.svelte
-msgid "Create a new bag entry"
-msgstr ""
+#~ msgid "Create a new bag entry"
+#~ msgstr ""
 
 #: src/lib/components/BagForm.svelte
 msgid "Bag Information"
@@ -251,13 +246,12 @@ msgstr ""
 msgid "Create Bag"
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
+#: src/routes/_authorized/beans/[beanId]/edit.svelte
 msgid "Edit Bean"
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
-msgid "Create New Bean"
-msgstr ""
+#~ msgid "Create New Bean"
+#~ msgstr ""
 
 #: src/lib/components/BeanForm.svelte
 msgid "Update Bean"
@@ -277,11 +271,9 @@ msgstr ""
 msgid "Roaster is required"
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
-msgid "Back to Bean"
-msgstr ""
+#~ msgid "Back to Bean"
+#~ msgstr ""
 
-#: src/lib/components/BeanForm.svelte
 #: src/routes/_authorized/beans/[beanId]/index.svelte
 msgid "Back to Beans"
 msgstr ""
@@ -326,21 +318,19 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: src/lib/components/CupForm.svelte
+#: src/routes/_authorized/cups/[cupId]/edit.svelte
 msgid "Edit Cup"
 msgstr ""
 
-#: src/lib/components/CupForm.svelte
+#: src/routes/_authorized/cups/new.svelte
 msgid "New Cup"
 msgstr ""
 
-#: src/lib/components/CupForm.svelte
-msgid "Update cup details"
-msgstr ""
+#~ msgid "Update cup details"
+#~ msgstr ""
 
-#: src/lib/components/CupForm.svelte
-msgid "Record a new brew"
-msgstr ""
+#~ msgid "Record a new brew"
+#~ msgstr ""
 
 #: src/lib/components/CupForm.svelte
 msgid "Brew Information"
@@ -452,6 +442,8 @@ msgstr ""
 msgid "Roasted"
 msgstr ""
 
+#: src/lib/components/BagFilterToggle.svelte
+#: src/lib/components/CupBagSelector.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/bags/index.svelte
 msgid "Opened"
@@ -465,6 +457,8 @@ msgstr ""
 msgid "Leftover"
 msgstr ""
 
+#: src/lib/components/BagFilterToggle.svelte
+#: src/lib/components/CupBagSelector.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/bags/index.svelte
 msgid "Finished"
@@ -482,11 +476,15 @@ msgstr ""
 msgid "Back to Bags"
 msgstr ""
 
+#: src/lib/components/BagFilterToggle.svelte
+#: src/lib/components/CupBagSelector.svelte
 #: src/routes/_authorized/bags/index.svelte
 #: src/routes/_authorized/bags/index.svelte
 msgid "Unopened"
 msgstr ""
 
+#: src/lib/components/BagFilterToggle.svelte
+#: src/lib/components/CupBagSelector.svelte
 #: src/routes/_authorized/bags/index.svelte
 msgid "All"
 msgstr ""
@@ -525,6 +523,7 @@ msgstr ""
 msgid "Opened {0}"
 msgstr ""
 
+#: src/lib/components/CupBagSelector.svelte
 #: src/routes/_authorized/bags/new.svelte
 #: src/routes/_authorized/cups/new.svelte
 msgid "loading..."
@@ -811,3 +810,59 @@ msgstr ""
 
 #~ msgid "lolol{0}"
 #~ msgstr ""
+
+#~ msgid "Filter"
+#~ msgstr ""
+
+#~ msgid "Open"
+#~ msgstr ""
+
+#: src/routes/_authorized/cups/index.svelte
+msgid "Date"
+msgstr ""
+
+#: src/lib/components/ui/pagination/pagination-prev-button.svelte
+#: src/lib/components/ui/pagination/pagination-previous.svelte
+msgid "Previous"
+msgstr ""
+
+#: src/lib/components/ui/pagination/pagination-prev-button.svelte
+#: src/lib/components/ui/pagination/pagination-previous.svelte
+msgid "Go to previous page"
+msgstr ""
+
+#: src/lib/components/ui/pagination/pagination-next-button.svelte
+#: src/lib/components/ui/pagination/pagination-next.svelte
+msgid "Next"
+msgstr ""
+
+#: src/lib/components/ui/pagination/pagination-next-button.svelte
+#: src/lib/components/ui/pagination/pagination-next.svelte
+msgid "Go to next page"
+msgstr ""
+
+#: src/lib/components/ui/pagination/pagination-ellipsis.svelte
+msgid "More pages"
+msgstr ""
+
+#~ msgid "lol"
+#~ msgstr ""
+
+#~ msgid "<0/> Back to Cup"
+#~ msgstr ""
+
+#: src/routes/_authorized/beans/new.svelte
+msgid "New Bean"
+msgstr ""
+
+#: src/lib/components/BeanForm.svelte
+msgid "Bean Information"
+msgstr ""
+
+#: src/routes/_authorized/roasters/new.svelte
+msgid "New Roaster"
+msgstr ""
+
+#: src/lib/components/RoasterForm.svelte
+msgid "Roster Information"
+msgstr ""

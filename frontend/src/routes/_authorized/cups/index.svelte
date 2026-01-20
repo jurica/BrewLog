@@ -5,22 +5,39 @@
   import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
   import * as Api from "$lib/api";
   import { navigate, p } from "sv-router/generated";
-  import { Plus, Coffee } from "@lucide/svelte";
+  import { Plus, Coffee, ChevronLeft, ChevronRight } from "@lucide/svelte";
+  import { onMount } from "svelte";
+  import { getHeaderContext } from "$lib/layoutHeaderContext";
+  import { page } from "./page.svelte";
 
-  let page = $state(1);
-  let response = $derived(Api.Collections.Cups.getList(page));
+  let response = $derived(Api.Collections.Cups.getList(page.value));
+
+  onMount(() => {
+    getHeaderContext().set(headerContent);
+    return () => getHeaderContext().set(null);
+  });
 </script>
 
+{#snippet headerContent()}
+  <h1 class="text-3xl font-bold">Cups</h1>
+  <ButtonGroup.Root>
+    <Button size="sm" onclick={() => navigate("/cups/new")}>
+      <Plus class="mr-2 h-4 w-4" />
+      New Cup
+    </Button>
+  </ButtonGroup.Root>
+{/snippet}
+
 <div class="space-y-6">
-  <div class="flex items-center justify-between">
-    <h1 class="text-3xl font-bold">Cups</h1>
-    <ButtonGroup.Root>
-      <Button size="sm" onclick={() => navigate("/cups/new")}>
-        <Plus class="mr-2 h-4 w-4" />
-        New Cup
-      </Button>
-    </ButtonGroup.Root>
-  </div>
+  <!-- <div class="flex items-center justify-between"> -->
+  <!--   <h1 class="text-3xl font-bold">Cups</h1> -->
+  <!--   <ButtonGroup.Root> -->
+  <!--     <Button size="sm" onclick={() => navigate("/cups/new")}> -->
+  <!--       <Plus class="mr-2 h-4 w-4" /> -->
+  <!--       New Cup -->
+  <!--     </Button> -->
+  <!--   </ButtonGroup.Root> -->
+  <!-- </div> -->
 
   {#if response.loading}
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -123,33 +140,42 @@
       {/each}
     </div>
   {/if}
+  <div class="flex flex-row justify-center items-center sticky bottom-0 z-50">
+    <Card.Root>
+      <Card.Content class="-m-4">
+        <Pagination.Root count={response.totalItems} bind:page={page.value} perPage={9}>
+          {#snippet children({ pages, currentPage })}
+            <Pagination.Content>
+              <Pagination.Item>
+                <Pagination.PrevButton>
+                  <ChevronLeft />
+                </Pagination.PrevButton>
+              </Pagination.Item>
+              {#each pages as page (page.key)}
+                {#if page.type === "ellipsis"}
+                  <Pagination.Item>
+                    <Pagination.Ellipsis />
+                  </Pagination.Item>
+                {:else}
+                  <Pagination.Item>
+                    <Pagination.Link
+                      {page}
+                      isActive={currentPage === page.value}
+                    >
+                      {page.value}
+                    </Pagination.Link>
+                  </Pagination.Item>
+                {/if}
+              {/each}
+              <Pagination.Item>
+                <Pagination.NextButton>
+                  <ChevronRight />
+                </Pagination.NextButton>
+              </Pagination.Item>
+            </Pagination.Content>
+          {/snippet}
+        </Pagination.Root>
+      </Card.Content>
+    </Card.Root>
+  </div>
 </div>
-
-<Pagination.Root count={response.totalItems} bind:page={page} perPage={9} >
-  {#snippet children({ pages, currentPage })}
-    <Pagination.Content>
-      <Pagination.Item>
-        <Pagination.Previous />
-      </Pagination.Item>
-      {#each pages as page (page.key)}
-        {#if page.type === "ellipsis"}
-          <Pagination.Item>
-            <Pagination.Ellipsis />
-          </Pagination.Item>
-        {:else}
-          <Pagination.Item>
-            <Pagination.Link {page} isActive={currentPage === page.value}>
-              {page.value}
-            </Pagination.Link>
-          </Pagination.Item>
-        {/if}
-      {/each}
-      <Pagination.Item>
-        <Pagination.Ellipsis />
-      </Pagination.Item>
-      <Pagination.Item>
-        <Pagination.Next />
-      </Pagination.Item>
-    </Pagination.Content>
-  {/snippet}
-</Pagination.Root>

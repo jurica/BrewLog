@@ -5,12 +5,18 @@
   import * as Api from "$lib/api";
   import { navigate, p } from "sv-router/generated";
   import { Plus } from "@lucide/svelte";
+  import { onMount } from "svelte";
+  import { getHeaderContext } from "$lib/layoutHeaderContext";
 
   let response = $derived(Api.Collections.Roaster.getList());
+
+  onMount(() => {
+    getHeaderContext().set(headerContent);
+    return () => getHeaderContext().set(null);
+  });
 </script>
 
-<div class="space-y-6">
-  <div class="flex items-center justify-between">
+{#snippet headerContent()}
     <h1 class="text-3xl font-bold">Roasters</h1>
     <ButtonGroup.Root>
       <Button size="sm" onclick={() => navigate("/roasters/new")}>
@@ -18,8 +24,9 @@
         New Roaster
       </Button>
     </ButtonGroup.Root>
-  </div>
+{/snippet}
 
+<div class="space-y-6">
   {#if response.loading}
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {#each Array(6) as _}

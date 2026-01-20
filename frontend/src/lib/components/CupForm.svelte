@@ -57,15 +57,6 @@
 </script>
 
 <div class="space-y-6">
-  <div>
-    <h1 class="text-3xl font-bold">{cup.id ? "Edit Cup" : "New Cup"}</h1>
-    {#if cup}
-      <p class="text-sm text-muted-foreground mt-2">Update cup details</p>
-    {:else}
-      <p class="text-sm text-muted-foreground mt-2">Record a new brew</p>
-    {/if}
-  </div>
-
   <Card.Root>
     <Card.Header>
       <Card.Title>Brew Information</Card.Title>

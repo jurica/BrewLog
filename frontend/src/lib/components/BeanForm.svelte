@@ -64,7 +64,6 @@
   }
 
   const isEditing = !!beanId;
-  const pageTitle = isEditing ? "Edit Bean" : "Create New Bean";
   const submitButtonText = isEditing ? "Update Bean" : "Create Bean";
 
   async function handleSubmit(e: SubmitEvent) {
@@ -123,23 +122,9 @@
 </script>
 
 <div class="space-y-6">
-  <!-- Header Navigation -->
-  <div class="flex items-center gap-4">
-    <Button
-      variant="outline"
-      size="sm"
-      onclick={() => navigate(isEditing ? `/beans/${beanId}` : "/beans")}
-      class="gap-2"
-    >
-      <ArrowLeft class="h-4 w-4" />
-      {isEditing ? "Back to Bean" : "Back to Beans"}
-    </Button>
-  </div>
-
-  <!-- Form Card -->
   <Card.Root>
     <Card.Header>
-      <Card.Title>{pageTitle}</Card.Title>
+      <Card.Title>Bean Information</Card.Title>
     </Card.Header>
     <Card.Content>
       <form onsubmit={handleSubmit} class="space-y-6">

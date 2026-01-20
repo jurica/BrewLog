@@ -5,7 +5,6 @@
   import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import { navigate, route } from "sv-router/generated";
-  import { onMount } from "svelte";
   import {
     ArrowLeft,
     MoreHorizontal,
@@ -13,57 +12,63 @@
     Trash2,
     Coffee
   } from "@lucide/svelte";
+  import { onMount } from "svelte";
+  import { getHeaderContext } from "$lib/layoutHeaderContext";
 
   let response = $derived(Api.Collections.Cups.getOne(route.params.cupId));
+
+  onMount(() => {
+    getHeaderContext().set(headerContent);
+    return () => getHeaderContext().set(null);
+  });
 </script>
 
-<div class="space-y-6">
-  <!-- Header Navigation -->
-  <div class="flex items-center justify-between">
+{#snippet headerContent()}
+  <Button
+    variant="outline"
+    size="sm"
+    onclick={() => navigate("/cups")}
+    class="gap-2"
+  >
+    <ArrowLeft class="h-4 w-4" />
+    Back to Cups
+  </Button>
+  <ButtonGroup.Root>
     <Button
-      variant="outline"
       size="sm"
-      onclick={() => navigate("/cups")}
-      class="gap-2"
+      variant="outline"
+      onclick={() =>
+        navigate("/cups/:cupId/edit", {
+          params: { cupId: route.params.cupId }
+        })}
     >
-      <ArrowLeft class="h-4 w-4" />
-      Back to Cups
+      <Edit2 class="h-4 w-4" />
+      Edit
     </Button>
-    <ButtonGroup.Root>
-      <Button
-        size="sm"
-        variant="outline"
-        onclick={() =>
-          navigate("/cups/:cupId/edit", {
-            params: { cupId: route.params.cupId }
-          })}
-      >
-        <Edit2 class="h-4 w-4" />
-        Edit
-      </Button>
-      <DropdownMenu.Root>
-        <DropdownMenu.Trigger>
-          {#snippet child({ props })}
-            <Button
-              {...props}
-              variant="outline"
-              size="icon-sm"
-              aria-label="More Options"
-            >
-              <MoreHorizontal class="h-4 w-4" />
-            </Button>
-          {/snippet}
-        </DropdownMenu.Trigger>
-        <DropdownMenu.Content align="end">
-          <DropdownMenu.Item class="text-destructive focus:text-destructive">
-            <Trash2 class="h-4 w-4" />
-            Delete Cup
-          </DropdownMenu.Item>
-        </DropdownMenu.Content>
-      </DropdownMenu.Root>
-    </ButtonGroup.Root>
-  </div>
+    <DropdownMenu.Root>
+      <DropdownMenu.Trigger>
+        {#snippet child({ props })}
+          <Button
+            {...props}
+            variant="outline"
+            size="icon-sm"
+            aria-label="More Options"
+          >
+            <MoreHorizontal class="h-4 w-4" />
+          </Button>
+        {/snippet}
+      </DropdownMenu.Trigger>
+      <DropdownMenu.Content align="end">
+        <DropdownMenu.Item class="text-destructive focus:text-destructive">
+          <Trash2 class="h-4 w-4" />
+          Delete Cup
+        </DropdownMenu.Item>
+      </DropdownMenu.Content>
+    </DropdownMenu.Root>
+  </ButtonGroup.Root>
+{/snippet}
 
+<div class="space-y-6">
   {#if response.loading}
     <!-- Loading state -->
     <div class="space-y-6">
