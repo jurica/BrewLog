@@ -14,7 +14,8 @@
   let email: string = $state();
   let password: string = $state();
 
-  async function login() {
+  const login = async (e: Event) => {
+    e.preventDefault();
     await Api.login(email, password);
     if (Api.isAuthenticated()) {
       navigate("/");
@@ -34,7 +35,7 @@
     >
   </Card.Header>
   <Card.Content>
-    <form>
+    <form onsubmit={login}>
       <FieldGroup>
         <Field>
           <FieldLabel for="email-{id}">Email</FieldLabel>
@@ -61,7 +62,7 @@
           />
         </Field>
         <Field>
-          <Button class="w-full" onclick={login}>Login</Button>
+          <Button type="submit" class="w-full">Login</Button>
           <FieldDescription class="text-center">
             Don't have an account? <a href="##">Sign up</a>
           </FieldDescription>
