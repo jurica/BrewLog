@@ -232,7 +232,7 @@
                 Delete
               </Button>
             </div>
-            <div class="rounded-md border p-2 bg-muted/50">
+            <div class="bg-muted/50 rounded-md border p-2">
               <img
                 src={currentImageUrl}
                 alt="Current bean image"
@@ -245,7 +245,7 @@
         <!-- Error Message -->
         {#if error}
           <div
-            class="rounded-md bg-destructive/10 p-3 text-sm text-destructive"
+            class="bg-destructive/10 text-destructive rounded-md p-3 text-sm"
           >
             {error}
           </div>

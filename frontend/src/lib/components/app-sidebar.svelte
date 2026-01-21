@@ -21,14 +21,11 @@
   let response = $derived(Api.Collections.Users.getCurrentUser());
 </script>
 
-<Sidebar.Root
-  collapsible="offcanvas"
-  side="left"
->
+<Sidebar.Root collapsible="offcanvas" side="left">
   <Sidebar.Header>
     <div class="flex items-baseline">
       <Icon iconNode={coffeemaker} class="mr-2" /><span>BrewLog</span><span
-        class="ml-2 text-sm text-muted-foreground">v{__APP_VERSION__}</span
+        class="text-muted-foreground ml-2 text-sm">v{__APP_VERSION__}</span
       >
     </div>
   </Sidebar.Header>
