@@ -7,8 +7,8 @@
   import { navigate, route } from "sv-router/generated";
   import {
     ArrowLeft,
-    MoreHorizontal,
-    Edit2,
+    Ellipsis,
+    Pen,
     Trash2,
     Coffee
   } from "@lucide/svelte";
@@ -42,7 +42,7 @@
           params: { cupId: route.params.cupId }
         })}
     >
-      <Edit2 class="h-4 w-4" />
+      <Pen class="h-4 w-4" />
       Edit
     </Button>
     <DropdownMenu.Root>
@@ -54,7 +54,7 @@
             size="icon-sm"
             aria-label="More Options"
           >
-            <MoreHorizontal class="h-4 w-4" />
+            <Ellipsis class="h-4 w-4" />
           </Button>
         {/snippet}
       </DropdownMenu.Trigger>

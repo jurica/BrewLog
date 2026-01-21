@@ -29,16 +29,6 @@
 {/snippet}
 
 <div class="space-y-6">
-  <!-- <div class="flex items-center justify-between"> -->
-  <!--   <h1 class="text-3xl font-bold">Cups</h1> -->
-  <!--   <ButtonGroup.Root> -->
-  <!--     <Button size="sm" onclick={() => navigate("/cups/new")}> -->
-  <!--       <Plus class="mr-2 h-4 w-4" /> -->
-  <!--       New Cup -->
-  <!--     </Button> -->
-  <!--   </ButtonGroup.Root> -->
-  <!-- </div> -->
-
   {#if response.loading}
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {#each Array(6) as _}

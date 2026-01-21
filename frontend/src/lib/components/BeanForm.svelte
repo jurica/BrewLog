@@ -8,8 +8,7 @@
   import * as Popover from "$lib/components/ui/popover/index.js";
   import { navigate } from "sv-router/generated";
   import {
-    Loader2,
-    ArrowLeft,
+    LoaderCircle,
     Trash2,
     ChevronsUpDown,
     Check
@@ -255,7 +254,7 @@
         <div class="flex gap-3 pt-4">
           <Button type="submit" disabled={loading}>
             {#if loading}
-              <Loader2 class="mr-2 h-4 w-4 animate-spin" />
+              <LoaderCircle class="mr-2 h-4 w-4 animate-spin" />
               Saving...
             {:else}
               {submitButtonText}
