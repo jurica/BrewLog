@@ -1,1 +1,1 @@
-export let page = $state<{value: number}>({ value: 1});
+export let page = $state<{ value: number }>({ value: 1 });

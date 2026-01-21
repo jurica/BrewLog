@@ -48,7 +48,7 @@
       <form onsubmit={handleSubmit} class="space-y-6">
         {#if error}
           <div
-            class="rounded-lg bg-destructive/10 p-4 text-sm text-destructive"
+            class="bg-destructive/10 text-destructive rounded-lg p-4 text-sm"
           >
             {error}
           </div>

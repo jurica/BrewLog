@@ -17,13 +17,13 @@
 </script>
 
 {#snippet headerContent()}
-    <h1 class="text-3xl font-bold">Roasters</h1>
-    <ButtonGroup.Root>
-      <Button size="sm" onclick={() => navigate("/roasters/new")}>
-        <Plus class="mr-2 h-4 w-4" />
-        New Roaster
-      </Button>
-    </ButtonGroup.Root>
+  <h1 class="text-3xl font-bold">Roasters</h1>
+  <ButtonGroup.Root>
+    <Button size="sm" onclick={() => navigate("/roasters/new")}>
+      <Plus class="mr-2 h-4 w-4" />
+      New Roaster
+    </Button>
+  </ButtonGroup.Root>
 {/snippet}
 
 <div class="space-y-6">
@@ -32,21 +32,21 @@
       {#each Array(6) as _}
         <Card.Root>
           <Card.Header>
-            <div class="h-6 w-3/4 rounded bg-muted animate-pulse"></div>
-            <div class="mt-2 h-4 w-1/2 rounded bg-muted animate-pulse"></div>
+            <div class="bg-muted h-6 w-3/4 animate-pulse rounded"></div>
+            <div class="bg-muted mt-2 h-4 w-1/2 animate-pulse rounded"></div>
           </Card.Header>
           <Card.Content>
-            <div class="h-40 rounded bg-muted animate-pulse"></div>
+            <div class="bg-muted h-40 animate-pulse rounded"></div>
           </Card.Content>
         </Card.Root>
       {/each}
     </div>
   {:else if response.data.length === 0}
     <div
-      class="rounded-lg border border-dashed border-muted-foreground/30 py-12 text-center"
+      class="border-muted-foreground/30 rounded-lg border border-dashed py-12 text-center"
     >
-      <p class="text-lg text-muted-foreground">No roasters yet</p>
-      <p class="mt-2 text-sm text-muted-foreground">
+      <p class="text-muted-foreground text-lg">No roasters yet</p>
+      <p class="text-muted-foreground mt-2 text-sm">
         Create your first roaster to get started
       </p>
       <Button class="mt-4" onclick={() => navigate("/roasters/new")}>
@@ -62,7 +62,7 @@
         })}
         <a {href} class="group" data-test-id="card-{roaster.name}">
           <Card.Root
-            class="transition-all hover:shadow-lg hover:border-primary/50"
+            class="hover:border-primary/50 transition-all hover:shadow-lg"
           >
             <Card.Header>
               <Card.Title class="group-hover:text-primary transition-colors">
@@ -90,9 +90,9 @@
                 />
               {:else}
                 <div
-                  class="h-40 w-full rounded bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center"
+                  class="from-primary/10 to-primary/5 flex h-40 w-full items-center justify-center rounded bg-gradient-to-br"
                 >
-                  <span class="text-sm text-muted-foreground">No image</span>
+                  <span class="text-muted-foreground text-sm">No image</span>
                 </div>
               {/if}
             </Card.Content>

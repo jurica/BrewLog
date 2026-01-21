@@ -20,12 +20,12 @@
 
 {#if response.loading || response.data === undefined || response2.loading || response2.data === undefined}
   <div class="space-y-6">
-    <div class="h-10 w-32 rounded bg-muted animate-pulse"></div>
+    <div class="bg-muted h-10 w-32 animate-pulse rounded"></div>
     <div class="rounded-lg border p-6">
-      <div class="h-6 w-40 rounded bg-muted animate-pulse"></div>
+      <div class="bg-muted h-6 w-40 animate-pulse rounded"></div>
       <div class="mt-6 space-y-4">
         {#each Array(5) as _}
-          <div class="h-10 w-full rounded bg-muted animate-pulse"></div>
+          <div class="bg-muted h-10 w-full animate-pulse rounded"></div>
         {/each}
       </div>
     </div>

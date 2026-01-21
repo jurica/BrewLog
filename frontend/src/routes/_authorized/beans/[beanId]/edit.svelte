@@ -19,7 +19,7 @@
 
 {#if response.loading}
   <div class="space-y-6">
-    <div class="h-10 w-32 rounded bg-muted animate-pulse"></div>
+    <div class="bg-muted h-10 w-32 animate-pulse rounded"></div>
   </div>
 {:else if response.data !== undefined}
   <BeanForm beanId={response.data.id} initialData={response.data} />

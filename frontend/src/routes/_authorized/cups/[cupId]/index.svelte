@@ -7,8 +7,8 @@
   import { navigate, route } from "sv-router/generated";
   import {
     ArrowLeft,
-    MoreHorizontal,
-    Edit2,
+    Ellipsis,
+    Pen,
     Trash2,
     Coffee
   } from "@lucide/svelte";
@@ -42,7 +42,7 @@
           params: { cupId: route.params.cupId }
         })}
     >
-      <Edit2 class="h-4 w-4" />
+      <Pen class="h-4 w-4" />
       Edit
     </Button>
     <DropdownMenu.Root>
@@ -54,7 +54,7 @@
             size="icon-sm"
             aria-label="More Options"
           >
-            <MoreHorizontal class="h-4 w-4" />
+            <Ellipsis class="h-4 w-4" />
           </Button>
         {/snippet}
       </DropdownMenu.Trigger>
@@ -74,21 +74,21 @@
     <div class="space-y-6">
       <Card.Root>
         <Card.Header>
-          <div class="h-6 w-3/4 rounded bg-muted animate-pulse"></div>
-          <div class="mt-2 h-4 w-1/2 rounded bg-muted animate-pulse"></div>
+          <div class="bg-muted h-6 w-3/4 animate-pulse rounded"></div>
+          <div class="bg-muted mt-2 h-4 w-1/2 animate-pulse rounded"></div>
         </Card.Header>
         <Card.Content>
-          <div class="w-full h-96 rounded bg-muted animate-pulse"></div>
+          <div class="bg-muted h-96 w-full animate-pulse rounded"></div>
         </Card.Content>
       </Card.Root>
       <div class="grid gap-6 md:grid-cols-2">
         {#each Array(2) as _}
           <Card.Root>
             <Card.Header>
-              <div class="h-6 w-1/2 rounded bg-muted animate-pulse"></div>
+              <div class="bg-muted h-6 w-1/2 animate-pulse rounded"></div>
             </Card.Header>
             <Card.Content>
-              <div class="h-20 rounded bg-muted animate-pulse"></div>
+              <div class="bg-muted h-20 animate-pulse rounded"></div>
             </Card.Content>
           </Card.Root>
         {/each}
@@ -116,13 +116,13 @@
           <img
             src={Api.pb.files.getURL(cup, cup.pictures.at(0))}
             alt="Cup"
-            class="w-full max-h-96 rounded object-cover"
+            class="max-h-96 w-full rounded object-cover"
           />
         {:else}
           <div
-            class="w-full h-96 rounded bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center"
+            class="from-primary/20 to-primary/10 flex h-96 w-full items-center justify-center rounded bg-gradient-to-br"
           >
-            <span class="text-lg text-muted-foreground">No photo available</span
+            <span class="text-muted-foreground text-lg">No photo available</span
             >
           </div>
         {/if}
@@ -137,22 +137,22 @@
         </Card.Header>
         <Card.Content class="space-y-4">
           <div>
-            <p class="text-sm text-muted-foreground">Coffee Used</p>
+            <p class="text-muted-foreground text-sm">Coffee Used</p>
             <p class="text-sm font-medium">{cup.used_coffee_g}g</p>
           </div>
           <div>
-            <p class="text-sm text-muted-foreground">Yield</p>
+            <p class="text-muted-foreground text-sm">Yield</p>
             <p class="text-sm font-medium">{cup.yield_g} g</p>
           </div>
           {#if cup.water_temp_c}
             <div>
-              <p class="text-sm text-muted-foreground">Water Temperature</p>
+              <p class="text-muted-foreground text-sm">Water Temperature</p>
               <p class="text-sm font-medium">{cup.water_temp_c}°C</p>
             </div>
           {/if}
           {#if cup.timestamp}
             <div>
-              <p class="text-sm text-muted-foreground">Brewed</p>
+              <p class="text-muted-foreground text-sm">Brewed</p>
               <p class="text-sm">
                 {new Date(cup.timestamp).toLocaleString()}
               </p>
@@ -168,22 +168,22 @@
         <Card.Content class="space-y-4">
           {#if cup.rating}
             <div>
-              <p class="text-sm text-muted-foreground">Rating</p>
+              <p class="text-muted-foreground text-sm">Rating</p>
               <p class="text-sm font-medium">{cup.rating}/5</p>
             </div>
           {/if}
           {#if cup.notes}
             <div>
-              <p class="text-sm text-muted-foreground">Notes</p>
+              <p class="text-muted-foreground text-sm">Notes</p>
               <p class="text-sm">{cup.notes}</p>
             </div>
           {:else}
             <div>
-              <p class="text-sm text-muted-foreground">No notes recorded</p>
+              <p class="text-muted-foreground text-sm">No notes recorded</p>
             </div>
           {/if}
           <div>
-            <p class="text-sm text-muted-foreground">Added</p>
+            <p class="text-muted-foreground text-sm">Added</p>
             <p class="text-sm">
               {new Date(cup.created).toLocaleDateString()}
             </p>
@@ -194,10 +194,10 @@
   {:else}
     <!-- Not Found State -->
     <div
-      class="rounded-lg border border-dashed border-muted-foreground/30 py-12 text-center"
+      class="border-muted-foreground/30 rounded-lg border border-dashed py-12 text-center"
     >
       <p class="text-lg font-medium">Cup not found</p>
-      <p class="mt-2 text-sm text-muted-foreground">
+      <p class="text-muted-foreground mt-2 text-sm">
         The cup you're looking for doesn't exist or has been deleted
       </p>
       <Button class="mt-4" onclick={() => navigate("/cups")}>

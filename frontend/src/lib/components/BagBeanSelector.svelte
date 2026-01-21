@@ -53,7 +53,7 @@
               )}
             />
             {bean.name}
-            <span class="ml-2 text-xs text-muted-foreground">
+            <span class="text-muted-foreground ml-2 text-xs">
               ({bean.expand?.roaster?.name || bean.roaster})
             </span>
           </Command.Item>

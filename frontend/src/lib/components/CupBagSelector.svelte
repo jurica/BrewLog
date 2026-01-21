@@ -76,7 +76,7 @@
               />
               <div class="flex flex-col">
                 <span>{bag.expand.bean.name}</span>
-                <span class="text-xs text-muted-foreground">
+                <span class="text-muted-foreground text-xs">
                   {bag.expand.bean.expand.roaster.name}
                 </span>
               </div>

@@ -46,8 +46,11 @@ export namespace Cups {
       resp.loading = true;
       try {
         const result = await pb
-            .collection(collectionName)
-            .getList<Record>(page, 9, { expand: "bag.bean.roaster", sort: "-created" });
+          .collection(collectionName)
+          .getList<Record>(page, 9, {
+            expand: "bag.bean.roaster",
+            sort: "-created"
+          });
         resp.data = result.items;
         resp.page = result.page;
         resp.perPage = result.perPage;
