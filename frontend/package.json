@@ -16,7 +16,7 @@
     "test:debug": "playwright test --debug",
     "backend": "cd ../backend && go run . serve",
     "format": "npx prettier . --write",
-    "bumpversion": "node bumpversion.mjs"
+    "release": "node release.mjs"
   },
   "devDependencies": {
     "@internationalized/date": "^3.10.1",
