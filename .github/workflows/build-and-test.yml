@@ -23,15 +23,15 @@ jobs:
         run: |
           cd frontend
           npm install
-          npx playwright install
+          npx playwright install chromium-headless-shell
           npm run build
           cd ../backend
           go mod download
           go build -tags production
           chmod +x BrewLog
-          rm -rf pb_data
-          ./BrewLog createTestUsers
+          cp BrewLog ../frontend
           cd ../frontend
+          ./BrewLog createTestUsers
           npm run test
 
       - name: Archive playwright-report
