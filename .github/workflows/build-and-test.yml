@@ -29,6 +29,9 @@ jobs:
           go mod download
           go build -tags production
           chmod +x BrewLog
+          rm -rf pb_data
+          ./BrewLog migrate
+          ./BrewLog createTestUsers
           cd ../frontend
           npm run test
 
