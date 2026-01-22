@@ -1,7 +1,6 @@
 package main
 
 import (
-	_ "embed"
 	"log"
 	"os"
 	"strings"
@@ -11,9 +10,6 @@ import (
 
 	_ "BrewLog/migrations"
 )
-
-//go:embed VERSION
-var version string
 
 type application struct {
     pb  *pocketbase.PocketBase
