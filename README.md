@@ -1,4 +1,4 @@
-# BrewLog ☕
+# BrewLog
 
 <p align="center">
     <a href="https://github.com/jurica/BrewLog/actions/workflows/build-and-test.yml" target="_blank" rel="noopener"><img src="https://github.com/jurica/BrewLog/actions/workflows/build-and-test.yml/badge.svg?branch=main" alt="build-and-test" /></a>
@@ -13,14 +13,14 @@ BrewLog helps coffee enthusiasts manage their coffee collection and track brewin
 
 ## Status
 
-✅ **MVP Complete** - Core features implemented and functional
+**MVP** - Core features implemented and (mostly) functional
 
 ## Key Features
 
 - **Roaster Management**: Track coffee roasters with website and picture
-- **Bean Library**: Reusable picture library for coffee products
+- **Bean Library**: Reusable library for coffee varieties
 - **Bag Management**: Track coffee bags from purchase through opening to finishing
-- **Cup Logging**: Record each brew with detailed brewing parameters and ratings
+- **Cup Logging**: Record each brew with detailed brewing parameters, rating and pictures
 - **Mobile-First**: Optimized for smartphone usage with PWA capabilities
 
 ## Core Entities
@@ -63,20 +63,16 @@ npm run test:codegen
 npm run test:ui
 ```
 
-### Run Tests against production build
+**Update dependencies:**
 ```bash
+cd backend
+go get -u -t
+go mod tidy
+
 cd frontend
-npm install
-npm run build
-cd ../backend
-go build -tags production
-./BrewLog migrate
-./BrewLog createTestUsers
-./BrewLog serve
-cd frontend
-npm run test
+npm outdated
+-> check output and update versions
 ```
-check frontend/playwright-report/index.html
 
 ### Production Deployment
 
