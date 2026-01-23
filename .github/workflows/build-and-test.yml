@@ -29,9 +29,8 @@ jobs:
           go mod download
           go build -tags production
           chmod +x BrewLog
-          cp BrewLog ../frontend
+          mv BrewLog ../frontend
           cd ../frontend
-          ./BrewLog createTestUsers
           npm run test
 
       - name: Archive playwright-report
