@@ -6,7 +6,7 @@ export namespace Roaster {
   export interface Record extends PB_Record {
     name: string;
     website?: string;
-    picture?: string;
+    picture?: string | File;
   }
 
   export function newRecord(): Record {
@@ -52,5 +52,13 @@ export namespace Roaster {
     })();
 
     return resp;
+  }
+
+  export async function persist(record: Record): Promise<Record> {
+    if (record.id.length > 0) {
+      return pb.collection(collectionName).update<Record>(record.id, record);
+    } else {
+      return pb.collection(collectionName).create<Record>(record);
+    }
   }
 }

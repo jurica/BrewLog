@@ -124,26 +124,17 @@ msgstr ""
 msgid "Roaster Image (Optional)"
 msgstr ""
 
-#. placeholder {0}: formData.picture.name
-#. placeholder {0}: formData.picture.name
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "Selected: {0}"
-msgstr ""
+#~ msgid "Selected: {0}"
+#~ msgstr ""
 
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "Current Image"
-msgstr ""
+#~ msgid "Current Image"
+#~ msgstr ""
 
-#: src/lib/components/BeanForm.svelte
-#: src/lib/components/RoasterForm.svelte
-msgid "<0/> Delete"
-msgstr ""
+#~ msgid "<0/> Delete"
+#~ msgstr ""
 
-#: src/lib/components/RoasterForm.svelte
-msgid "Current roaster image"
-msgstr ""
+#~ msgid "Current roaster image"
+#~ msgstr ""
 
 #: src/lib/components/BeanForm.svelte
 #: src/lib/components/RoasterForm.svelte
@@ -260,11 +251,9 @@ msgid "Create Bean"
 msgstr ""
 
 #: src/lib/components/BeanForm.svelte
-#: src/lib/components/BeanForm.svelte
 msgid "Bean name is required"
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
 #: src/lib/components/BeanForm.svelte
 msgid "Roaster is required"
 msgstr ""
@@ -284,29 +273,27 @@ msgstr ""
 msgid "Enter bean name"
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
+#: src/lib/components/BeanRoasterSelector.svelte
 msgid "Roaster *"
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
+#: src/lib/components/BeanRoasterSelector.svelte
 msgid "Select a roaster..."
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
+#: src/lib/components/BeanRoasterSelector.svelte
 msgid "Search roaster..."
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
-msgid "No roaster found."
-msgstr ""
+#~ msgid "No roaster found."
+#~ msgstr ""
 
 #: src/lib/components/BeanForm.svelte
 msgid "Bean Image (Optional)"
 msgstr ""
 
-#: src/lib/components/BeanForm.svelte
-msgid "Current bean image"
-msgstr ""
+#~ msgid "Current bean image"
+#~ msgstr ""
 
 #: src/lib/components/CupBagSelector.svelte
 msgid "Select a bag..."
@@ -377,7 +364,9 @@ msgstr ""
 msgid "Photo"
 msgstr ""
 
+#: src/lib/components/BeanForm.svelte
 #: src/lib/components/CupForm.svelte
+#: src/lib/components/RoasterForm.svelte
 msgid "Preview"
 msgstr ""
 
@@ -523,6 +512,7 @@ msgstr ""
 
 #: src/lib/components/CupBagSelector.svelte
 #: src/routes/_authorized/bags/new.svelte
+#: src/routes/_authorized/beans/new.svelte
 #: src/routes/_authorized/cups/new.svelte
 msgid "loading..."
 msgstr ""
@@ -863,4 +853,8 @@ msgstr ""
 
 #: src/lib/components/RoasterForm.svelte
 msgid "Roster Information"
+msgstr ""
+
+#: src/lib/components/BeanRoasterSelector.svelte
+msgid "No roasters found."
 msgstr ""

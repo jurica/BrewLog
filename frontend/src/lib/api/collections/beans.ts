@@ -5,7 +5,7 @@ import { Roaster } from "./roasters";
 export namespace Bean {
   const collectionName = "beans";
   export interface Record extends PB_Record {
-    picture: string;
+    picture: string | File;
     roaster: string;
     name: string;
     expand: {
@@ -63,5 +63,13 @@ export namespace Bean {
     })();
 
     return resp;
+  }
+
+  export async function persist(record: Record): Promise<Record> {
+    if (record.id.length > 0) {
+      return pb.collection(collectionName).update<Record>(record.id, record);
+    } else {
+      return pb.collection(collectionName).create<Record>(record);
+    }
   }
 }
