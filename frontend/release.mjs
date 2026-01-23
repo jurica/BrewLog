@@ -11,9 +11,9 @@ let patch = parseInt(currentVersionParts[2]) + 1;
 const newVersion = `${major}.${minor}.${patch}`;
 
 const git_status = execSync('git status').toString();
-const isMain = git_status.search("On branch main") > 0;
-const allPushed = git_status.search("Your branch is up to date with 'origin/main'.") > 0;
-const isClean = git_status.search("nothing to commit, working tree clean") > 0;
+const isMain = git_status.search("On branch main") >= 0;
+const allPushed = git_status.search("Your branch is up to date with 'origin/main'.") >= 0;
+const isClean = git_status.search("nothing to commit, working tree clean") >= 0;
 if (!isMain) {
     console.log("Error: Not on branch main, will not perform release!");
 }
