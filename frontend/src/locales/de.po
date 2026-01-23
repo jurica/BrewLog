@@ -90,7 +90,6 @@ msgid "Create Roaster"
 msgstr ""
 
 #: src/lib/components/RoasterForm.svelte
-#: src/lib/components/RoasterForm.svelte
 msgid "Roaster name is required"
 msgstr ""
 

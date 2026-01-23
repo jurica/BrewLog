@@ -23,7 +23,7 @@
       reader.readAsDataURL(picture);
     }
     if (typeof picture === "string") {
-      return Api.pb.files.getURL(roaster, picture);
+      return Api.getURL(roaster, picture);
     }
   });
 

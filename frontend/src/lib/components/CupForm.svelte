@@ -36,7 +36,7 @@
       reader.readAsDataURL(picture);
     }
     if (typeof picture === "string") {
-      return Api.pb.files.getURL(cup, picture);
+      return Api.getURL(cup, picture);
     }
   });
 

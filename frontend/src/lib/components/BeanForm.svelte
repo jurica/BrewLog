@@ -25,7 +25,7 @@
       reader.readAsDataURL(picture);
     }
     if (typeof picture === "string") {
-      return Api.pb.files.getURL(bean, picture);
+      return Api.getURL(bean, picture);
     }
   });
 

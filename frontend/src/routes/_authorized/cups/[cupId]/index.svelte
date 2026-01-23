@@ -114,7 +114,7 @@
       <Card.Content>
         {#if cup.pictures.length > 0}
           <img
-            src={Api.pb.files.getURL(cup, cup.pictures.at(0))}
+            src={Api.getURL(cup, cup.pictures.at(0) as string)}
             alt="Cup"
             class="max-h-96 w-full rounded object-cover"
           />

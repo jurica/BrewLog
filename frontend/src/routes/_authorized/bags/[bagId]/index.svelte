@@ -101,8 +101,7 @@
       <Card.Content>
         {#if bag.expand.bean.picture}
           <img
-            src="/api/files/beans/{bag.expand.bean.id}/{bag.expand.bean
-              .picture}"
+            src={Api.getURL(bag.expand.bean, bag.expand.bean.picture as string)}
             alt={bag.expand.bean.name}
             class="max-h-60 w-full rounded object-contain"
           />
