@@ -5,32 +5,31 @@
   import * as Field from "$lib/components/ui/field/index.js";
   import * as Card from "$lib/components/ui/card/index.js";
   import { navigate } from "sv-router/generated";
-  import { LoaderCircle, ArrowLeft, Trash2 } from "@lucide/svelte";
+  import { LoaderCircle } from "@lucide/svelte";
 
   interface Props {
-    roasterId?: string;
-    initialData?: Api.Collections.Roaster.Record;
+    roaster: Api.Collections.Roaster.Record;
   }
 
-  let { roasterId, initialData }: Props = $props();
+  let { roaster = $bindable() }: Props = $props();
 
-  let formData = $state({
-    name: initialData?.name ?? "",
-    website: initialData?.website ?? "",
-    picture: undefined as File | undefined
+  let photoPreview = $derived.by(() => {
+    let picture = roaster.picture;
+    if (picture instanceof File) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        photoPreview = e.target?.result as string;
+      };
+      reader.readAsDataURL(picture);
+    }
+    if (typeof picture === "string") {
+      return Api.getURL(roaster, picture);
+    }
   });
 
-  let currentImageUrl = $state<string | undefined>(
-    initialData?.picture
-      ? Api.pb.getFileUrl(initialData, initialData.picture)
-      : undefined
-  );
   let loading = $state(false);
   let submitted = $state(false);
   let error = $state<string | null>(null);
-
-  const isEditing = !!roasterId;
-  const submitButtonText = isEditing ? "Update Roaster" : "Create Roaster";
 
   async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
@@ -39,33 +38,8 @@
     submitted = true;
 
     try {
-      if (!formData.name.trim()) {
-        error = "Roaster name is required";
-        loading = false;
-        return;
-      }
-
-      const data = new FormData();
-      data.append("name", formData.name);
-      if (formData.website) {
-        data.append("website", formData.website);
-      }
-      if (formData.picture) {
-        data.append("picture", formData.picture);
-      }
-      if (isEditing && currentImageUrl === undefined) {
-        data.append("picture", "");
-      }
-
-      if (isEditing && roasterId) {
-        await Api.pb.collection("roasters").update(roasterId, data);
-        navigate(`/roasters/${roasterId}`);
-      } else {
-        const result = await Api.pb
-          .collection("roasters")
-          .create<Api.Roaster>(data);
-        navigate(`/roasters/${result.id}`);
-      }
+      roaster = await Api.Collections.Roaster.persist(roaster);
+      navigate(`/roasters/:roasterId`, { params: { roasterId: roaster.id } });
     } catch (err) {
       error = err instanceof Error ? err.message : "An error occurred";
     } finally {
@@ -76,12 +50,8 @@
   function handleFileChange(e: Event) {
     const input = e.target as HTMLInputElement;
     if (input.files?.[0]) {
-      formData.picture = input.files[0];
+      roaster.picture = input.files[0];
     }
-  }
-
-  function handleDeleteCurrentImage() {
-    currentImageUrl = undefined;
   }
 </script>
 
@@ -92,37 +62,43 @@
     </Card.Header>
     <Card.Content>
       <form onsubmit={handleSubmit} class="space-y-6">
-        <!-- Name Field -->
         <Field.Field>
           <Field.Label for="name">Roaster Name *</Field.Label>
           <Input
             id="name"
             type="text"
             placeholder="Enter roaster name"
-            bind:value={formData.name}
+            bind:value={roaster.name}
             disabled={loading}
-            aria-invalid={submitted && !formData.name}
+            aria-invalid={submitted && !roaster.name}
           />
-          {#if submitted && !formData.name}
+          {#if submitted && !roaster.name}
             <Field.Error>Roaster name is required</Field.Error>
           {/if}
         </Field.Field>
 
-        <!-- Website Field -->
         <Field.Field>
           <Field.Label for="website">Website URL (Optional)</Field.Label>
           <Input
             id="website"
             type="url"
             placeholder="https://example.com"
-            bind:value={formData.website}
+            bind:value={roaster.website}
             disabled={loading}
           />
         </Field.Field>
 
-        <!-- Picture Field -->
         <Field.Field>
           <Field.Label for="picture">Roaster Image (Optional)</Field.Label>
+          {#if roaster.picture}
+            <div class="mb-4">
+              <img
+                src={photoPreview}
+                alt="Preview"
+                class="h-40 w-full rounded object-cover"
+              />
+            </div>
+          {/if}
           <Input
             id="picture"
             type="file"
@@ -130,41 +106,8 @@
             onchange={handleFileChange}
             disabled={loading}
           />
-          {#if formData.picture}
-            <Field.Description>
-              Selected: {formData.picture.name}
-            </Field.Description>
-          {/if}
         </Field.Field>
 
-        <!-- Current Image Preview -->
-        {#if currentImageUrl}
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <Field.Label>Current Image</Field.Label>
-              <Button
-                type="button"
-                variant="ghost"
-                size="sm"
-                onclick={handleDeleteCurrentImage}
-                disabled={loading}
-                class="text-destructive hover:text-destructive hover:bg-destructive/10 gap-1"
-              >
-                <Trash2 class="h-4 w-4" />
-                Delete
-              </Button>
-            </div>
-            <div class="bg-muted/50 rounded-md border p-2">
-              <img
-                src={currentImageUrl}
-                alt="Current roaster image"
-                class="h-32 w-auto rounded"
-              />
-            </div>
-          </div>
-        {/if}
-
-        <!-- Error Message -->
         {#if error}
           <div
             class="bg-destructive/10 text-destructive rounded-md p-3 text-sm"
@@ -173,21 +116,19 @@
           </div>
         {/if}
 
-        <!-- Form Actions -->
         <div class="flex gap-3 pt-4">
           <Button type="submit" disabled={loading}>
             {#if loading}
               <LoaderCircle class="mr-2 h-4 w-4 animate-spin" />
               Saving...
             {:else}
-              {submitButtonText}
+              {!!roaster.id ? "Update Roaster" : "Create Roaster"}
             {/if}
           </Button>
           <Button
             type="button"
             variant="outline"
-            onclick={() =>
-              navigate(isEditing ? `/roasters/${roasterId}` : "/roasters")}
+            onclick={() => navigate(-1)}
             disabled={loading}
           >
             Cancel

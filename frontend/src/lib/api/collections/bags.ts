@@ -1,5 +1,5 @@
 import { pb } from "../client";
-import { Response, PB_Record } from "./common.svelte";
+import { Response, PB_Record, persistRecord } from "./common.svelte";
 import { Bean } from "./beans";
 
 export namespace Bags {
@@ -88,10 +88,6 @@ export namespace Bags {
   }
 
   export async function persist(record: Record): Promise<Record> {
-    if (record.id.length > 0) {
-      return pb.collection(collectionName).update<Record>(record.id, record);
-    } else {
-      return pb.collection(collectionName).create<Record>(record);
-    }
+    return persistRecord(collectionName, record);
   }
 }

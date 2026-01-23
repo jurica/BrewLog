@@ -1,4 +1,3 @@
-export { pb } from "./client";
 export * from "./auth";
 export * from "./collections";
 export * from "./utils";

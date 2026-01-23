@@ -5,13 +5,7 @@
   import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import { navigate, route } from "sv-router/generated";
-  import {
-    ArrowLeft,
-    Ellipsis,
-    Pen,
-    Trash2,
-    Coffee
-  } from "@lucide/svelte";
+  import { ArrowLeft, Ellipsis, Pen, Trash2, Coffee } from "@lucide/svelte";
   import { onMount } from "svelte";
   import { getHeaderContext } from "$lib/layoutHeaderContext";
 
@@ -114,7 +108,7 @@
       <Card.Content>
         {#if cup.pictures.length > 0}
           <img
-            src={Api.pb.files.getURL(cup, cup.pictures.at(0))}
+            src={Api.getURL(cup, cup.pictures.at(0) as string)}
             alt="Cup"
             class="max-h-96 w-full rounded object-cover"
           />

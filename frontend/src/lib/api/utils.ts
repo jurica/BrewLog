@@ -6,6 +6,7 @@ import {
 } from "@internationalized/date";
 import type { DateValue } from "@internationalized/date";
 import { PB_Record } from "./collections/common.svelte";
+import { pb } from "./client";
 
 export class ZonedDateTimeProxy<T extends PB_Record> {
   private _record: T;
@@ -34,4 +35,8 @@ export class ZonedDateTimeProxy<T extends PB_Record> {
     if (this.value === undefined) return "";
     return this.value.toDate().toLocaleDateString();
   }
+}
+
+export function getURL(record: PB_Record, file: string): string {
+  return pb.files.getURL(record, file);
 }

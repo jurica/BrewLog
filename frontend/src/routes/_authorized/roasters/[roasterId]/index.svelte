@@ -112,7 +112,7 @@
       <Card.Content>
         {#if roaster.picture}
           <img
-            src="/api/files/roasters/{roaster.id}/{roaster.picture}"
+            src={Api.getURL(roaster, roaster.picture as string)}
             alt={roaster.name}
             class="max-h-96 w-full rounded object-contain"
           />

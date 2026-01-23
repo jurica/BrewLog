@@ -6,10 +6,10 @@ import { wuchale } from "@wuchale/vite-plugin";
 import path from "path";
 import fs from "fs";
 
-export default defineConfig(({command}) => {
+export default defineConfig(({ command }) => {
   const isDev = command === "serve";
 
-  let appVersion : string;
+  let appVersion: string;
   if (isDev) {
     appVersion = "dev";
   } else {
@@ -19,23 +19,24 @@ export default defineConfig(({command}) => {
   appVersion = JSON.stringify(appVersion);
 
   return {
-  plugins: [
-    wuchale(),
-    tailwindcss(),
-    svelte(),
-    router({
-      allLazy: true
-    })
-  ],
-  build: {
-    outDir: "../backend/dist"
-  },
-  resolve: {
-    alias: {
-      $lib: path.resolve("./src/lib")
+    plugins: [
+      wuchale(),
+      tailwindcss(),
+      svelte(),
+      router({
+        allLazy: true
+      })
+    ],
+    build: {
+      outDir: "../backend/dist"
+    },
+    resolve: {
+      alias: {
+        $lib: path.resolve("./src/lib")
+      }
+    },
+    define: {
+      __APP_VERSION__: appVersion
     }
-  },
-  define: {
-    '__APP_VERSION__': appVersion
-  }}
+  };
 });

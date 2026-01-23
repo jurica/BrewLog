@@ -20,7 +20,7 @@
     if (Api.isAuthenticated()) {
       navigate("/");
     }
-  }
+  };
 
   if (Api.isAuthenticated()) {
     navigate("/");

@@ -113,7 +113,7 @@
       <Card.Content>
         {#if bean.picture}
           <img
-            src="/api/files/beans/{bean.id}/{bean.picture}"
+            src={Api.getURL(bean, bean.picture as string)}
             alt={bean.name}
             class="max-h-96 w-full rounded object-contain"
           />
