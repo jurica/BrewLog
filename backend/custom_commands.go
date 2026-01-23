@@ -11,15 +11,21 @@ func (app *application) registerCustomCommands() {
 		Run: func(cmd *cobra.Command, args []string) {
 			superusers, err := app.pb.FindCollectionByNameOrId(core.CollectionNameSuperusers)
 			if err != nil {
+				app.pb.Logger().Error("failed to find collection '_superusers'")
 				return
 			}
 			superuser := core.NewRecord(superusers)
 			superuser.Set("email", "superuser@brewlog.local")
 			superuser.Set("password", "superuser")
-			app.pb.Save(superuser)
+			err = app.pb.Save(superuser)
+			if err != nil {
+				app.pb.Logger().Error("failed to create superuser")
+				return
+			}
 
 			users, err := app.pb.FindCollectionByNameOrId("users")
 			if err != nil {
+				app.pb.Logger().Error("failed to find collection 'users'")
 				return
 			}
 			user := core.NewRecord(users)
@@ -27,7 +33,13 @@ func (app *application) registerCustomCommands() {
 			user.Set("password", "useruser")
 			user.Set("firstname", "Firstname")
 			user.Set("lastname", "Lastname")
-			app.pb.Save(user)
+			err = app.pb.Save(user)
+			if err != nil {
+				app.pb.Logger().Error("failed to create user")
+				return
+			}
+
+			app.pb.Logger().Info("created test users")
 		},
 	})
 }

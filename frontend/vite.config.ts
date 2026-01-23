@@ -6,12 +6,19 @@ import { wuchale } from "@wuchale/vite-plugin";
 import path from "path";
 import fs from "fs";
 
-const version = fs
-  .readFileSync(path.resolve(__dirname, "VERSION"), "utf-8")
-  .trim();
+export default defineConfig(({command}) => {
+  const isDev = command === "serve";
 
-// https://vite.dev/config/
-export default defineConfig({
+  let appVersion : string;
+  if (isDev) {
+    appVersion = "dev";
+  } else {
+    appVersion = "v" + process.env.npm_package_version;
+    fs.writeFileSync("../backend/VERSION", process.env.npm_package_version);
+  }
+  appVersion = JSON.stringify(appVersion);
+
+  return {
   plugins: [
     wuchale(),
     tailwindcss(),
@@ -29,6 +36,6 @@ export default defineConfig({
     }
   },
   define: {
-    __APP_VERSION__: JSON.stringify(version)
-  }
+    '__APP_VERSION__': appVersion
+  }}
 });

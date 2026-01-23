@@ -25,7 +25,7 @@
   <Sidebar.Header>
     <div class="flex items-baseline">
       <Icon iconNode={coffeemaker} class="mr-2" /><span>BrewLog</span><span
-        class="text-muted-foreground ml-2 text-sm">v{__APP_VERSION__}</span
+        class="text-muted-foreground ml-2 text-sm">{__APP_VERSION__}</span
       >
     </div>
   </Sidebar.Header>
