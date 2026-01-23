@@ -81,7 +81,7 @@
         </Field.Field>
 
         <Field.Field>
-          <BeanRoasterSelector bind:bean roasters={roasters} />
+          <BeanRoasterSelector bind:bean {roasters} />
           {#if submitted && !bean.roaster}
             <Field.Error>Roaster is required</Field.Error>
           {/if}
@@ -127,7 +127,7 @@
           <Button
             type="button"
             variant="outline"
-            onclick={() =>  navigate(-1)}
+            onclick={() => navigate(-1)}
             disabled={loading}
           >
             Cancel

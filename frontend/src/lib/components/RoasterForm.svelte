@@ -39,7 +39,7 @@
 
     try {
       roaster = await Api.Collections.Roaster.persist(roaster);
-        navigate(`/roasters/:roasterId`, { params: { roasterId: roaster.id }});
+      navigate(`/roasters/:roasterId`, { params: { roasterId: roaster.id } });
     } catch (err) {
       error = err instanceof Error ? err.message : "An error occurred";
     } finally {

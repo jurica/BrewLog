@@ -37,6 +37,6 @@ export class ZonedDateTimeProxy<T extends PB_Record> {
   }
 }
 
-export function getURL(record: PB_Record, file: string) : string {
+export function getURL(record: PB_Record, file: string): string {
   return pb.files.getURL(record, file);
 }

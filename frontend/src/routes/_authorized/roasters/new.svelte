@@ -16,4 +16,4 @@
   <h1 class="text-3xl font-bold">New Roaster</h1>
 {/snippet}
 
-<RoasterForm bind:roaster={roaster} />
+<RoasterForm bind:roaster />
