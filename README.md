@@ -26,6 +26,7 @@ BrewLog helps coffee enthusiasts manage their coffee collection and track brewin
 ## Core Entities
 
 The application manages four core entities:
+
 - **Roaster**: Coffee roasters with contact information
 - **Bean**: Reusable picture library for coffee products
 - **Bag**: Coffee bean packages with lifecycle tracking (unopened → open → finished)
@@ -44,12 +45,14 @@ The application manages four core entities:
 ### Development
 
 **Backend:**
+
 ```bash
 cd frontend
 npm run backend
 ```
 
 **Frontend:**
+
 ```bash
 cd frontend
 npm install
@@ -57,6 +60,7 @@ npm run dev
 ```
 
 **Testsuite:**
+
 ```bash
 cd frontend
 npm run test:codegen
@@ -64,6 +68,7 @@ npm run test:ui
 ```
 
 **Update dependencies:**
+
 ```bash
 cd backend
 go get -u -t
@@ -77,6 +82,7 @@ npm outdated
 ### Production Deployment
 
 Build and run with Docker:
+
 ```bash
 docker build -t brewlog .
 docker run -p 8090:8090 -v $(pwd)/pb_data:/app/pb_data brewlog
@@ -89,6 +95,7 @@ The application will be available at `http://localhost:8090`
 This is a personal project. Contributions, suggestions, and feedback are welcome!
 
 ## References
+
 - https://github.com/s-petr/longhabit/tree/main
 - https://github.com/pocketbase/pocketbase/discussions/7088
 - https://puvvadi.net/posts/deploy-pocketbase-with-docker-behind-traefik/

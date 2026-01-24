@@ -4,19 +4,12 @@ import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { router } from "sv-router/vite-plugin";
 import { wuchale } from "@wuchale/vite-plugin";
 import path from "path";
-import fs from "fs";
 
 export default defineConfig(({ command }) => {
-  const isDev = command === "serve";
-
-  let appVersion: string;
-  if (isDev) {
-    appVersion = "dev";
-  } else {
-    appVersion = "v" + process.env.npm_package_version;
-    fs.writeFileSync("../backend/VERSION", process.env.npm_package_version);
+  if (command === "build" && process.env.npm_package_version === undefined) {
+    console.log("ERROR: __APP_VERSION__ is undefined, cancel build");
+    process.exit(1);
   }
-  appVersion = JSON.stringify(appVersion);
 
   return {
     plugins: [
@@ -36,7 +29,7 @@ export default defineConfig(({ command }) => {
       }
     },
     define: {
-      __APP_VERSION__: appVersion
+      __APP_VERSION__: JSON.stringify(process.env.npm_package_version)
     }
   };
 });
