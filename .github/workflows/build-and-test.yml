@@ -34,4 +34,4 @@ jobs:
         with:
           name: playwright-report
           path: |
-            frontend/playwright-report/index.html
+            playwright-report/index.html
