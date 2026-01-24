@@ -49,7 +49,7 @@ rl.close();
 if (answer === "y") {
   execSync(`git tag -- v${currentVersion}`);
   execSync(`git push origin tag v${currentVersion}`);
-  execSync(`npm version ${newVersion}`);
+  execSync(`npm --no-git-tag-version version ${newVersion}`);
   execSync(`git add -- package.json package-lock.json`);
   execSync(`git commit -m "bump version to ${newVersion}"`);
   execSync(`git push`);
