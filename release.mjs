@@ -2,6 +2,9 @@ import * as readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 import { execSync } from "node:child_process";
 
+// format all files as a precaution
+execSync("npm run format");
+
 const currentVersion = process.env.npm_package_version;
 
 const currentVersionParts = currentVersion.split(".");
