@@ -7,10 +7,6 @@
   "bugs": {
     "url": "https://github.com/jurica/BrewLog/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jurica/BrewLog.git"
-  },
   "license": "MIT",
   "author": "Jurica Bacurin",
   "scripts": {
