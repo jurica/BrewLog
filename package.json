@@ -1,0 +1,39 @@
+{
+  "name": "brewlog",
+  "version": "0.0.7",
+  "description": " A mobile-first web application for tracking coffee bean inventory and brewing activities ",
+  "homepage": "https://github.com/jurica/BrewLog#readme",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/jurica/BrewLog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jurica/BrewLog.git"
+  },
+  "license": "MIT",
+  "author": "Jurica Bacurin",
+  "scripts": {
+    "build:backend": "npx ts-node build_backend.ts",
+    "build:frontend": "npx ts-node build_frontend.ts",
+    "build": "npm run build:frontend && npm run build:backend",
+    "dev:backend": "go run . serve --http 0.0.0.0:8090",
+    "dev:frontend": "cd frontend && npm run dev",
+    "test": "playwright test",
+    "test:codegen": "node playwright_codegen.mjs",
+    "test:ui": "playwright test --ui-host localhost --ui-port 36285",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "release": "node release.mjs",
+    "format": "npx prettier . --write"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.10",
+    "prettier": "^3.7.4",
+    "prettier-plugin-svelte": "^3.4.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.3"
+  }
+}

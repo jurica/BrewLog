@@ -48,7 +48,7 @@ export default defineConfig({
 
   webServer: {
     command:
-      "./BrewLog migrate && ./BrewLog createTestUsers && ./BrewLog serve",
+      "./backend/BrewLog migrate && ./backend/BrewLog createTestUsers && ./backend/BrewLog serve",
     url: "http://localhost:8090",
     reuseExistingServer: !process.env.CI
   }

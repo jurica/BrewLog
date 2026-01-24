@@ -23,7 +23,6 @@ func newApplication() *application {
 
 func main() {
 	app := newApplication()
-	app.pb.RootCmd.Version = strings.TrimSpace(version)
 
 	// loosely check if it was executed using "go run"
 	isGoRun := strings.HasPrefix(os.Args[0], os.TempDir())
