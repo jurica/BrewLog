@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
     "allowImportingTsExtensions": true,
     "strict": true
-  },
-  "ts-node": {
-    "esm": true
   }
 }
