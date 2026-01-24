@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-push:
+  build-and-test:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -20,7 +20,7 @@ jobs:
         run: |
           npm install
           npx playwright install chromium-headless-shell
-          npm build
+          npm run build
           chmod +x ../BrewLog
           npm run test
 
