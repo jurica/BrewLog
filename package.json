@@ -1,6 +1,6 @@
 {
   "name": "brewlog",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": " A mobile-first web application for tracking coffee bean inventory and brewing activities ",
   "homepage": "https://github.com/jurica/BrewLog#readme",
   "type": "module",
