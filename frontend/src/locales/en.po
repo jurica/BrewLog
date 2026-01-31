@@ -13,42 +13,45 @@ msgstr ""
 "Source-Language: en\n"
 "MIME-Version: 1.0\n"
 
+#: src/lib/components/Bag/Card.svelte
+#: src/lib/components/Bag/Header.svelte
 #: src/lib/components/BagFilterToggle.svelte
 #: src/lib/components/CupBagSelector.svelte
-#: src/routes/_authorized/bags/index.svelte
-#: src/routes/_authorized/bags/index.svelte
 msgid "Unopened"
 msgstr "Unopened"
 
+#: src/lib/components/Bag/DataTable.svelte
+#: src/lib/components/Bag/Header.svelte
 #: src/lib/components/BagFilterToggle.svelte
 #: src/lib/components/CupBagSelector.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
-#: src/routes/_authorized/bags/index.svelte
 msgid "Opened"
 msgstr "Opened"
 
+#: src/lib/components/Bag/DataTable.svelte
+#: src/lib/components/Bag/Header.svelte
 #: src/lib/components/BagFilterToggle.svelte
 #: src/lib/components/CupBagSelector.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
-#: src/routes/_authorized/bags/index.svelte
 msgid "Finished"
 msgstr "Finished"
 
+#: src/lib/components/Bag/Header.svelte
 #: src/lib/components/BagFilterToggle.svelte
 #: src/lib/components/CupBagSelector.svelte
-#: src/routes/_authorized/bags/index.svelte
 msgid "All"
 msgstr "All"
 
-#: src/routes/_authorized/bags/index.svelte
+#: src/lib/components/Bag/Header.svelte
 msgid "Bags"
 msgstr "Bags"
 
-#: src/routes/_authorized/bags/index.svelte
+#: src/lib/components/Bag/Header.svelte
+#: src/lib/components/LocaleSelector.svelte
 msgid "Select a value"
 msgstr "Select a value"
 
-#: src/routes/_authorized/bags/index.svelte
+#: src/lib/components/Bag/Header.svelte
 msgid "<0/> New Bag"
 msgstr "<0/> New Bag"
 
@@ -65,16 +68,16 @@ msgid "<0/> Create First Bag"
 msgstr "<0/> Create First Bag"
 
 #. placeholder {0}: new Date(bag.finish_date).toLocaleDateString()
-#: src/routes/_authorized/bags/index.svelte
+#: src/lib/components/Bag/Card.svelte
 msgid "Finished {0}"
 msgstr "Finished {0}"
 
 #. placeholder {0}: new Date(bag.open_date).toLocaleDateString()
-#: src/routes/_authorized/bags/index.svelte
+#: src/lib/components/Bag/Card.svelte
 msgid "Opened {0}"
 msgstr "Opened {0}"
 
-#: src/routes/_authorized/bags/index.svelte
+#: src/lib/components/Bag/Card.svelte
 #: src/routes/_authorized/beans/index.svelte
 #: src/routes/_authorized/roasters/index.svelte
 msgid "No image"
@@ -106,6 +109,7 @@ msgstr "<0/> Back to Beans"
 msgid "<0/> Edit"
 msgstr "<0/> Edit"
 
+#: src/lib/components/Bag/Header.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/beans/[beanId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
@@ -667,6 +671,7 @@ msgstr "Bag Details"
 msgid "Initial Weight"
 msgstr "Initial Weight"
 
+#: src/lib/components/Bag/DataTable.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "Roasted"
 msgstr "Roasted"
@@ -812,3 +817,87 @@ msgstr "Displays the mobile sidebar."
 #: src/lib/components/BeanRoasterSelector.svelte
 msgid "No roasters found."
 msgstr "No roasters found."
+
+#~ msgid "Overview"
+#~ msgstr "Overview"
+
+#~ msgid "List"
+#~ msgstr "List"
+
+#~ msgid "Delete Bag"
+#~ msgstr "Delete Bag"
+
+#: src/lib/components/LocaleSelector.svelte
+msgid "German"
+msgstr "German"
+
+#: src/lib/components/LocaleSelector.svelte
+msgid "English"
+msgstr "English"
+
+#: src/routes/_authorized/account.svelte
+msgid "Account"
+msgstr "Account"
+
+#: src/routes/_authorized/account.svelte
+msgid "Locale <0/>"
+msgstr "Locale <0/>"
+
+#: src/lib/components/Bag/Header.svelte
+msgid "View"
+msgstr "View"
+
+#~ msgid "Grid"
+#~ msgstr "Grid"
+
+#~ msgid "Table"
+#~ msgstr "Table"
+
+#: src/lib/components/Bag/Header.svelte
+msgid "<0/> Grid"
+msgstr "<0/> Grid"
+
+#: src/lib/components/Bag/Header.svelte
+msgid "<0/> Table"
+msgstr "<0/> Table"
+
+#~ msgid "Success"
+#~ msgstr "Success"
+
+#~ msgid "Abe45@gmail.com"
+#~ msgstr "Abe45@gmail.com"
+
+#~ msgid "Processing"
+#~ msgstr "Processing"
+
+#~ msgid "Monserrat44@gmail.com"
+#~ msgstr "Monserrat44@gmail.com"
+
+#~ msgid "Silas22@gmail.com"
+#~ msgstr "Silas22@gmail.com"
+
+#~ msgid "Failed"
+#~ msgstr "Failed"
+
+#: src/lib/components/Bag/DataTable.svelte
+msgid "Bean"
+msgstr "Bean"
+
+#~ msgid "Roaster"
+#~ msgstr "Roaster"
+
+#~ msgid "Filter emails..."
+#~ msgstr "Filter emails..."
+
+#~ msgid "Columns <0/>"
+#~ msgstr "Columns <0/>"
+
+#~ msgid "No results."
+#~ msgstr "No results."
+
+#~ msgid "{0} of {1} row(s) selected."
+#~ msgstr "{0} of {1} row(s) selected."
+
+#: src/lib/components/Bag/DataTable.svelte
+msgid "Purchased"
+msgstr "Purchased"

@@ -17,6 +17,9 @@ export namespace Cups {
       bag: Bags.Record;
     };
   }
+  export interface UiState {
+    page: number;
+  }
 
   export function newRecord(): Record {
     const record: Record = {

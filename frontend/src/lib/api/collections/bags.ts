@@ -26,6 +26,11 @@ export namespace Bags {
     unopened: "open_date = ''",
     finished: "finish_date != ''"
   };
+  export type Views = "grid" | "table";
+  export interface UiState {
+    filter: Filters;
+    view: Views;
+  }
 
   export function newRecord(): Record {
     const bag: Record = {
@@ -59,7 +64,8 @@ export namespace Bags {
         resp.data = (
           await pb.collection(collectionName).getList<Record>(1, 30, {
             expand: "bean,bean.roaster",
-            filter: FilterQueries[filter]
+            filter: FilterQueries[filter],
+            sort: "-finish_date,+open_date,+roast_date,+purchase_date"
           })
         ).items;
       } finally {

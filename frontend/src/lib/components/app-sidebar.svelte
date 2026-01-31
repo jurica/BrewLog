@@ -18,7 +18,6 @@
   import SidebarMenuItem from "$lib/components/sidebar-menu-item.svelte";
 
   const sidebar = Sidebar.useSidebar();
-  let response = $derived(Api.Collections.Users.getCurrentUser());
 </script>
 
 <Sidebar.Root collapsible="offcanvas" side="left">
@@ -61,83 +60,81 @@
       </Sidebar.GroupContent>
     </Sidebar.Group>
   </Sidebar.Content>
-  {#if response.data !== undefined}
-    {@const user = response.data}
-    <Sidebar.SidebarFooter>
-      <Sidebar.Menu>
-        <Sidebar.MenuItem>
-          <DropdownMenu.Root>
-            <DropdownMenu.Trigger>
-              {#snippet child({ props })}
-                <Sidebar.MenuButton
-                  {...props}
-                  size="lg"
-                  class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                >
-                  <Avatar.Root class="size-8 rounded-lg grayscale">
-                    <Avatar.Image src={user.avatar} alt={user.email} />
-                    <Avatar.Fallback class="rounded-lg"
-                      >{`${user.firstname.charAt(0).toUpperCase()}${user.lastname.charAt(0).toUpperCase()}`}</Avatar.Fallback
-                    >
-                  </Avatar.Root>
-                  <div class="grid flex-1 text-start text-sm leading-tight">
-                    <span class="truncate font-medium"
-                      >{user.firstname} {user.lastname}</span
-                    >
-                    <span class="text-muted-foreground truncate text-xs">
-                      {user.email}
-                    </span>
-                  </div>
-                  <EllipsisVerticalIcon class="ms-auto size-4" />
-                </Sidebar.MenuButton>
-              {/snippet}
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Content
-              class="w-(--bits-dropdown-menu-anchor-width) min-w-56 rounded-lg"
-              side={sidebar.isMobile ? "bottom" : "right"}
-              align="end"
-              sideOffset={4}
-            >
-              <DropdownMenu.Label class="p-0 font-normal">
-                <div
-                  class="flex items-center gap-2 px-1 py-1.5 text-start text-sm"
-                >
-                  <Avatar.Root class="size-8 rounded-lg">
-                    <Avatar.Image src={user.avatar} alt={user.email} />
-                    <Avatar.Fallback class="rounded-lg"
-                      >{`${user.firstname.charAt(0).toUpperCase()}${user.lastname.charAt(0).toUpperCase()}`}</Avatar.Fallback
-                    >
-                  </Avatar.Root>
-                  <div class="grid flex-1 text-start text-sm leading-tight">
-                    <span class="truncate font-medium"
-                      >{user.firstname} {user.lastname}</span
-                    >
-                    <span class="text-muted-foreground truncate text-xs">
-                      {user.email}
-                    </span>
-                  </div>
+  {@const user = Api.currentUser}
+  <Sidebar.SidebarFooter>
+    <Sidebar.Menu>
+      <Sidebar.MenuItem>
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger>
+            {#snippet child({ props })}
+              <Sidebar.MenuButton
+                {...props}
+                size="lg"
+                class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+              >
+                <Avatar.Root class="size-8 rounded-lg grayscale">
+                  <Avatar.Image src={user.avatar} alt={user.email} />
+                  <Avatar.Fallback class="rounded-lg"
+                    >{`${user.firstname.charAt(0).toUpperCase()}${user.lastname.charAt(0).toUpperCase()}`}</Avatar.Fallback
+                  >
+                </Avatar.Root>
+                <div class="grid flex-1 text-start text-sm leading-tight">
+                  <span class="truncate font-medium"
+                    >{user.firstname} {user.lastname}</span
+                  >
+                  <span class="text-muted-foreground truncate text-xs">
+                    {user.email}
+                  </span>
                 </div>
-              </DropdownMenu.Label>
-              <DropdownMenu.Separator />
-              <DropdownMenu.Group>
-                <DropdownMenu.Item>
-                  <CircleUserIcon />
-                  Account
-                </DropdownMenu.Item>
-                <DropdownMenu.Item>
-                  <SettingsIcon />
-                  Settings
-                </DropdownMenu.Item>
-              </DropdownMenu.Group>
-              <DropdownMenu.Separator />
-              <DropdownMenu.Item onclick={() => navigate("/logout")}>
-                <LogOutIcon />
-                Log out
+                <EllipsisVerticalIcon class="ms-auto size-4" />
+              </Sidebar.MenuButton>
+            {/snippet}
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Content
+            class="w-(--bits-dropdown-menu-anchor-width) min-w-56 rounded-lg"
+            side={sidebar.isMobile ? "bottom" : "right"}
+            align="end"
+            sideOffset={4}
+          >
+            <DropdownMenu.Label class="p-0 font-normal">
+              <div
+                class="flex items-center gap-2 px-1 py-1.5 text-start text-sm"
+              >
+                <Avatar.Root class="size-8 rounded-lg">
+                  <Avatar.Image src={user.avatar} alt={user.email} />
+                  <Avatar.Fallback class="rounded-lg"
+                    >{`${user.firstname.charAt(0).toUpperCase()}${user.lastname.charAt(0).toUpperCase()}`}</Avatar.Fallback
+                  >
+                </Avatar.Root>
+                <div class="grid flex-1 text-start text-sm leading-tight">
+                  <span class="truncate font-medium"
+                    >{user.firstname} {user.lastname}</span
+                  >
+                  <span class="text-muted-foreground truncate text-xs">
+                    {user.email}
+                  </span>
+                </div>
+              </div>
+            </DropdownMenu.Label>
+            <DropdownMenu.Separator />
+            <DropdownMenu.Group>
+              <DropdownMenu.Item onclick={() => navigate("/account")}>
+                <CircleUserIcon />
+                Account
               </DropdownMenu.Item>
-            </DropdownMenu.Content>
-          </DropdownMenu.Root>
-        </Sidebar.MenuItem>
-      </Sidebar.Menu>
-    </Sidebar.SidebarFooter>
-  {/if}
+              <DropdownMenu.Item>
+                <SettingsIcon />
+                Settings
+              </DropdownMenu.Item>
+            </DropdownMenu.Group>
+            <DropdownMenu.Separator />
+            <DropdownMenu.Item onclick={() => navigate("/logout")}>
+              <LogOutIcon />
+              Log out
+            </DropdownMenu.Item>
+          </DropdownMenu.Content>
+        </DropdownMenu.Root>
+      </Sidebar.MenuItem>
+    </Sidebar.Menu>
+  </Sidebar.SidebarFooter>
 </Sidebar.Root>

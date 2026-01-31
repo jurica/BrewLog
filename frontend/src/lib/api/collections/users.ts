@@ -1,6 +1,9 @@
-import { logout } from "../auth";
-import { pb } from "../client";
-import { Response, PB_Record } from "./common.svelte";
+import { Bags } from "./bags";
+import { PB_Record, persistRecord } from "./common.svelte";
+import { Cups } from "./cups";
+
+export const locales = ["en", "de"] as const;
+export type Locale = typeof locales[number];
 
 export namespace Users {
   const collectionName = "users";
@@ -9,58 +12,48 @@ export namespace Users {
     firstname: string;
     lastname: string;
     avatar: string;
+    uiState: UiState;
   }
 
-  export function getList(): Response<Record[]> {
-    const resp = new Response<Record[]>();
-
-    (async function () {
-      resp.loading = true;
-      try {
-        resp.data = (
-          await pb.collection(collectionName).getList<Record>(1, 30, {})
-        ).items;
-      } finally {
-        resp.loading = false;
-      }
-    })();
-
-    return resp;
+  interface UiState {
+    locale: Locale;
+    bags: Bags.UiState;
+    cups: Cups.UiState;
   }
 
-  export function getOne(id: string): Response<Record> {
-    const resp = new Response<Record>();
-
-    (async function () {
-      resp.loading = true;
-      try {
-        resp.data = await pb.collection(collectionName).getOne<Record>(id);
-      } finally {
-        resp.loading = false;
+  export function newRecord(): Record {
+    const user: Record = {
+      id: "",
+      collectionName: collectionName,
+      updated: "",
+      created: "",
+      email: "",
+      firstname: "",
+      lastname: "",
+      avatar: "",
+      uiState: {
+        locale: "en",
+        bags: {
+          filter: "opened",
+          view: "grid"
+        },
+        cups: {
+          page: 1,
+        }
       }
-    })();
-
-    return resp;
+    };
+    return user;
   }
 
-  export function getCurrentUser(): Response<Record> {
-    const resp = new Response<Record>();
+  export async function persist(record: Record): Promise<Record> {
+    return persistRecord(collectionName, record);
+  }
 
-    (async function () {
-      resp.loading = true;
-      try {
-        resp.data = await pb
-          .collection(collectionName)
-          .getOne<Record>(pb.authStore.record?.id);
-      } catch {
-        resp.loading = false;
-        resp.error = "Current User not found or set.";
-        logout();
-      } finally {
-        resp.loading = false;
-      }
-    })();
-
-    return resp;
+  let debounceTimeout: ReturnType<typeof setTimeout>;
+  export async function persistDebounced(record: Record, delay: number = 1000) {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(() => {
+      persistRecord(collectionName, record);
+    }, delay);
   }
 }

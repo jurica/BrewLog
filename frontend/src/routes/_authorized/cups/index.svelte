@@ -8,13 +8,17 @@
   import { Plus, Coffee, ChevronLeft, ChevronRight } from "@lucide/svelte";
   import { onMount } from "svelte";
   import { getHeaderContext } from "$lib/layoutHeaderContext";
-  import { page } from "./page.svelte";
 
-  let response = $derived(Api.Collections.Cups.getList(page.value));
+  let response = $derived(Api.Collections.Cups.getList(Api.currentUser.uiState.cups.page));
 
   onMount(() => {
     getHeaderContext().set(headerContent);
     return () => getHeaderContext().set(null);
+  });
+
+  $effect(() => {
+    Api.currentUser.uiState.cups.page;
+    Api.Collections.Users.persistDebounced(Api.currentUser);
   });
 </script>
 
@@ -135,7 +139,8 @@
       <Card.Content class="-m-4">
         <Pagination.Root
           count={response.totalItems}
-          bind:page={page.value}
+          page={Api.currentUser.uiState.cups.page}
+          onPageChange={(page) => Api.currentUser.uiState.cups.page = page}
           perPage={9}
         >
           {#snippet children({ pages, currentPage })}
