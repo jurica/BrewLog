@@ -97,7 +97,7 @@
                 <div class="flex justify-between">
                   <span class="text-muted-foreground text-xs">Date</span>
                   <span class="text-sm font-medium"
-                    >{new Date(cup.created).toLocaleString("de")}</span
+                    >{new Date(cup.created).toLocaleString(Api.currentUser.uiState.locale)}</span
                   >
                 </div>
                 {#if cup.rating}

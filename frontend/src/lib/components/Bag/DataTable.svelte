@@ -51,10 +51,7 @@
 </script>
 
 {#snippet dateCell(params: { date: string })}
-  {@const formatted = new Date(params.date).toLocaleDateString(
-    Api.currentUser.uiState.locale
-  )}
-  <div>{formatted}</div>
+  <div>{new Date(params.date).toLocaleDateString(Api.currentUser.uiState.locale)}</div>
 {/snippet}
 
 <div class="-mb-8 w-full">

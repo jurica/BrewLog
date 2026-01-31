@@ -144,14 +144,6 @@
               <p class="text-sm font-medium">{cup.water_temp_c}°C</p>
             </div>
           {/if}
-          {#if cup.timestamp}
-            <div>
-              <p class="text-muted-foreground text-sm">Brewed</p>
-              <p class="text-sm">
-                {new Date(cup.timestamp).toLocaleString()}
-              </p>
-            </div>
-          {/if}
         </Card.Content>
       </Card.Root>
 
@@ -179,7 +171,7 @@
           <div>
             <p class="text-muted-foreground text-sm">Added</p>
             <p class="text-sm">
-              {new Date(cup.created).toLocaleDateString()}
+              {new Date(cup.created).toLocaleDateString(Api.currentUser.uiState.locale)}
             </p>
           </div>
         </Card.Content>

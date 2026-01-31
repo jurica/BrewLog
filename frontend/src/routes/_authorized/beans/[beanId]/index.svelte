@@ -142,13 +142,13 @@
           <div>
             <p class="text-muted-foreground text-sm">Added</p>
             <p class="text-sm">
-              {new Date(bean.created).toLocaleDateString()}
+              {new Date(bean.created).toLocaleDateString(Api.currentUser.uiState.locale)}
             </p>
           </div>
           <div>
             <p class="text-muted-foreground text-sm">Last Updated</p>
             <p class="text-sm">
-              {new Date(bean.updated).toLocaleDateString()}
+              {new Date(bean.updated).toLocaleDateString(Api.currentUser.uiState.locale)}
             </p>
           </div>
         </Card.Content>

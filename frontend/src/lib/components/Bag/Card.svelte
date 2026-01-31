@@ -19,9 +19,9 @@
       </Card.Title>
       <Card.Description>
         {#if bag.finish_date}
-          Finished {new Date(bag.finish_date).toLocaleDateString()}
+          Finished {new Date(bag.finish_date).toLocaleDateString(Api.currentUser.uiState.locale)}
         {:else if bag.open_date}
-          Opened {new Date(bag.open_date).toLocaleDateString()}
+          Opened {new Date(bag.open_date).toLocaleDateString(Api.currentUser.uiState.locale)}
         {:else}
           Unopened
         {/if}

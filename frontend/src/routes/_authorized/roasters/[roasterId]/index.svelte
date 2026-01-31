@@ -141,13 +141,13 @@
           <div>
             <p class="text-muted-foreground text-sm">Added</p>
             <p class="text-sm">
-              {new Date(roaster.created).toLocaleDateString()}
+              {new Date(roaster.created).toLocaleDateString(Api.currentUser.uiState.locale)}
             </p>
           </div>
           <div>
             <p class="text-muted-foreground text-sm">Last Updated</p>
             <p class="text-sm">
-              {new Date(roaster.updated).toLocaleDateString()}
+              {new Date(roaster.updated).toLocaleDateString(Api.currentUser.uiState.locale)}
             </p>
           </div>
         </Card.Content>
