@@ -18,6 +18,9 @@
   import SidebarMenuItem from "$lib/components/sidebar-menu-item.svelte";
 
   const sidebar = Sidebar.useSidebar();
+
+
+  let user = $derived(Api.currentUser);
 </script>
 
 <Sidebar.Root collapsible="offcanvas" side="left">
@@ -60,7 +63,6 @@
       </Sidebar.GroupContent>
     </Sidebar.Group>
   </Sidebar.Content>
-  {@const user = Api.currentUser}
   <Sidebar.SidebarFooter>
     <Sidebar.Menu>
       <Sidebar.MenuItem>
