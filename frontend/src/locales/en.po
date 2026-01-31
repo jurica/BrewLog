@@ -67,12 +67,12 @@ msgstr "Create your first bag to get started"
 msgid "<0/> Create First Bag"
 msgstr "<0/> Create First Bag"
 
-#. placeholder {0}: new Date(bag.finish_date).toLocaleDateString()
+#. placeholder {0}: new Date(bag.finish_date).toLocaleDateString(Api.currentUser.uiState.locale)
 #: src/lib/components/Bag/Card.svelte
 msgid "Finished {0}"
 msgstr "Finished {0}"
 
-#. placeholder {0}: new Date(bag.open_date).toLocaleDateString()
+#. placeholder {0}: new Date(bag.open_date).toLocaleDateString(Api.currentUser.uiState.locale)
 #: src/lib/components/Bag/Card.svelte
 msgid "Opened {0}"
 msgstr "Opened {0}"
@@ -276,9 +276,8 @@ msgstr "Water Temperature"
 msgid "{0}°C"
 msgstr "{0}°C"
 
-#: src/routes/_authorized/cups/[cupId]/index.svelte
-msgid "Brewed"
-msgstr "Brewed"
+#~ msgid "Brewed"
+#~ msgstr "Brewed"
 
 #: src/routes/_authorized/cups/[cupId]/index.svelte
 msgid "Tasting Notes"

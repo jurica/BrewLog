@@ -1,8 +1,8 @@
 import { Bags } from "./bags";
 import { PB_Record, persistRecord } from "./common.svelte";
 import { Cups } from "./cups";
+import {locales} from "../../../../wuchale.config";
 
-export const locales = ["en", "de"] as const;
 export type Locale = typeof locales[number];
 
 export namespace Users {
