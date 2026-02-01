@@ -3,12 +3,12 @@
   import * as Api from "$lib/api";
   import { p } from "sv-router/generated";
 
-  let href = $state(p("/bags/:bagId", { params: { bagId: bag.id } }));
-
   interface Props {
     bag: Api.Collections.Bags.Record;
   }
   let { bag }: Props = $props();
+
+  let href = $state(p("/bags/:bagId", { params: { bagId: bag.id } }));
 </script>
 
 <a {href} class="group" data-test-id="card-{bag.expand?.bean?.name}">
