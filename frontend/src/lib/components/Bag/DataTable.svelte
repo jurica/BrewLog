@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as Api from "$lib/api";
-  import { navigate, p } from "sv-router/generated";
+  import { navigate } from "sv-router/generated";
   import { type ColumnDef, getCoreRowModel } from "@tanstack/table-core";
   import * as Table from "$lib/components/ui/table/index.js";
   import {
@@ -23,24 +23,8 @@
     }
   );
 
-  const dateCell = createRawSnippet<[{ date: string }]>((getDate) => {
-    const { date } = getDate();
-    let result: string;
-    if (date !== "") {
-      const formattedDate = new Date(date).toLocaleDateString(
-        Api.currentUser.uiState.locale
-      );
-      result = `<div>${formattedDate}</div>`;
-    } else {
-      result = "<div>-</div>";
-    }
-    return {
-      render: () => result
-    };
-  });
-
   function formatDate(date: string): string {
-    if (date !== "") {
+    if (date !== "" && Api.currentUser && Api.currentUser.uiState) {
       return new Date(date).toLocaleDateString(Api.currentUser.uiState.locale);
     } else {
       return "-";
@@ -57,28 +41,6 @@
           class: "font-bold"
         });
       },
-    },
-    {
-      id: "purchase_date",
-      header: () => {
-        return renderSnippet(cellSnippet, {
-          content: "Purchased",
-          class: "font-bold text-center"
-        });
-      },
-      cell: ({ row }) =>
-        renderSnippet(cellSnippet, { content: formatDate(row.original.purchase_date), class: "text-center" })
-    },
-    {
-      id: "roast_date",
-      header: () => {
-        return renderSnippet(cellSnippet, {
-          content: "Roasted",
-          class: "font-bold text-center"
-        });
-      },
-      cell: ({ row }) =>
-        renderSnippet(cellSnippet, { content: formatDate(row.original.roast_date), class: "text-center" })
     },
     {
       id: "open_date",
@@ -101,6 +63,28 @@
       },
       cell: ({ row }) =>
         renderSnippet(cellSnippet, { content: formatDate(row.original.finish_date), class: "text-center" })
+    },
+    {
+      id: "roast_date",
+      header: () => {
+        return renderSnippet(cellSnippet, {
+          content: "Roasted",
+          class: "font-bold text-center"
+        });
+      },
+      cell: ({ row }) =>
+        renderSnippet(cellSnippet, { content: formatDate(row.original.roast_date), class: "text-center" })
+    },
+    {
+      id: "purchase_date",
+      header: () => {
+        return renderSnippet(cellSnippet, {
+          content: "Purchased",
+          class: "font-bold text-center"
+        });
+      },
+      cell: ({ row }) =>
+        renderSnippet(cellSnippet, { content: formatDate(row.original.purchase_date), class: "text-center" })
     }
   ];
 

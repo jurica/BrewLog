@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import LocaleSelector from "$lib/components/LocaleSelector.svelte";
 </script>
 

@@ -29,7 +29,7 @@ export async function init() {
       let user = await pb
         .collection(currentUser.collectionName)
         .getOne<Users.Record>(pb.authStore.record.id);
-      if (user.uiState === null) {
+      if (user.uiState === null || user.uiState === undefined) {
         user.uiState = currentUser.uiState;
       }
       _.merge(currentUser, user);

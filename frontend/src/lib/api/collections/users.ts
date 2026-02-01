@@ -12,7 +12,7 @@ export namespace Users {
     firstname: string;
     lastname: string;
     avatar: string;
-    uiState: UiState;
+    uiState?: UiState | null;
   }
 
   interface UiState {
@@ -51,8 +51,10 @@ export namespace Users {
 
   let debounceTimeout: ReturnType<typeof setTimeout>;
   export async function persistDebounced(record: Record, delay: number = 1000) {
+    if (!record.id) return;
     clearTimeout(debounceTimeout);
     debounceTimeout = setTimeout(() => {
+      if (!record.id) return;
       persistRecord(collectionName, record);
     }, delay);
   }

@@ -2,7 +2,6 @@
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
-  import * as Select from "$lib/components/ui/select/index.js";
   import * as Api from "$lib/api";
   import { navigate } from "sv-router/generated";
   import { Plus, Ellipsis, LayoutGrid, LayoutList } from "@lucide/svelte";
@@ -35,7 +34,7 @@
   <h1 class="text-3xl font-bold">Bags</h1>
   <BagFilterToggle
     bind:bagFilter={Api.currentUser.uiState.bags.filter}
-    class="hidden *:data-[slot=toggle-group-item]:px-4! @[600px]/header:flex"
+    class="hidden *:data-[slot=toggle-group-item]:!px-4 @[600px]/header:flex"
   />
   <ButtonGroup.Root>
     <Button size="sm" variant="outline" onclick={() => navigate("/bags/new")}>
