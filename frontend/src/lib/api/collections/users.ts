@@ -12,7 +12,7 @@ export namespace Users {
     firstname: string;
     lastname: string;
     avatar: string;
-    uiState?: UiState | null;
+    uiState: UiState;
   }
 
   interface UiState {
