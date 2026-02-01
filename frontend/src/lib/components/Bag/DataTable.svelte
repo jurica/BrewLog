@@ -40,7 +40,7 @@
           content: "Bean",
           class: "font-bold"
         });
-      },
+      }
     },
     {
       id: "open_date",
@@ -51,7 +51,10 @@
         });
       },
       cell: ({ row }) =>
-        renderSnippet(cellSnippet, { content: formatDate(row.original.open_date), class: "text-center" })
+        renderSnippet(cellSnippet, {
+          content: formatDate(row.original.open_date),
+          class: "text-center"
+        })
     },
     {
       id: "finish_date",
@@ -62,8 +65,11 @@
         });
       },
       cell: ({ row }) =>
-        renderSnippet(cellSnippet, { content: formatDate(row.original.finish_date), class: "text-center" })
-    },
+        renderSnippet(cellSnippet, {
+          content: formatDate(row.original.finish_date),
+          class: "text-center"
+        })
+    }
     // {
     //   id: "roast_date",
     //   header: () => {

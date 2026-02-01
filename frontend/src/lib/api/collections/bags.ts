@@ -19,7 +19,7 @@ export namespace Bags {
     bean: string;
   }
   export const FilterKeys = ["unopened", "opened", "finished", "all"] as const;
-  export type Filters = typeof FilterKeys[number];
+  export type Filters = (typeof FilterKeys)[number];
   export type FilterValues<T> = { [key in Filters]: T };
   export const FilterQueries: FilterValues<string> = {
     opened: "open_date != '' && finish_date = ''",

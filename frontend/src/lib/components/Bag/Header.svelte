@@ -75,7 +75,11 @@
         <DropdownMenu.Label>Filter</DropdownMenu.Label>
         <DropdownMenu.Group>
           {#each Api.Collections.Bags.FilterKeys as filter}
-            <DropdownMenu.Item disabled={filter === Api.currentUser.uiState.bags.filter} onclick={()=>Api.currentUser.uiState.bags.filter = filter}>{filterLabels[filter]}</DropdownMenu.Item>
+            <DropdownMenu.Item
+              disabled={filter === Api.currentUser.uiState.bags.filter}
+              onclick={() => (Api.currentUser.uiState.bags.filter = filter)}
+              >{filterLabels[filter]}</DropdownMenu.Item
+            >
           {/each}
         </DropdownMenu.Group>
       </DropdownMenu.Content>

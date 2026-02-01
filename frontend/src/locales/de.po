@@ -199,14 +199,12 @@ msgstr ""
 msgid "Bean"
 msgstr ""
 
-#: src/lib/components/Bag/DataTable.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "Roasted"
 msgstr ""
 
-#: src/lib/components/Bag/DataTable.svelte
-msgid "Purchased"
-msgstr ""
+#~ msgid "Purchased"
+#~ msgstr ""
 
 #: src/lib/components/Bag/DataTable.svelte
 #: src/lib/components/Bag/Header.svelte
