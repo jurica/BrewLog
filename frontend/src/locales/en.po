@@ -46,7 +46,6 @@ msgstr "All"
 msgid "Bags"
 msgstr "Bags"
 
-#: src/lib/components/Bag/Header.svelte
 #: src/lib/components/LocaleSelector.svelte
 msgid "Select a value"
 msgstr "Select a value"
@@ -67,12 +66,12 @@ msgstr "Create your first bag to get started"
 msgid "<0/> Create First Bag"
 msgstr "<0/> Create First Bag"
 
-#. placeholder {0}: new Date(bag.finish_date).toLocaleDateString(Api.currentUser.uiState.locale)
+#. placeholder {0}: new Date(bag.finish_date).toLocaleDateString( Api.currentUser.uiState.locale )
 #: src/lib/components/Bag/Card.svelte
 msgid "Finished {0}"
 msgstr "Finished {0}"
 
-#. placeholder {0}: new Date(bag.open_date).toLocaleDateString(Api.currentUser.uiState.locale)
+#. placeholder {0}: new Date(bag.open_date).toLocaleDateString( Api.currentUser.uiState.locale )
 #: src/lib/components/Bag/Card.svelte
 msgid "Opened {0}"
 msgstr "Opened {0}"
@@ -900,3 +899,7 @@ msgstr "Bean"
 #: src/lib/components/Bag/DataTable.svelte
 msgid "Purchased"
 msgstr "Purchased"
+
+#: src/lib/components/Bag/Header.svelte
+msgid "Filter"
+msgstr "Filter"

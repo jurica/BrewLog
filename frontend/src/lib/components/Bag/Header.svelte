@@ -35,24 +35,8 @@
   <h1 class="text-3xl font-bold">Bags</h1>
   <BagFilterToggle
     bind:bagFilter={Api.currentUser.uiState.bags.filter}
-    class="hidden *:data-[slot=toggle-group-item]:!px-4 @[550px]/header:flex"
+    class="hidden *:data-[slot=toggle-group-item]:px-4! @[600px]/header:flex"
   />
-  <Select.Root type="single" bind:value={Api.currentUser.uiState.bags.filter}>
-    <Select.Trigger
-      size="sm"
-      class="flex w-40 **:data-[slot=select-value]:block **:data-[slot=select-value]:truncate @[550px]/header:hidden"
-      aria-label="Select a value"
-    >
-      <span data-slot="select-value">
-        {filterLabels[Api.currentUser.uiState.bags.filter]}
-      </span>
-    </Select.Trigger>
-    <Select.Content class="rounded-xl">
-      {#each Object.entries(filterLabels) as [key, label]}
-        <Select.Item value={key} class="rounded-lg">{label}</Select.Item>
-      {/each}
-    </Select.Content>
-  </Select.Root>
   <ButtonGroup.Root>
     <Button size="sm" variant="outline" onclick={() => navigate("/bags/new")}>
       <Plus class="mr-2 h-4 w-4" />
@@ -75,21 +59,25 @@
         <DropdownMenu.Label>View</DropdownMenu.Label>
         <DropdownMenu.Group>
           <DropdownMenu.Item
+            disabled={currentView === "grid"}
             onclick={() => (Api.currentUser.uiState.bags.view = "grid")}
           >
-            <LayoutGrid
-              fill={currentView === "grid" ? "black" : "transparent"}
-            />
-            Grid
+            <LayoutGrid /> Grid
           </DropdownMenu.Item>
           <DropdownMenu.Item
+            disabled={currentView === "table"}
             onclick={() => (Api.currentUser.uiState.bags.view = "table")}
           >
-            <LayoutList
-              fill={currentView === "table" ? "black" : "transparent"}
-            />
+            <LayoutList />
             Table
           </DropdownMenu.Item>
+        </DropdownMenu.Group>
+        <DropdownMenu.Separator />
+        <DropdownMenu.Label>Filter</DropdownMenu.Label>
+        <DropdownMenu.Group>
+          {#each Api.Collections.Bags.FilterKeys as filter}
+            <DropdownMenu.Item disabled={filter === Api.currentUser.uiState.bags.filter} onclick={()=>Api.currentUser.uiState.bags.filter = filter}>{filterLabels[filter]}</DropdownMenu.Item>
+          {/each}
         </DropdownMenu.Group>
       </DropdownMenu.Content>
     </DropdownMenu.Root>

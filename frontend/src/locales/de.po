@@ -100,6 +100,7 @@ msgstr ""
 #. placeholder {0}: bag.initial_weight_g
 #. placeholder {0}: bag.leftover_amount_g
 #. placeholder {0}: cup.used_coffee_g
+#. placeholder {0}: cup.used_coffee_g
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
@@ -112,6 +113,7 @@ msgstr ""
 msgid "Yield"
 msgstr ""
 
+#. placeholder {0}: cup.yield_g
 #. placeholder {0}: cup.yield_g
 #: src/routes/_authorized/cups/[cupId]/index.svelte
 #: src/routes/_authorized/cups/index.svelte
@@ -131,6 +133,7 @@ msgstr ""
 msgid "Temperature"
 msgstr ""
 
+#. placeholder {0}: cup.water_temp_c
 #. placeholder {0}: cup.water_temp_c
 #: src/routes/_authorized/cups/[cupId]/index.svelte
 #: src/routes/_authorized/cups/index.svelte
@@ -238,7 +241,6 @@ msgstr ""
 msgid "Bags"
 msgstr ""
 
-#: src/lib/components/Bag/Header.svelte
 #: src/lib/components/LocaleSelector.svelte
 msgid "Select a value"
 msgstr ""
@@ -267,12 +269,12 @@ msgstr ""
 msgid "<0/> Table"
 msgstr ""
 
-#. placeholder {0}: new Date(bag.finish_date).toLocaleDateString(Api.currentUser.uiState.locale)
+#. placeholder {0}: new Date(bag.finish_date).toLocaleDateString( Api.currentUser.uiState.locale )
 #: src/lib/components/Bag/Card.svelte
 msgid "Finished {0}"
 msgstr ""
 
-#. placeholder {0}: new Date(bag.open_date).toLocaleDateString(Api.currentUser.uiState.locale)
+#. placeholder {0}: new Date(bag.open_date).toLocaleDateString( Api.currentUser.uiState.locale )
 #: src/lib/components/Bag/Card.svelte
 msgid "Opened {0}"
 msgstr ""
@@ -824,4 +826,8 @@ msgstr ""
 
 #: src/routes/_authorized/cups/[cupId]/index.svelte
 msgid "Back to Cups"
+msgstr ""
+
+#: src/lib/components/Bag/Header.svelte
+msgid "Filter"
 msgstr ""
