@@ -1,8 +1,6 @@
-// @ts-check
 import { adapter as svelte } from "@wuchale/svelte";
 import { defineConfig } from "wuchale";
-
-export const locales = ["en", "de"] as const;
+import { locales } from "./src/lib/locales.ts";
 
 export default defineConfig({
   locales: locales,

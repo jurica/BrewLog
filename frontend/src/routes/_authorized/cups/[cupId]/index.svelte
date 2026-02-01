@@ -171,7 +171,9 @@
           <div>
             <p class="text-muted-foreground text-sm">Added</p>
             <p class="text-sm">
-              {new Date(cup.created).toLocaleDateString(Api.currentUser.uiState.locale)}
+              {new Date(cup.created).toLocaleDateString(
+                Api.currentUser.uiState.locale
+              )}
             </p>
           </div>
         </Card.Content>

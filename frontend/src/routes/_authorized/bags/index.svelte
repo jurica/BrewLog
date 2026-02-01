@@ -31,11 +31,9 @@
         Create First Bag
       </Button>
     </div>
-  {:else}
-    {#if Api.currentUser.uiState.bags.view === "grid"}
+  {:else if Api.currentUser.uiState.bags.view === "grid"}
     <BagCardGrid bags={response.data} />
-      {:else}
-      <BagDataTable bags={response.data} />
-    {/if}
+  {:else}
+    <BagDataTable bags={response.data} />
   {/if}
 </div>

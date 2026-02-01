@@ -131,7 +131,9 @@
             <div>
               <p class="text-muted-foreground text-sm">Roasted</p>
               <p class="text-sm">
-                {new Date(bag.roast_date).toLocaleDateString(Api.currentUser.uiState.locale)}
+                {new Date(bag.roast_date).toLocaleDateString(
+                  Api.currentUser.uiState.locale
+                )}
               </p>
             </div>
           {/if}
@@ -139,7 +141,9 @@
             <div>
               <p class="text-muted-foreground text-sm">Opened</p>
               <p class="text-sm">
-                {new Date(bag.open_date).toLocaleDateString(Api.currentUser.uiState.locale)}
+                {new Date(bag.open_date).toLocaleDateString(
+                  Api.currentUser.uiState.locale
+                )}
               </p>
             </div>
           {/if}
@@ -161,7 +165,9 @@
             <div>
               <p class="text-muted-foreground text-sm">Finished</p>
               <p class="text-sm">
-                {new Date(bag.finish_date).toLocaleDateString(Api.currentUser.uiState.locale)}
+                {new Date(bag.finish_date).toLocaleDateString(
+                  Api.currentUser.uiState.locale
+                )}
               </p>
             </div>
           {/if}

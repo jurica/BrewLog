@@ -51,7 +51,9 @@
 </script>
 
 {#snippet dateCell(params: { date: string })}
-  <div>{new Date(params.date).toLocaleDateString(Api.currentUser.uiState.locale)}</div>
+  <div>
+    {new Date(params.date).toLocaleDateString(Api.currentUser.uiState.locale)}
+  </div>
 {/snippet}
 
 <div class="-mb-8 w-full">
@@ -62,10 +64,10 @@
           <Table.Row>
             {#each headerGroup.headers as header (header.id)}
               <Table.Head>
-                  <FlexRender
-                    content={header.column.columnDef.header}
-                    context={header.getContext()}
-                  />
+                <FlexRender
+                  content={header.column.columnDef.header}
+                  context={header.getContext()}
+                />
               </Table.Head>
             {/each}
           </Table.Row>

@@ -26,7 +26,9 @@ export let currentUser: Users.Record = $state<Users.Record>(Users.newRecord());
 export async function init() {
   if (pb.authStore.isValid && pb.authStore.record?.id) {
     try {
-      let user = await pb.collection(currentUser.collectionName).getOne<Users.Record>(pb.authStore.record.id);
+      let user = await pb
+        .collection(currentUser.collectionName)
+        .getOne<Users.Record>(pb.authStore.record.id);
       if (user.uiState === null) {
         user.uiState = currentUser.uiState;
       }
@@ -38,4 +40,3 @@ export async function init() {
     logout();
   }
 }
-

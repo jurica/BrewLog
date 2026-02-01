@@ -19,7 +19,6 @@
 
   const sidebar = Sidebar.useSidebar();
 
-
   let user = $derived(Api.currentUser);
 </script>
 

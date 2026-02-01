@@ -6,7 +6,7 @@
   type LocaleValues = { [key in Api.Collections.Locale]: string };
   const localeLabels: LocaleValues = {
     de: "German",
-    en: "English",
+    en: "English"
   };
 
   $effect(() => {
@@ -16,10 +16,12 @@
   });
 </script>
 
-
 <Select.Root
   type="single"
-  bind:value={() => Api.currentUser.uiState.locale, (l) => Api.currentUser.uiState.locale = l}
+  bind:value={
+    () => Api.currentUser.uiState.locale,
+    (l) => (Api.currentUser.uiState.locale = l)
+  }
 >
   <Select.Trigger size="sm" aria-label="Select a value">
     <span data-slot="select-value">

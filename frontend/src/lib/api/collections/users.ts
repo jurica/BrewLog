@@ -1,9 +1,9 @@
 import { Bags } from "./bags";
 import { PB_Record, persistRecord } from "./common.svelte";
 import { Cups } from "./cups";
-import {locales} from "../../../../wuchale.config";
+import { locales } from "$lib/locales";
 
-export type Locale = typeof locales[number];
+export type Locale = (typeof locales)[number];
 
 export namespace Users {
   const collectionName = "users";
@@ -38,7 +38,7 @@ export namespace Users {
           view: "grid"
         },
         cups: {
-          page: 1,
+          page: 1
         }
       }
     };

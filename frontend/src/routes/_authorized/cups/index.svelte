@@ -9,7 +9,9 @@
   import { onMount } from "svelte";
   import { getHeaderContext } from "$lib/layoutHeaderContext";
 
-  let response = $derived(Api.Collections.Cups.getList(Api.currentUser.uiState.cups.page));
+  let response = $derived(
+    Api.Collections.Cups.getList(Api.currentUser.uiState.cups.page)
+  );
 
   onMount(() => {
     getHeaderContext().set(headerContent);
@@ -97,7 +99,9 @@
                 <div class="flex justify-between">
                   <span class="text-muted-foreground text-xs">Date</span>
                   <span class="text-sm font-medium"
-                    >{new Date(cup.created).toLocaleString(Api.currentUser.uiState.locale)}</span
+                    >{new Date(cup.created).toLocaleString(
+                      Api.currentUser.uiState.locale
+                    )}</span
                   >
                 </div>
                 {#if cup.rating}
@@ -140,7 +144,7 @@
         <Pagination.Root
           count={response.totalItems}
           page={Api.currentUser.uiState.cups.page}
-          onPageChange={(page) => Api.currentUser.uiState.cups.page = page}
+          onPageChange={(page) => (Api.currentUser.uiState.cups.page = page)}
           perPage={9}
         >
           {#snippet children({ pages, currentPage })}
