@@ -1,6 +1,7 @@
 <script lang="ts">
   import * as Api from "$lib/api";
   import * as Select from "$lib/components/ui/select/index.js";
+  import { loadLocale } from "wuchale/load-utils";
 
   type LocaleValues = { [key in Api.Collections.Locale]: string };
   const localeLabels: LocaleValues = {
@@ -10,6 +11,7 @@
 
   $effect(() => {
     Api.currentUser.uiState.locale;
+    loadLocale(Api.currentUser.uiState.locale);
     Api.Collections.Users.persistDebounced(Api.currentUser);
   });
 </script>
