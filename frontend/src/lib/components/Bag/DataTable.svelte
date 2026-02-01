@@ -8,36 +8,99 @@
     createSvelteTable,
     renderSnippet
   } from "$lib/components/ui/data-table/index.js";
+  import { createRawSnippet } from "svelte";
 
   interface Props {
     bags: Api.Collections.Bags.Record[];
   }
   let { bags }: Props = $props();
 
+  const cellSnippet = createRawSnippet<[{ content: string; class: string }]>(
+    (props) => {
+      return {
+        render: () => `<div class="${props().class}">${props().content}</div>`
+      };
+    }
+  );
+
+  const dateCell = createRawSnippet<[{ date: string }]>((getDate) => {
+    const { date } = getDate();
+    let result: string;
+    if (date !== "") {
+      const formattedDate = new Date(date).toLocaleDateString(
+        Api.currentUser.uiState.locale
+      );
+      result = `<div>${formattedDate}</div>`;
+    } else {
+      result = "<div>-</div>";
+    }
+    return {
+      render: () => result
+    };
+  });
+
+  function formatDate(date: string): string {
+    if (date !== "") {
+      return new Date(date).toLocaleDateString(Api.currentUser.uiState.locale);
+    } else {
+      return "-";
+    }
+  }
+
   const columns: ColumnDef<Api.Collections.Bags.Record>[] = [
     {
+      id: "bean",
       accessorKey: "expand.bean.name",
-      header: "Bean"
+      header: () => {
+        return renderSnippet(cellSnippet, {
+          content: "Bean",
+          class: "font-bold"
+        });
+      },
     },
     {
-      header: "Roasted",
+      id: "purchase_date",
+      header: () => {
+        return renderSnippet(cellSnippet, {
+          content: "Purchased",
+          class: "font-bold text-center"
+        });
+      },
       cell: ({ row }) =>
-        renderSnippet(dateCell, { date: row.original.roast_date })
+        renderSnippet(cellSnippet, { content: formatDate(row.original.purchase_date), class: "text-center" })
     },
     {
-      header: "Purchased",
+      id: "roast_date",
+      header: () => {
+        return renderSnippet(cellSnippet, {
+          content: "Roasted",
+          class: "font-bold text-center"
+        });
+      },
       cell: ({ row }) =>
-        renderSnippet(dateCell, { date: row.original.purchase_date })
+        renderSnippet(cellSnippet, { content: formatDate(row.original.roast_date), class: "text-center" })
     },
     {
-      header: "Opened",
+      id: "open_date",
+      header: () => {
+        return renderSnippet(cellSnippet, {
+          content: "Opened",
+          class: "font-bold text-center"
+        });
+      },
       cell: ({ row }) =>
-        renderSnippet(dateCell, { date: row.original.open_date })
+        renderSnippet(cellSnippet, { content: formatDate(row.original.open_date), class: "text-center" })
     },
     {
-      header: "Finished",
+      id: "finish_date",
+      header: () => {
+        return renderSnippet(cellSnippet, {
+          content: "Finished",
+          class: "font-bold text-center"
+        });
+      },
       cell: ({ row }) =>
-        renderSnippet(dateCell, { date: row.original.finish_date })
+        renderSnippet(cellSnippet, { content: formatDate(row.original.finish_date), class: "text-center" })
     }
   ];
 
@@ -49,12 +112,6 @@
     getCoreRowModel: getCoreRowModel()
   });
 </script>
-
-{#snippet dateCell(params: { date: string })}
-  <div>
-    {new Date(params.date).toLocaleDateString(Api.currentUser.uiState.locale)}
-  </div>
-{/snippet}
 
 <div class="-mb-8 w-full">
   <div class="rounded-md border">

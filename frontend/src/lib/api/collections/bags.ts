@@ -65,7 +65,7 @@ export namespace Bags {
           await pb.collection(collectionName).getList<Record>(1, 30, {
             expand: "bean,bean.roaster",
             filter: FilterQueries[filter],
-            sort: "-finish_date,+open_date,+roast_date,+purchase_date"
+            sort: "-finish_date,-open_date,+roast_date,+purchase_date"
           })
         ).items;
       } finally {
