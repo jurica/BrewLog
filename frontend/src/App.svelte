@@ -3,21 +3,16 @@
   import { Router } from "sv-router";
   import "sv-router/generated";
   import { Spinner } from "$lib/components/ui/spinner/index.js";
-  import { onMount } from "svelte";
+  import * as Api from "$lib/api";
 
-  let locale = $state("en");
-  let loading = $state(true);
-  onMount(async () => {
-    try {
-      await loadLocale(locale);
-    } finally {
-      loading = false;
-    }
-  });
+  async function init() {
+    await Api.init();
+    await loadLocale(Api.currentUser.uiState.locale);
+  }
 </script>
 
-{#if loading}
+{#await init()}
   <Spinner />
-{:else}
+{:then}
   <Router />
-{/if}
+{/await}
