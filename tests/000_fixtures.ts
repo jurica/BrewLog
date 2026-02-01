@@ -1,10 +1,8 @@
 import { test as setup, expect } from "@playwright/test";
-import path from "path";
 
 setup("authenticate", async ({ page }) => {
   await login(page);
-  const file = path.resolve(setup.info().project.outputDir, `auth.json`);
-  await page.context().storageState({ path: file });
+  await page.context().storageState({ path: "test-results/auth.json" });
 });
 
 async function login(page) {
