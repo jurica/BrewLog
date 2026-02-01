@@ -18,7 +18,8 @@ export namespace Bags {
     };
     bean: string;
   }
-  export type Filters = "opened" | "all" | "unopened" | "finished";
+  export const FilterKeys = ["unopened", "opened", "finished", "all"] as const;
+  export type Filters = typeof FilterKeys[number];
   export type FilterValues<T> = { [key in Filters]: T };
   export const FilterQueries: FilterValues<string> = {
     opened: "open_date != '' && finish_date = ''",
@@ -26,6 +27,11 @@ export namespace Bags {
     unopened: "open_date = ''",
     finished: "finish_date != ''"
   };
+  export type Views = "grid" | "table";
+  export interface UiState {
+    filter: Filters;
+    view: Views;
+  }
 
   export function newRecord(): Record {
     const bag: Record = {
@@ -59,7 +65,8 @@ export namespace Bags {
         resp.data = (
           await pb.collection(collectionName).getList<Record>(1, 30, {
             expand: "bean,bean.roaster",
-            filter: FilterQueries[filter]
+            filter: FilterQueries[filter],
+            sort: "-finish_date,-open_date,+roast_date,+purchase_date"
           })
         ).items;
       } finally {
