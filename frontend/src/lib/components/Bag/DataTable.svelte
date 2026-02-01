@@ -64,28 +64,28 @@
       cell: ({ row }) =>
         renderSnippet(cellSnippet, { content: formatDate(row.original.finish_date), class: "text-center" })
     },
-    {
-      id: "roast_date",
-      header: () => {
-        return renderSnippet(cellSnippet, {
-          content: "Roasted",
-          class: "font-bold text-center"
-        });
-      },
-      cell: ({ row }) =>
-        renderSnippet(cellSnippet, { content: formatDate(row.original.roast_date), class: "text-center" })
-    },
-    {
-      id: "purchase_date",
-      header: () => {
-        return renderSnippet(cellSnippet, {
-          content: "Purchased",
-          class: "font-bold text-center"
-        });
-      },
-      cell: ({ row }) =>
-        renderSnippet(cellSnippet, { content: formatDate(row.original.purchase_date), class: "text-center" })
-    }
+    // {
+    //   id: "roast_date",
+    //   header: () => {
+    //     return renderSnippet(cellSnippet, {
+    //       content: "Roasted",
+    //       class: "font-bold text-center"
+    //     });
+    //   },
+    //   cell: ({ row }) =>
+    //     renderSnippet(cellSnippet, { content: formatDate(row.original.roast_date), class: "text-center" })
+    // },
+    // {
+    //   id: "purchase_date",
+    //   header: () => {
+    //     return renderSnippet(cellSnippet, {
+    //       content: "Purchased",
+    //       class: "font-bold text-center"
+    //     });
+    //   },
+    //   cell: ({ row }) =>
+    //     renderSnippet(cellSnippet, { content: formatDate(row.original.purchase_date), class: "text-center" })
+    // }
   ];
 
   const table = createSvelteTable({

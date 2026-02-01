@@ -669,7 +669,6 @@ msgstr "Bag Details"
 msgid "Initial Weight"
 msgstr "Initial Weight"
 
-#: src/lib/components/Bag/DataTable.svelte
 #: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "Roasted"
 msgstr "Roasted"
@@ -896,9 +895,8 @@ msgstr "Bean"
 #~ msgid "{0} of {1} row(s) selected."
 #~ msgstr "{0} of {1} row(s) selected."
 
-#: src/lib/components/Bag/DataTable.svelte
-msgid "Purchased"
-msgstr "Purchased"
+#~ msgid "Purchased"
+#~ msgstr "Purchased"
 
 #: src/lib/components/Bag/Header.svelte
 msgid "Filter"
