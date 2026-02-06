@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("1. add more bags and cups for pagination", async ({ page }) => {
   // We need at least 10 cups for pagination (9 per page = 2 pages)
-  // Currently have 3 cups from 005_cups.spec.ts  
+  // Currently have 3 cups from 005_cups.spec.ts
   // Add 7 more bags and cups
 
   await page.goto("./");
@@ -41,7 +41,9 @@ test("2. locale persistence", async ({ page }) => {
 
   // Get current locale
   const currentLocale = await localeSelector.textContent();
-  const targetLocale = currentLocale?.includes("English") ? "German" : "English";
+  const targetLocale = currentLocale?.includes("English")
+    ? "German"
+    : "English";
 
   // Change locale
   await localeSelector.click();
@@ -67,7 +69,11 @@ test("2. locale persistence", async ({ page }) => {
 
   // Change back to original locale for consistency
   await localeSelector.click();
-  await page.getByRole("option", { name: currentLocale?.includes("English") ? "English" : "German" }).click();
+  await page
+    .getByRole("option", {
+      name: currentLocale?.includes("English") ? "English" : "German"
+    })
+    .click();
   await page.waitForTimeout(1500);
 });
 
@@ -80,8 +86,7 @@ test("3. bags filter persistence", async ({ page }) => {
 
   // Change to a different filter (use "Unopened")
   await page.getByRole("radio", { name: "Unopened", exact: true }).click();
-  await expect(filterGroup)
-    .toMatchAriaSnapshot(`
+  await expect(filterGroup).toMatchAriaSnapshot(`
     - group:
       - radio "Unopened" [checked] [disabled]
       - radio "Opened"
@@ -96,8 +101,7 @@ test("3. bags filter persistence", async ({ page }) => {
   await page.reload();
 
   // Verify filter is still "Unopened"
-  await expect(filterGroup)
-    .toMatchAriaSnapshot(`
+  await expect(filterGroup).toMatchAriaSnapshot(`
     - group:
       - radio "Unopened" [checked] [disabled]
       - radio "Opened"
@@ -174,7 +178,7 @@ test("5. cups page persistence", async ({ page }) => {
   await expect(page.locator('[data-test-id^="card-"]').first()).toBeVisible();
 
   // Verify we're on page 1 initially
-  const page1Link = page.getByRole('button', { name: 'Page 1' });
+  const page1Link = page.getByRole("button", { name: "Page 1" });
   await expect(page1Link).toHaveAttribute("data-active", "true");
 
   // Navigate to page 2
@@ -182,7 +186,7 @@ test("5. cups page persistence", async ({ page }) => {
   await nextButton.click();
 
   // Verify we're on page 2
-  const page2Link = page.getByRole('button', { name: 'Page 2' });
+  const page2Link = page.getByRole("button", { name: "Page 2" });
   await expect(page2Link).toHaveAttribute("data-active", "true");
 
   // Wait for persistence (debounced at 1000ms)
@@ -195,7 +199,7 @@ test("5. cups page persistence", async ({ page }) => {
   await expect(page2Link).toHaveAttribute("data-active", "true");
 
   // Navigate back to page 1 for consistency
-  const page1LinkAfterReload = page.getByRole('button', { name: 'Page 1' });
+  const page1LinkAfterReload = page.getByRole("button", { name: "Page 1" });
   await page1LinkAfterReload.click();
   await page.waitForTimeout(1500);
 });
