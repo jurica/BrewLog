@@ -12,12 +12,7 @@ export default defineConfig(({ command }) => {
   }
 
   return {
-    plugins: [
-      wuchale(),
-      tailwindcss(),
-      svelte(),
-      router()
-    ],
+    plugins: [wuchale(), tailwindcss(), svelte(), router()],
     build: {
       outDir: "../backend/dist"
     },
