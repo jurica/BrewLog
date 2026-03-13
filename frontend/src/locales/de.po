@@ -59,8 +59,12 @@ msgstr ""
 msgid "Coffee"
 msgstr ""
 
+#. 0: bag.initial_weight_g
+#. 0: bag.leftover_amount_g
 #. 0: cup.used_coffee_g
 #. 0: cup.used_coffee_g
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+#: src/routes/_authorized/bags/[bagId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
 #: src/routes/_authorized/cups/index.svelte
 msgid "{0}g"
@@ -193,6 +197,7 @@ msgstr ""
 #: src/lib/components/Bag/Header.svelte
 #: src/lib/components/BagFilterToggle.svelte
 #: src/lib/components/CupBagSelector.svelte
+#: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "Opened"
 msgstr ""
 
@@ -200,6 +205,7 @@ msgstr ""
 #: src/lib/components/Bag/Header.svelte
 #: src/lib/components/BagFilterToggle.svelte
 #: src/lib/components/CupBagSelector.svelte
+#: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "Finished"
 msgstr ""
 
@@ -225,7 +231,10 @@ msgid "<0/> New Bag"
 msgstr ""
 
 #: src/lib/components/Bag/Header.svelte
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+#: src/routes/_authorized/beans/[beanId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
 msgid "More Options"
 msgstr ""
 
@@ -305,7 +314,10 @@ msgstr ""
 msgid "<0/> Back to Cups"
 msgstr ""
 
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+#: src/routes/_authorized/beans/[beanId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
 msgid "<0/> Edit"
 msgstr ""
 
@@ -342,7 +354,9 @@ msgstr ""
 msgid "No notes recorded"
 msgstr ""
 
+#: src/routes/_authorized/beans/[beanId]/index.svelte
 #: src/routes/_authorized/cups/[cupId]/index.svelte
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
 msgid "Added"
 msgstr ""
 
@@ -548,6 +562,7 @@ msgid "Leftover Amount (g)"
 msgstr ""
 
 #: src/lib/components/BagForm.svelte
+#: src/routes/_authorized/bags/[bagId]/index.svelte
 msgid "Price"
 msgstr ""
 
@@ -644,4 +659,164 @@ msgstr ""
 
 #: src/lib/components/CupBagSelector.svelte
 msgid "Bag *"
+msgstr ""
+
+#: src/routes/_authorized/account.svelte
+msgid "Account"
+msgstr ""
+
+#: src/routes/_authorized/account.svelte
+msgid "Locale <0/>"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/edit.svelte
+msgid "Edit Bag"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "<0/> Back to Bags"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "<0/> Delete Bag"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "No image available"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "Bag Details"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "Initial Weight"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "Roasted"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "Usage Stats"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "Leftover"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "Bag not found"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "The bag you're looking for doesn't exist or has been deleted"
+msgstr ""
+
+#: src/routes/_authorized/bags/[bagId]/index.svelte
+msgid "Back to Bags"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/edit.svelte
+msgid "Edit Bean"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "<0/> Back to Beans"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "<0/> Delete Bean"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Bean Details"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "ID"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "Last Updated"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Quick Stats"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Status"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Active"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Bags in Collection"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Total Brews"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Bean not found"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "The bean you're looking for doesn't exist or has been deleted"
+msgstr ""
+
+#: src/routes/_authorized/beans/[beanId]/index.svelte
+msgid "Back to Beans"
+msgstr ""
+
+#: src/routes/_authorized/cups/[cupId]/edit.svelte
+msgid "Edit Cup"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/edit.svelte
+msgid "Edit Roaster"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "<0/> Back to Roasters"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "<0/> Delete Roaster"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "Roaster Details"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "Roaster not found"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "The roaster you're looking for doesn't exist or has been deleted"
+msgstr ""
+
+#: src/routes/_authorized/roasters/[roasterId]/index.svelte
+msgid "Back to Roasters"
+msgstr ""
+
+#: src/lib/components/LocaleSelector.svelte
+msgid "German"
+msgstr ""
+
+#: src/lib/components/LocaleSelector.svelte
+msgid "English"
+msgstr ""
+
+#: src/lib/components/LocaleSelector.svelte
+msgid "Select a value"
 msgstr ""
