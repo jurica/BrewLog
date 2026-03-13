@@ -28,12 +28,12 @@
     "format": "npx prettier . --write"
   },
   "devDependencies": {
-    "@playwright/test": "^1.57.0",
-    "@types/node": "^25.0.10",
-    "prettier": "^3.7.4",
-    "prettier-plugin-svelte": "^3.4.1",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-svelte": "^3.5.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "ts-node": "^10.9.2",
-    "typescript": "~5.9.3"
+    "typescript": "^6.0.1-rc"
   }
 }

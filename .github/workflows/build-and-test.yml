@@ -22,7 +22,7 @@ jobs:
 
       - name: Build and run tests
         run: |
-          npm install
+          npm install --force
           npx playwright install chromium-headless-shell
           npm run build
           chmod +x ../BrewLog

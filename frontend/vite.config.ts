@@ -16,9 +16,7 @@ export default defineConfig(({ command }) => {
       wuchale(),
       tailwindcss(),
       svelte(),
-      router({
-        allLazy: true
-      })
+      router()
     ],
     build: {
       outDir: "../backend/dist"
