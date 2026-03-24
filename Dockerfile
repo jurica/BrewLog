@@ -13,7 +13,7 @@ RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 1777 "$GOPATH"
 #build BrewLog
 COPY . /build
 WORKDIR /build
-RUN npm install --force
+RUN npm install
 RUN npm run build
 
 FROM alpine:latest AS runner
