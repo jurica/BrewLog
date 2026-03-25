@@ -8,7 +8,7 @@
   }
   let { bag }: Props = $props();
 
-  let href = $state(p("/bags/:bagId", { params: { bagId: bag.id } }));
+  let href = $state(p("/bags/:bagId", { params: { bagId: () => bag.id } }));
 </script>
 
 <a {href} class="group" data-test-id="card-{bag.expand?.bean?.name}">

@@ -93,12 +93,15 @@
     //     renderSnippet(cellSnippet, { content: formatDate(row.original.purchase_date), class: "text-center" })
     // }
   ];
+  function getColumns() {
+    return columns;
+  }
 
   const table = createSvelteTable({
     get data() {
       return bags;
     },
-    columns,
+    columns: getColumns(),
     getCoreRowModel: getCoreRowModel()
   });
 </script>
