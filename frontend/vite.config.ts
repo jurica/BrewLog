@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { router } from "sv-router/vite-plugin";
-import { wuchale } from "@wuchale/vite-plugin";
+import { wuchale } from "wuchale/vite";
 import path from "path";
 
 export default defineConfig(({ command }) => {
