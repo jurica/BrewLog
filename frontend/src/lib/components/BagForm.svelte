@@ -102,6 +102,8 @@
             <Input
               id="leftover_amount_g"
               type="number"
+              inputmode="decimal"
+              step="any"
               bind:value={bag.leftover_amount_g}
               placeholder="0"
             />
