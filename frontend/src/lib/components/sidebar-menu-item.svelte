@@ -11,7 +11,7 @@
 </script>
 
 <Sidebar.MenuItem>
-  <Sidebar.MenuButton {isActive} {onclick}>
+  <Sidebar.MenuButton isActive={isActive} {onclick}>
     {@render children?.()}
   </Sidebar.MenuButton>
 </Sidebar.MenuItem>

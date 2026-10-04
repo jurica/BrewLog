@@ -1,27 +1,19 @@
 <script lang="ts">
   import * as Api from "$lib/api";
   import { navigate } from "sv-router/generated";
-  import { type ColumnDef, getCoreRowModel } from "@tanstack/table-core";
-  import * as Table from "$lib/components/ui/table/index.js";
   import {
-    FlexRender,
-    createSvelteTable,
-    renderSnippet
-  } from "$lib/components/ui/data-table/index.js";
-  import { createRawSnippet } from "svelte";
+    createColumnHelper,
+    type ColumnDef,
+    createTable,
+    stockFeatures,
+    FlexRender
+  } from "@tanstack/svelte-table";
+  import * as Table from "$lib/components/ui/table/index.js";
 
   interface Props {
     bags: Api.Collections.Bags.Record[];
   }
   let { bags }: Props = $props();
-
-  const cellSnippet = createRawSnippet<[{ content: string; class: string }]>(
-    (props) => {
-      return {
-        render: () => `<div class="${props().class}">${props().content}</div>`
-      };
-    }
-  );
 
   function formatDate(date: string): string {
     if (date !== "" && Api.currentUser && Api.currentUser.uiState) {
@@ -31,78 +23,30 @@
     }
   }
 
-  const columns: ColumnDef<Api.Collections.Bags.Record>[] = [
-    {
-      id: "bean",
-      accessorKey: "expand.bean.name",
-      header: () => {
-        return renderSnippet(cellSnippet, {
-          content: "Bean",
-          class: "font-bold"
-        });
-      }
-    },
-    {
-      id: "open_date",
-      header: () => {
-        return renderSnippet(cellSnippet, {
-          content: "Opened",
-          class: "font-bold text-center"
-        });
-      },
-      cell: ({ row }) =>
-        renderSnippet(cellSnippet, {
-          content: formatDate(row.original.open_date),
-          class: "text-center"
-        })
-    },
-    {
-      id: "finish_date",
-      header: () => {
-        return renderSnippet(cellSnippet, {
-          content: "Finished",
-          class: "font-bold text-center"
-        });
-      },
-      cell: ({ row }) =>
-        renderSnippet(cellSnippet, {
-          content: formatDate(row.original.finish_date),
-          class: "text-center"
-        })
-    }
-    // {
-    //   id: "roast_date",
-    //   header: () => {
-    //     return renderSnippet(cellSnippet, {
-    //       content: "Roasted",
-    //       class: "font-bold text-center"
-    //     });
-    //   },
-    //   cell: ({ row }) =>
-    //     renderSnippet(cellSnippet, { content: formatDate(row.original.roast_date), class: "text-center" })
-    // },
-    // {
-    //   id: "purchase_date",
-    //   header: () => {
-    //     return renderSnippet(cellSnippet, {
-    //       content: "Purchased",
-    //       class: "font-bold text-center"
-    //     });
-    //   },
-    //   cell: ({ row }) =>
-    //     renderSnippet(cellSnippet, { content: formatDate(row.original.purchase_date), class: "text-center" })
-    // }
-  ];
-  function getColumns() {
-    return columns;
-  }
+  const columnHelper = createColumnHelper<
+    typeof stockFeatures,
+    Api.Collections.Bags.Record
+  >();
+  const columns: Array<
+    ColumnDef<typeof stockFeatures, Api.Collections.Bags.Record>
+  > = columnHelper.columns([
+    columnHelper.accessor("expand.bean.name", { header: "Bean" }),
+    columnHelper.accessor("open_date", {
+      header: "Opened",
+      cell: (date) => formatDate(date.getValue())
+    }),
+    columnHelper.accessor("finish_date", {
+      header: "Finished",
+      cell: (date) => formatDate(date.getValue())
+    })
+  ]);
 
-  const table = createSvelteTable({
+  const table = createTable({
+    features: stockFeatures,
+    columns,
     get data() {
       return bags;
-    },
-    columns: getColumns(),
-    getCoreRowModel: getCoreRowModel()
+    }
   });
 </script>
 
@@ -114,10 +58,7 @@
           <Table.Row>
             {#each headerGroup.headers as header (header.id)}
               <Table.Head>
-                <FlexRender
-                  content={header.column.columnDef.header}
-                  context={header.getContext()}
-                />
+                <FlexRender {header} />
               </Table.Head>
             {/each}
           </Table.Row>
