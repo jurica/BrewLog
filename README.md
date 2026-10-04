@@ -77,6 +77,7 @@ go mod tidy
 cd frontend
 npm outdated
 -> check output and update versions
+npx run shadcn-svelte@latest update
 ```
 
 ### Production Deployment

@@ -1,11 +1,12 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Source-Language: en\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2\n"
+"X-Plurals-Order: one, other\n"
 
 #: src/lib/components/ui/spinner/spinner.svelte
 msgid "Loading"
@@ -173,6 +174,7 @@ msgid "More pages"
 msgstr ""
 
 #: src/lib/components/ui/dialog/dialog-content.svelte
+#: src/lib/components/ui/dialog/dialog-footer.svelte
 #: src/lib/components/ui/sheet/sheet-content.svelte
 msgid "Close"
 msgstr ""
@@ -521,9 +523,8 @@ msgstr ""
 msgid "Command Palette"
 msgstr ""
 
-#: src/lib/components/ui/command/command-dialog.svelte
-msgid "Search for a command to run"
-msgstr ""
+#~ msgid "Search for a command to run"
+#~ msgstr ""
 
 #: src/routes/_authorized/bags/new.svelte
 msgid "New Bag"
@@ -819,4 +820,8 @@ msgstr ""
 
 #: src/lib/components/LocaleSelector.svelte
 msgid "Select a value"
+msgstr ""
+
+#: src/lib/components/ui/command/command-dialog.svelte
+msgid "Search for a command to run..."
 msgstr ""
