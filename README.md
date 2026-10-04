@@ -76,9 +76,12 @@ go mod tidy
 
 cd frontend
 npm outdated
--> check output and update versions
+-> check output and update versions using npm update and npm install <package>@latest
 npx run shadcn-svelte@latest update
 ```
+
+> [!IMPORTANT]
+> Check if Dockerfile needs updates.
 
 ### Production Deployment
 
