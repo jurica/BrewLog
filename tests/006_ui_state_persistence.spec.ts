@@ -179,7 +179,7 @@ test("5. cups page persistence", async ({ page }) => {
 
   // Verify we're on page 1 initially
   const page1Link = page.getByRole("button", { name: "Page 1" });
-  await expect(page1Link).toHaveAttribute("data-active", "true");
+  await expect(page1Link).toHaveAttribute("aria-current", "page");
 
   // Navigate to page 2
   const nextButton = page.getByRole("button", { name: "Next" });
@@ -187,7 +187,7 @@ test("5. cups page persistence", async ({ page }) => {
 
   // Verify we're on page 2
   const page2Link = page.getByRole("button", { name: "Page 2" });
-  await expect(page2Link).toHaveAttribute("data-active", "true");
+  await expect(page2Link).toHaveAttribute("aria-current", "page");
 
   // Wait for persistence (debounced at 1000ms)
   await page.waitForTimeout(1500);
@@ -196,7 +196,7 @@ test("5. cups page persistence", async ({ page }) => {
   await page.reload();
 
   // Verify we're still on page 2 after reload
-  await expect(page2Link).toHaveAttribute("data-active", "true");
+  await expect(page2Link).toHaveAttribute("aria-current", "page");
 
   // Navigate back to page 1 for consistency
   const page1LinkAfterReload = page.getByRole("button", { name: "Page 1" });
